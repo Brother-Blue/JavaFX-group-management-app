@@ -16,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../fxml-files/dashboard.fxml"));
         primaryStage.setTitle("Group 13's Project Manager");
         primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.show();

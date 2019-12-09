@@ -1,4 +1,4 @@
-package sample;
+package controllers;
 
 public class ProjectOverviewController {
 

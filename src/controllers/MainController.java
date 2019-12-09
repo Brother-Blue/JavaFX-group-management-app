@@ -1,4 +1,4 @@
-package sample;
+package controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,17 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 // TODO: FIX ALL ENCAPSULATION
 
@@ -73,7 +68,7 @@ public class MainController {
 
     public void addMember(ActionEvent event) throws IOException{
 
-        Parent addMemberParent = FXMLLoader.load(getClass().getResource("userInfo.fxml"));
+        Parent addMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/userInfo.fxml"));
         Scene addMemberScene = new Scene(addMemberParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -89,7 +84,7 @@ public class MainController {
     @FXML
     public void viewMember(ActionEvent event) throws IOException {
 
-        Parent viewMemberParent = FXMLLoader.load(getClass().getResource("userInfo.fxml"));
+        Parent viewMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/userInfo.fxml"));
         Scene viewMemberScene = new Scene(viewMemberParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -100,7 +95,7 @@ public class MainController {
 
     public void editEmployee(ActionEvent event) throws IOException{
 
-        Parent editMemberParent = FXMLLoader.load(getClass().getResource("addMemberContribution.fxml"));
+        Parent editMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/addMemberContribution.fxml"));
         Scene editMemberScene = new Scene(editMemberParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -112,7 +107,7 @@ public class MainController {
 
     public void editInfo(ActionEvent event) throws IOException{
 
-        Parent editInfoMemberParent = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent editInfoMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/dashboard.fxml"));
         Scene editInfoMemberScene = new Scene(editInfoMemberParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -122,7 +117,7 @@ public class MainController {
     }
 
     public void backButtonView(ActionEvent event) throws IOException{
-        Parent backMemberParent = FXMLLoader.load(getClass().getResource("userInfo.fxml"));
+        Parent backMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/userInfo.fxml"));
         Scene backMemberScene = new Scene(backMemberParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -134,7 +129,7 @@ public class MainController {
     @FXML
     public void projectOverview(ActionEvent event) throws IOException{
 
-        Parent projectMemberParent = FXMLLoader.load(getClass().getResource("projectOverview.fxml"));
+        Parent projectMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/projectOverview.fxml"));
         Scene projectMemberScene = new Scene(projectMemberParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -145,7 +140,7 @@ public class MainController {
     }
 
     public void contactUs(ActionEvent event) throws IOException{
-        Parent contactUsParent = FXMLLoader.load(getClass().getResource("contactUs.fxml"));
+        Parent contactUsParent = FXMLLoader.load(getClass().getResource("../fxml-files/contactUs.fxml"));
         Scene contactUsScene = new Scene(contactUsParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -163,7 +158,7 @@ public class MainController {
     @FXML
     public void back(ActionEvent event) throws IOException {
 
-        Parent backMemberParent = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent backMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/dashboard.fxml"));
         Scene backMemberScene = new Scene(backMemberParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
