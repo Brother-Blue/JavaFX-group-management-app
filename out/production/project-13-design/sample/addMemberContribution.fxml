@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+   <children>
+      <Button fx:id="backBView" layoutX="721.0" layoutY="446.0" mnemonicParsing="false" onAction="#backButtonView" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="editInfo" layoutX="141.0" layoutY="446.0" mnemonicParsing="false" onAction="#editInfo" text="Edit Information">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Text layoutX="54.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="147.294921875">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="54.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " wrappingWidth="110.49609375">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

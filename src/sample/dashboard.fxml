@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+  <columnConstraints>
+    <ColumnConstraints />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane fx:id="test" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: CBE5E4;" GridPane.columnIndex="1">
+         <children>
+            <Button fx:id="newMemberB" layoutX="240.0" layoutY="140.0" mnemonicParsing="false" onAction="#addMember" prefHeight="31.0" prefWidth="141.0" text="New Member">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="viewMemberB" layoutX="409.0" layoutY="140.0" mnemonicParsing="false" onAction="#viewMember" prefHeight="31.0" prefWidth="141.0" text="View Member">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Text layoutX="275.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Manager">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font></Text>
+            <Text layoutX="267.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Group 13's Project Managing Software" />
+            <Button fx:id="projectOverviewB" layoutX="329.0" layoutY="196.0" mnemonicParsing="false" onAction="#projectOverview" prefHeight="31.0" prefWidth="141.0" text="Project Overview">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="280.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Text layoutX="80.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About this software:">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="48.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cdnasjnkrfnudrifjewiodkaiodjsuifjedfmaskdjmdjwiadkaosdmoanmfioaem,coaskdiwedmalkdmsakldmilelamdskldmeiwalmdskldmiewmfcalmskldmwiladmkaslmfejfmakldm,apdmaidmklasfmdo,aslødmwndweoamda" wrappingWidth="215.3333386182785" />
+            <Button fx:id="exitApp" layoutX="714.0" layoutY="204.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="60.0" text="Exit">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="114.0" layoutY="188.0" mnemonicParsing="false" onAction="#contactUs" prefHeight="31.0" prefWidth="82.0" text="Contact us">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

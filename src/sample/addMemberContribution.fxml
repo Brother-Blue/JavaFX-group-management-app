@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+   <children>
+      <Button fx:id="backBView" layoutX="721.0" layoutY="446.0" mnemonicParsing="false" onAction="#backButtonView" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="editInfo" layoutX="141.0" layoutY="446.0" mnemonicParsing="false" onAction="#editInfo" text="Edit Information">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Text layoutX="60.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="147.294921875">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="60.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " wrappingWidth="110.49609375">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="523.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Updated Information:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="422.0" layoutX="434.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="343.0" />
+      <Text layoutX="451.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="451.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="115.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Information:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

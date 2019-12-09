@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="backB" layoutX="729.0" layoutY="447.0" mnemonicParsing="false" onAction="#back" text="Back">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Text layoutX="231.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hewwo, it's Cwem">
+               <font>
+                  <Font name="System Bold Italic" size="41.0" />
+               </font>
+            </Text>
+            <Text layoutX="273.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This page dwoesnt exwist yet, but pwease be patient and I will gwet it up and wunning as swoon as pwossible" wrappingWidth="265.87890625">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="38.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( ^ ᴗ ^ )ε^ )">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Text>
+            <Text layoutX="508.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(^з^)-☆Chu!!">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="237.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" (✿˵◕‿◕˵)">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
+   </children>
+</GridPane>

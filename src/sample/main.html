@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Group 13 Project</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid main-bar"><strong>G.13 Project Manager</strong></div>
+
+<div class="container col-sm-4 id-search-bar">
+
+    <!-- Taking this out for the time being, I think having the dropdown might be much better in terms of design TODO: Provide feedback
+    <form class="id-search-form" action="">
+        <input type="text" placeholder="Member ID.." name="search">
+        <button type="submit" data-toggle="collapse" data-target="#member-section, #member-info-section"><span class="spinner-grow spinner-grow-sm text-info"></span>Search</button>
+    </form>
+    -->
+
+    <div class="dropdown dropright search-bar-dropdown rounded-sm">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">Dropdown</button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target="#member-section, #member-info-section">14587: Altug Altetmek</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target="#member-section, #member-info-section">23787: Christian O'Neill</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target="#member-section, #member-info-section">26162: Clementine Jensen</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target="#member-section, #member-info-section">18619: Hjalmar Thornberg</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target="#member-section, #member-info-section">13209: Hugo Hempel</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target="#member-section, #member-info-section">14975: Linus Ivarsson</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target="#member-section, #member-info-section">17004: Linus Åberg</a>
+        </div>
+    </div>
+
+    <div id="member-section" class="collapse">
+        <div class="table-responsive-md member-table-display">
+            <table class="table table-hover member-info-table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Member Info</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-hover">
+                    <th>Member ID: #Replace this with the get member ID#</th>
+                </tr>
+                <tr>
+                    <th>Name: #Replace this with the get member name#</th>
+                </tr>
+                <tr class="table-hover">
+                    <th>Nickname: #Replace this with the get member nickname#</th>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover member-compare-table">
+                <thead class="thead-dark">
+                <tr>Compare #Member#</tr>
+                <tr></tr> <!-- needed to make header bar full length -->
+                </thead>
+                <tbody>
+                <tr class="table-hover">
+                    <th>Compare hourly pay</th>
+                    <th><button>Compare</button></th>
+                </tr>
+                <tr class="table-hover">
+                    <th>Compare hourly pay against</th> <!-- On the fence if we should even have the option to compare one to another TODO: Please provide feedback -->
+                    <th><button>Dropdown</button></th>
+                </tr>
+                <tr class="table-hover">
+                    <th>Compare	hours worked</th>
+                    <th><button>Compare</button></th>
+                </tr>
+                <tr class="table-hover">
+                    <th>Compare hours worked against</th>
+                    <th><button>Dropdown</button></th>
+                </tr>
+                <tr class="table-hover">
+                    <th>Compare total salary</th>
+                    <th><button>Compare</button></th>
+                </tr>
+                <tr class="table-hover">
+                    <th>Compare total salary against</th>
+                    <th><button>Dropdown</button></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container col-sm-8 about-member media collapse" id="member-info-section">
+    <img src="" alt="Yo face here" class="align-self-start mr-3 personIcon">
+    <div class="media-body">
+        <h4>About #Member#</h4>
+        <!-- This is just filler text, each member will have their own short story here -->
+        <p class="member-ID-IDNUMBER">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    </div>
+</div>
+</body>
+</html>

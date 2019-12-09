@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <GridPane prefHeight="500.0" prefWidth="800.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="228.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="301.0" minHeight="10.0" prefHeight="272.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane>
+               <children>
+                  <TextField layoutX="20.0" layoutY="22.0" promptText="Input Employee ID/Name" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="22.0" />
+                  <Button layoutX="327.0" layoutY="22.0" mnemonicParsing="false" onAction="#search" text="Search" />
+                  <Text fx:id="previewEmployeeName" layoutX="20.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " />
+                  <Text fx:id="previewEmployeeID" layoutX="20.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " />
+                  <Button fx:id="editEmployeeB" layoutX="137.0" layoutY="169.0" mnemonicParsing="false" onAction="#editEmployee" text="Edit Employee Data">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </AnchorPane>
+            <ImageView fitHeight="200.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="25.0" />
+               </GridPane.margin>
+            </ImageView>
+            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+              <columns>
+                <TableColumn prefWidth="81.33331298828125" text="Week" />
+                <TableColumn prefWidth="184.33334350585938" text="Position" />
+                  <TableColumn prefWidth="134.3333740234375" text="Hours Worked" />
+              </columns>
+            </TableView>
+            <AnchorPane GridPane.rowIndex="1">
+               <children>
+                  <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compare with Member:">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="155.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comparisons:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <ChoiceBox fx:id="compareBoxList" layoutX="161.0" layoutY="54.0" prefWidth="150.0" />
+                  <Button fx:id="submitButton" layoutX="322.0" layoutY="54.0" mnemonicParsing="false" text="Submit" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <LineChart layoutX="14.0" layoutY="14.0" prefHeight="237.0" prefWidth="308.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <Button fx:id="backB" layoutX="335.0" layoutY="223.0" mnemonicParsing="false" onAction="#back" text="Back">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</GridPane>
