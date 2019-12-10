@@ -14,7 +14,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <AnchorPane fx:id="test" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: CBE5E4;" GridPane.columnIndex="1">
+      <AnchorPane fx:id="test" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: CBE5E4; -fx-border-width: 3px; -fx-border-style: solid; -fx-border-color: rgba(0, 0, 0 ,0.25);" GridPane.columnIndex="1">
          <children>
             <Button fx:id="newMemberB" layoutX="240.0" layoutY="140.0" mnemonicParsing="false" onAction="#addMember" prefHeight="31.0" prefWidth="141.0" text="New Member">
                <font>
