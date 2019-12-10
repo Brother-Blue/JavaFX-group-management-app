@@ -19,31 +19,23 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Text layoutX="231.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hewwo, it's Cwem">
+            <Text layoutX="305.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us">
                <font>
                   <Font name="System Bold Italic" size="41.0" />
                </font>
             </Text>
-            <Text layoutX="273.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This page dwoesnt exwist yet, but pwease be patient and I will gwet it up and wunning as swoon as pwossible" wrappingWidth="265.87890625">
+            <Text layoutX="57.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your message:" wrappingWidth="265.87890625">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="38.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( ^ ᴗ ^ )ε^ )">
+            <Text layoutX="57.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your email" />
+            <TextArea layoutX="57.0" layoutY="272.0" prefHeight="168.0" prefWidth="716.0" promptText="Enter text here." style="-fx-border-width: 2; -fx-border-style: solid; -fx-border-color: darkgray;">
                <font>
-                  <Font name="System Bold" size="35.0" />
+                  <Font size="15.0" />
                </font>
-            </Text>
-            <Text layoutX="508.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(^з^)-☆Chu!!">
-               <font>
-                  <Font name="System Bold" size="36.0" />
-               </font>
-            </Text>
-            <Text layoutX="237.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" (✿˵◕‿◕˵)">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Text>
+            </TextArea>
+            <TextField layoutX="57.0" layoutY="207.0" prefHeight="26.0" prefWidth="245.0" />
          </children></AnchorPane>
    </children>
 </GridPane>
