@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class GeneratorMain {
 
-    private static ArrayList<id_generator.Digit5> generator5 = new ArrayList<>(); //For storing the ID
+    //private static ArrayList<id_generator.Digit5> generator5 = new ArrayList<>(); //For storing the ID
     public static Scanner scanner = new Scanner(System.in);
 
     //Prompt the user for member information
