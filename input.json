@@ -1,0 +1,93 @@
+{
+  "projectName": "Project 13",
+  "startDate": "2019-11-08",
+  "endDate": "2020-01-10",
+  "employeeList": [
+    {
+      "employeeForename": "Hjalmar",
+      "employeeSurname": "Thunberg",
+      "employeeBirth": "951219",
+      "salary": "250"
+    },
+    {
+      "employeeForename": "Altug",
+      "employeeSurname": "Altetmek",
+      "employeeBirth": "000929",
+      "salary": "210"
+    },
+    {
+      "employeeForename": "Christian",
+      "employeeSurname": "O'Neil",
+      "employeeBirth": "970627",
+      "salary": "145"
+    },
+    {
+      "employeeForename": "Clementine",
+      "employeeSurname": "Jensen",
+      "employeeBirth": "000826",
+      "salary": "220"
+    },
+    {
+      "employeeForename": "Hugo",
+      "employeeSurname": "Hempel",
+      "employeeBirth": "960308",
+      "salary": "250"
+    },
+    {
+      "employeeForename": "Linus",
+      "employeeSurname": "Ivarsson",
+      "employeeBirth": "930807",
+      "salary": "150"
+    },
+    {
+      "employeeForename": "Linus",
+      "employeeSurname": "Åberg",
+      "employeeBirth": "920604",
+      "salary": "280"
+    }
+  ],
+  "milestoneList": [
+    {
+      "taskName": "Setup Trello",
+      "startDate": "2019-11-12",
+      "plannedEndDate": "2019-11-13",
+      "actualEndDate": "2019-11-12",
+      "hoursPerEmployee": {
+        "25718": "0.5"
+      }
+    },
+    {
+      "taskName": "Setup google docs and excel",
+      "startDate": "2019-11-12",
+      "plannedEndDate": "2019-11-15",
+      "actualEndDate": "2019-11-14",
+      "hoursPerEmployee": {
+        "24201": "INSERT HOURS HERE"
+      }
+    },
+    {
+      "taskName": "Setup GitLab",
+      "startDate": "2019-11-15",
+      "plannedEndDate": "2019-11-18",
+      "actualEndDate": "2019-11-22",
+      "hoursPerEmployee": {
+        "18270": "2"
+      }
+    },
+    {
+      "taskName": "Assignment 1",
+      "startDate": "2019-11-25",
+      "plannedEndDate": "2019-11-30",
+      "actualEndDate": "2019-11-29",
+      "hoursPerEmployee": {
+        "18270": "4",
+        "14483": "1",
+        "24201": "INSERT HOURS",
+        "25718": "INSERT HOURS",
+        "12861": "INSERT HOURS",
+        "14625": "INSERT HOURS",
+        "16654": "INSERT HOURS"
+      }
+    }
+  ]
+}
