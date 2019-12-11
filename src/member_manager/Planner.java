@@ -1,6 +1,7 @@
 package member_manager;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Planner {
@@ -9,40 +10,41 @@ public class Planner {
     private String projectName;
     LocalDate startDate;
     LocalDate endDate;
+    LocalDate localDate = LocalDate.now();  // creates a date based on todays date [Hjalmar]
+    private float totalDays = ChronoUnit.DAYS.between(startDate, endDate); // compares 2 dates and returns the diff in numbers [Hjalmar]
+    private float nowDays = ChronoUnit.DAYS.between(startDate, localDate);
+    private float percentCompletePlanned = nowDays / totalDays;
+    private double percentCompleteActual = 0.2; // here we have to sum the time for all tasks, sum all completed tasks and then divide them(?) [Hjalmar]
 
     ArrayList<Member> members = new ArrayList<>();
     ArrayList<Milestone> milestones = new ArrayList<>();
 
-    public Planner(String projectName, LocalDate startDate, LocalDate endDate){
+    public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget){
         this.projectName = projectName;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.budget = budget;
     }
 
     public Planner(){}
 
     /*
-    LocalDate localDate = LocalDate.now();  // creates a date based on todays date [Hjalmar]
-    float totalDays = ChronoUnit.DAYS.between(start, end); // compares 2 dates and returns the diff in numbers [Hjalmar]
-    float nowDays = ChronoUnit.DAYS.between(start, localDate);
-    float percentCompletePlanned = nowDays / totalDays;
-    double percentCompleteActual = 0.2; // here we have to sum the time for all tasks, sum all completed tasks and then divide them(?) [Hjalmar]
 
-    public double calcPV(){
+    public double calcPv(){
          return percentCompletePlanned * budget;
     }
 
-    public double calcEV(){
+    public double calcEv(){
          return percentCompleteActual * budget;
     }
 
-    public double calcSV(){
-         return calcEV() - calcPV();
+    public double calcSv(){
+         return calcEv() - calcPv();
     }
 
-    public double calcCV(){
+    public double calcCv(){
          double actualCost = 500;  // here we have to sum total cost we spent so far (all workers hours times salary)
-         return calcEV() - actualCost;
+         return calcEv() - actualCost;
     }*/
     public void printMembers(){
         for(Member member : members){
