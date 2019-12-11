@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class JsonReader {
+/*public class JsonReader {
 
     public Planner loadPlanner() throws IOException, ParseException {
 
@@ -72,4 +72,4 @@ public class JsonReader {
         return milestoneListTemp;
     }
 
-}
+}*/
