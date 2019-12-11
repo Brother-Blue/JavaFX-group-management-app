@@ -9,7 +9,7 @@ public class GeneratorMain {
     public static Scanner scanner = new Scanner(System.in);
 
     //Prompt the user for member information
-   /* public static void createEmployee() {
+   /* public static void createmember() {
         String firstName = inputString(">> What is the member's first name: ");
         String lastName = inputString(">> What is the member's last name: ");
         String maskID = inputString(">> What is the member's preferred nickname: ");

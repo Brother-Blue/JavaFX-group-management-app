@@ -2,47 +2,47 @@
   "projectName": "Project 13",
   "startDate": "2019-11-08",
   "endDate": "2020-01-10",
-  "employeeList": [
+  "memberList": [
     {
-      "employeeForename": "Hjalmar",
-      "employeeSurname": "Thunberg",
-      "employeeBirth": "951219",
+      "memberForename": "Hjalmar",
+      "memberSurname": "Thunberg",
+      "memberBirth": "951219",
       "salary": "250"
     },
     {
-      "employeeForename": "Altug",
-      "employeeSurname": "Altetmek",
-      "employeeBirth": "000929",
+      "memberForename": "Altug",
+      "memberSurname": "Altetmek",
+      "memberBirth": "000929",
       "salary": "210"
     },
     {
-      "employeeForename": "Christian",
-      "employeeSurname": "O'Neil",
-      "employeeBirth": "970627",
+      "memberForename": "Christian",
+      "memberSurname": "O'Neill",
+      "memberBirth": "970627",
       "salary": "145"
     },
     {
-      "employeeForename": "Clementine",
-      "employeeSurname": "Jensen",
-      "employeeBirth": "000826",
+      "memberForename": "Clementine",
+      "memberSurname": "Jensen",
+      "memberBirth": "000826",
       "salary": "220"
     },
     {
-      "employeeForename": "Hugo",
-      "employeeSurname": "Hempel",
-      "employeeBirth": "960308",
+      "memberForename": "Hugo",
+      "memberSurname": "Hempel",
+      "memberBirth": "960308",
       "salary": "250"
     },
     {
-      "employeeForename": "Linus",
-      "employeeSurname": "Ivarsson",
-      "employeeBirth": "930807",
+      "memberForename": "Linus",
+      "memberSurname": "Ivarsson",
+      "memberBirth": "930807",
       "salary": "150"
     },
     {
-      "employeeForename": "Linus",
-      "employeeSurname": "Åberg",
-      "employeeBirth": "920604",
+      "memberForename": "Linus",
+      "memberSurname": "Åberg",
+      "memberBirth": "920604",
       "salary": "280"
     }
   ],
@@ -52,7 +52,7 @@
       "startDate": "2019-11-12",
       "plannedEndDate": "2019-11-13",
       "actualEndDate": "2019-11-12",
-      "hoursPerEmployee": {
+      "hoursPerMember": {
         "25718": "0.5"
       }
     },
@@ -61,7 +61,7 @@
       "startDate": "2019-11-12",
       "plannedEndDate": "2019-11-15",
       "actualEndDate": "2019-11-14",
-      "hoursPerEmployee": {
+      "hoursPerMember": {
         "24201": "INSERT HOURS HERE"
       }
     },
@@ -70,7 +70,7 @@
       "startDate": "2019-11-15",
       "plannedEndDate": "2019-11-18",
       "actualEndDate": "2019-11-22",
-      "hoursPerEmployee": {
+      "hoursPerMember": {
         "18270": "2"
       }
     },
@@ -79,7 +79,7 @@
       "startDate": "2019-11-25",
       "plannedEndDate": "2019-11-30",
       "actualEndDate": "2019-11-29",
-      "hoursPerEmployee": {
+      "hoursPerMember": {
         "18270": "4",
         "14483": "1",
         "24201": "INSERT HOURS",
