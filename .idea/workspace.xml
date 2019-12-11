@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Updated Dashboard">
-      <change afterPath="$PROJECT_DIR$/src/id_generator/GeneratorMain.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added in ID generator files">
+      <change afterPath="$PROJECT_DIR$/src/json_reader_writer/JsonReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,12 +114,13 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/JSONsimple/json-simple-1.1.1.jar!/" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -246,7 +247,8 @@
       <workItem from="1575737263063" duration="4740000" />
       <workItem from="1575808743014" duration="10436000" />
       <workItem from="1575884399335" duration="6309000" />
-      <workItem from="1575894431177" duration="4987000" />
+      <workItem from="1575894431177" duration="6577000" />
+      <workItem from="1576058498033" duration="492000" />
     </task>
     <task id="LOCAL-00001" summary="All files finally updated">
       <created>1575894459292</created>
@@ -276,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575979161589</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added in ID generator files">
+      <created>1575980535488</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575980535488</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +298,8 @@
     <MESSAGE value="Cleaned up files" />
     <MESSAGE value="Updated &quot;Contact Us&quot; page." />
     <MESSAGE value="Updated Dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Dashboard" />
+    <MESSAGE value="Added in ID generator files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added in ID generator files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="265" y="0" key="#Project_Structure" timestamp="1575894742360">
@@ -313,15 +323,15 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1575626262341" />
-    <state x="359" y="6" key="CommitChangelistDialog2" timestamp="1575979159944">
+    <state x="359" y="6" key="CommitChangelistDialog2" timestamp="1575980533398">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="359" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1575979159944" />
-    <state x="418" y="98" key="FileChooserDialogImpl" timestamp="1575896252756">
+    <state x="359" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1575980533398" />
+    <state x="418" y="98" key="FileChooserDialogImpl" timestamp="1576058985156">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="348" y="81" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1575651514249" />
-    <state x="418" y="98" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1575896252756" />
+    <state x="418" y="98" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1576058985156" />
     <state width="1493" height="177" key="GridCell.Tab.0.bottom" timestamp="1575978498750">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -342,22 +352,23 @@
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1575886606890" />
     <state width="1493" height="177" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1575978498750" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1575651524893">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1575651524893" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1575979177352">
+    <state x="145" y="0" key="SettingsEditor" timestamp="1576058989484">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1575979177352" />
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1575651524893" />
+    <state x="145" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1576058989484" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1575980713089">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1575980713089" />
     <state x="337" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1575884469435">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="337" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1575884469435" />
-    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575980509280">
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576058272861">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1575980509280" />
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1576058272861" />
     <state x="91" y="42" key="new project wizard" timestamp="1575640786560">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
