@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 
 
     // TODO: Add error messages for EDIT member (you have to choose a member, for instance).
-    // TODO: Add dropdown menus that are able to be chosen from in different places.
-    // TODO: Add Chris' New Member code (probably has to be reformatted since it isn't in fxml.
     // TODO: Fix dependencies between classes.
+    // TODO: Fix the dropdown menu for the loadData() class.
+    // TODO: Figure out how to import the data into the different things in the FXML.
 
 public class Main extends Application {
 

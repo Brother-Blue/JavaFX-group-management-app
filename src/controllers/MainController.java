@@ -22,25 +22,15 @@ public class MainController {
     ObservableList<String> calculatorBoxList =
             FXCollections.observableArrayList();
 
-    // "Planned Value (PV)", "Earned Value (EV)", "Actual Cost (AC)",
-    //                                                    "Budget at Completion(BAC)", "Schedule Variance (SV)",
-    //                                                    "Schedule Performance Index (SPI)", "Cost Variance (CV)",
-    //                                                    "Cost Performance Index (CPI)"
-
     @FXML
     private javafx.scene.control.Button exitApp;
     @FXML
-    private Button registerMemberB;
-    @FXML
     private ChoiceBox<String> calculatorBox;
-    //calculatorBox.setValue("Planned Value (PV)");
-    //calculatorBox.setItems(calculatorBoxList);
 
-    /*public void initialize(){
-        loadData();
-    }*/
 
     public void loadData(){
+        calculatorBoxList.removeAll(calculatorBoxList);
+
         String a = "Planned Value (PV)";
         String b = "Earned Value (EV)";
         String c = "Actual Cost (AC)";
@@ -69,10 +59,6 @@ public class MainController {
 
         window.setScene(addMemberScene);
         window.show();
-    }
-
-    public void registerMember(ActionEvent event) throws IOException{
-
     }
 
     @FXML
@@ -141,11 +127,6 @@ public class MainController {
 
         window.setScene(contactUsScene);
         window.show();
-    }
-
-    @FXML
-    public void displayValue(){
-
     }
 
     // This code is for all back buttons that go back to the dashboard.

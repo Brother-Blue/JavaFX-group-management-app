@@ -23,9 +23,9 @@
                </font>
             </Text>
             <Text layoutX="42.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Calculation Type:" />
-            <ChoiceBox fx:id="calculatorBox" layoutX="187.0" layoutY="104.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="calculatorBox" layoutX="187.0" layoutY="104.0" onMouseClicked="#loadData" prefWidth="150.0" />
             <Text layoutX="42.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Calculation Type:" wrappingWidth="143.865234375" />
-            <Button fx:id="submitCT" layoutX="348.0" layoutY="104.0" mnemonicParsing="false" onAction="#loadData" text="Submit" />
+            <Button fx:id="submitCT" layoutX="348.0" layoutY="104.0" mnemonicParsing="false" text="Submit" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />

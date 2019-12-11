@@ -6,13 +6,13 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
-      <TextField fx:id="firstNameRegister" layoutX="118.0" layoutY="142.0" prefHeight="45.0" prefWidth="595.0" />
-      <TextField fx:id="lastNameRegister" layoutX="118.0" layoutY="212.0" prefHeight="45.0" prefWidth="595.0" />
-      <TextField fx:id="dobRegister" layoutX="118.0" layoutY="290.0" prefHeight="45.0" prefWidth="595.0" />
+      <TextField layoutX="118.0" layoutY="142.0" prefHeight="45.0" prefWidth="595.0" />
+      <TextField layoutX="118.0" layoutY="212.0" prefHeight="45.0" prefWidth="595.0" />
+      <TextField layoutX="118.0" layoutY="290.0" prefHeight="45.0" prefWidth="595.0" />
       <Text layoutX="39.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
       <Text layoutX="40.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
       <Text layoutX="40.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth: (YYMMDD)" wrappingWidth="93.8125" />
-      <Button layoutX="381.0" layoutY="371.0" mnemonicParsing="false" onAction="#registerMember" prefHeight="34.0" prefWidth="70.0" text="Submit">
+      <Button layoutX="381.0" layoutY="371.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="70.0" text="Submit">
          <font>
             <Font size="14.0" />
          </font>
