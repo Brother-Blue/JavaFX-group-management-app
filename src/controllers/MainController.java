@@ -32,12 +32,6 @@ public class MainController {
     @FXML
     private Button registerMemberB;
     @FXML
-    private JTextField firstNameRegister;
-    @FXML
-    private JTextField lastNameRegister;
-    @FXML
-    private JTextField dobRegister;
-    @FXML
     private ChoiceBox<String> calculatorBox;
     //calculatorBox.setValue("Planned Value (PV)");
     //calculatorBox.setItems(calculatorBoxList);
@@ -68,7 +62,7 @@ public class MainController {
 
     public void addMember(ActionEvent event) throws IOException{
 
-        Parent addMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/userInfo.fxml"));
+        Parent addMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/newEmployee.fxml"));
         Scene addMemberScene = new Scene(addMemberParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
