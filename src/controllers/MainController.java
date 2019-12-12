@@ -1,6 +1,8 @@
 package controllers;
 
 import id_generator.GeneratorMain;
+import javafx.scene.text.Text;
+import member_manager.Member;
 import member_manager.Planner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
-import java.lang.reflect.GenericSignatureFormatError;
+import java.util.ArrayList;
 
 // TODO: FIX ALL ENCAPSULATION
 
@@ -52,6 +54,10 @@ public class MainController {
     private TextField searchForID;
     @FXML
     private Button searchForIDButton;
+    @FXML
+    private Text revealName;
+    @FXML
+    private Text revealID;
 
     /*public void initialize(){
         loadData();
@@ -76,34 +82,57 @@ public class MainController {
     public void search() {
         Window owner = searchForIDButton.getScene().getWindow();
         int searchedID = 0;
-        boolean IDFound = true;
+        boolean IDValid = true;
+        boolean IDFound = false;
 
         if (searchForID.getText().isEmpty()) {
             AlertHelper.showAlert(Alert.AlertType.INFORMATION, owner, "Info", "Search field must be filled in!");
             System.out.println("Search failed (Empty search).");
-            IDFound = false;
+            IDValid = false;
         } else if (GeneratorMain.isParsable(searchForID.getText())) {
             searchedID = Integer.parseInt(searchForID.getText());
 
             if (Integer.parseInt(searchForID.getText()) < 10000) {
                 AlertHelper.showAlert(Alert.AlertType.WARNING, owner, "Error", "ID's are positive 5-digit integers!");
                 System.out.println("Search failed (Invalid ID format, less than 5 digits OR negative input).");
-                IDFound = false;
+                IDValid = false;
             } else if (Integer.parseInt(searchForID.getText()) > 99999) {
                 AlertHelper.showAlert(Alert.AlertType.WARNING, owner, "Error", "ID's are positive 5-digit integers!");
                 System.out.println("Search failed (Invalid ID format, more than 5 digits");
-                IDFound = false;
+                IDValid = false;
             }
         } else {
             if (!GeneratorMain.isParsable(searchForID.getText())) {
                 AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "ID's must be 5-digit integers!");
                 System.out.println("Search failed (Invalid ID format, non-number characters).");
-                IDFound = false;
+                IDValid = false;
             }
         }
-        if (IDFound) {
-            AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Success!", "ID: " + searchedID + " was found! Loading information.");
+        if (IDValid) {
             //Input the team member's information into the page
+            Planner planner = new Planner();
+
+            System.out.println(planner.members);
+
+            String memberName = "";
+            for (Member member : planner.members) {
+                if (searchedID == member.getId()) {
+                    IDFound = true;
+                    memberName = member.getFirstName().concat(" ").concat(member.getLastName());
+                    break;
+                }
+            }
+
+            if (IDFound) {
+                AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Success", "Member found, loading information...");
+                revealName.setText(memberName);
+                revealID.setText(Integer.toString(searchedID));
+                System.out.println("Name set to: " + memberName);
+                System.out.println("ID set to: " + searchedID);
+            } else {
+                AlertHelper.showAlert(Alert.AlertType.INFORMATION, owner, "Error", "Member ID does not yet exist.");
+            }
+
 
         }
     }

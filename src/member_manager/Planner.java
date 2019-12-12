@@ -16,8 +16,8 @@ public class Planner {
     private float percentCompletePlanned = nowDays / totalDays;
     private double percentCompleteActual = 0.2; // This need to be a method which collects the data from the milestones.
 
-    ArrayList<Member> members = new ArrayList<>();
-    ArrayList<Milestone> milestones = new ArrayList<>();
+    public ArrayList<Member> members = new ArrayList<>();
+    public ArrayList<Milestone> milestones = new ArrayList<>();
 
     public Planner() {
         //Needed to reference the addMember method
@@ -53,7 +53,7 @@ public class Planner {
         double actualCost = 0;
         for(Member member:members){
             member.getSalary();
-            for(Milestone milestone:milestones){
+            for(Milestone milestone : milestones){
 
             }
         }
@@ -64,14 +64,9 @@ public class Planner {
         Member member = new Member(firstName, lastName, dateOfBirth, salary);
         members.add(member);
     }
-    public void printMembers(){
-        for(Member member : members){
-            member.toString();
-        }
-    }
-    public void storeEmployee(Member employee){
-        members.add(employee);
-    }
+
+    //removed printMembers method as ArrayList has one implemented.
+
     @Override
     public String toString() {
         return "Name: " + projectName + "\n" +
