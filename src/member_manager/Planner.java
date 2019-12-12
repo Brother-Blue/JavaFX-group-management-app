@@ -11,10 +11,10 @@ public class Planner {
     LocalDate startDate;
     LocalDate endDate;
     LocalDate localDate = LocalDate.now();  // creates a date based on todays date [Hjalmar]
-    private float totalDays = ChronoUnit.DAYS.between(startDate, endDate); // compares 2 dates and returns the diff in numbers [Hjalmar]
-    private float nowDays = ChronoUnit.DAYS.between(startDate, localDate);
+    private float totalDays;
+    private float nowDays;
     private float percentCompletePlanned = nowDays / totalDays;
-    private double percentCompleteActual = 0.2; // here we have to sum the time for all tasks, sum all completed tasks and then divide them(?) [Hjalmar]
+    private double percentCompleteActual = 0.2; // This need to be a method which collects the data from the milestones.
 
     ArrayList<Member> members = new ArrayList<>();
     ArrayList<Milestone> milestones = new ArrayList<>();
@@ -24,11 +24,9 @@ public class Planner {
         this.startDate = startDate;
         this.endDate = endDate;
         this.budget = budget;
+        this.totalDays = ChronoUnit.DAYS.between(startDate, endDate);
+        this.nowDays = ChronoUnit.DAYS.between(startDate, localDate);
     }
-
-    public Planner(){}
-
-    /*
 
     public double calcPv(){
          return percentCompletePlanned * budget;
@@ -43,9 +41,20 @@ public class Planner {
     }
 
     public double calcCv(){
-         double actualCost = 500;  // here we have to sum total cost we spent so far (all workers hours times salary)
-         return calcEv() - actualCost;
-    }*/
+         return calcEv() - calcActualCost();
+    }
+    
+    //TODO We need to find a way to extract hours spent on milestones depending on ID in order to do the calculation.
+    public double calcActualCost(){
+        double actualCost = 0;
+        for(Member member:members){
+            member.getSalary();
+            for(Milestone milestone:milestones){
+
+            }
+        }
+        return actualCost;
+    }
 
     public void addMember(String firstName, String lastName, int dateOfBirth, double salary){
         Member member = new Member(firstName, lastName, dateOfBirth, salary);

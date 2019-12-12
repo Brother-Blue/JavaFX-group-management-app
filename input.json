@@ -2,7 +2,7 @@
   "projectName": "Project 13",
   "startDate": "2019-11-08",
   "endDate": "2020-01-10",
-  "budget": "27000",
+  "budget": "27 936",
   "member": [
     {
       "firstName": "Hjalmar",
@@ -89,6 +89,9 @@
         "14625": "INSERT HOURS",
         "16654": "INSERT HOURS"
       }
+    },
+    {
+      "taskName": "Create "
     }
   ]
 }
