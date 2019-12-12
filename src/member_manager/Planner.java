@@ -65,6 +65,11 @@ public class Planner {
         members.add(member);
     }
 
+    public void addMilestone(String milestoneName, String milestoneDescription, Member member ,boolean accomplished){
+        Milestone milestone = new Milestone(milestoneName, milestoneDescription, member , accomplished);
+        milestones.add(milestone);
+    }
+
     //removed printMembers method as ArrayList has one implemented.
 
     @Override

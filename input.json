@@ -1,9 +1,11 @@
 {
-  "projectName": "Project 13",
-  "startDate": "2019-11-08",
-  "endDate": "2020-01-10",
-  "budget": "27 936",
-  "member": [
+  "planner": {
+    "projectName": "Project 13",
+    "startDate": "2019-11-08",
+    "endDate": "2020-01-10",
+    "budget": "27 936"
+  },
+  "members": [
     {
       "firstName": "Hjalmar",
       "lastName": "Thunberg",
@@ -47,7 +49,7 @@
       "salary": "280"
     }
   ],
-  "milestone": [
+  "milestones": [
     {
       "milestoneName": "Setup Trello",
       "startDate": "2019-11-12",
