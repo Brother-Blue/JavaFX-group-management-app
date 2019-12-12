@@ -2,6 +2,7 @@ package controllers;
 
 import id_generator.GeneratorMain;
 import javafx.scene.text.Text;
+import json_reader_writer.JsonReader;
 import member_manager.Member;
 import member_manager.Planner;
 import javafx.collections.FXCollections;
@@ -20,7 +21,6 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 // TODO: FIX ALL ENCAPSULATION
 
@@ -112,6 +112,7 @@ public class MainController {
         }
         if (IDValid) {
             //Input the team member's information into the page
+            System.out.println(">> Debugger");
             System.out.println(planner.members);
 
             String memberName = "";
