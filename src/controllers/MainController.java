@@ -1,5 +1,6 @@
 package controllers;
 
+import id_generator.GeneratorMain;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,11 +9,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 
 // TODO: FIX ALL ENCAPSULATION
@@ -29,12 +32,20 @@ public class MainController {
 
     @FXML
     private javafx.scene.control.Button exitApp;
-    @FXML
-    private Button registerMemberB;
+    /*@FXML
+    private Button registerMemberB;*/
     @FXML
     private ChoiceBox<String> calculatorBox;
     //calculatorBox.setValue("Planned Value (PV)");
     //calculatorBox.setItems(calculatorBoxList);
+    @FXML
+    private TextField firstNameRegister;
+    @FXML
+    private TextField lastNameRegister;
+    @FXML
+    private TextField dobRegister;
+    @FXML
+    private Button registerButton;
 
     /*public void initialize(){
         loadData();
@@ -71,11 +82,44 @@ public class MainController {
         window.show();
     }
 
-    public void registerMember(ActionEvent event) throws IOException{
+    @FXML
+    protected void registerMember(ActionEvent event) throws NumberFormatException {
+        Window owner = registerButton.getScene().getWindow(); //setup the popup
+        boolean success = true;
 
+        if (firstNameRegister.getText().isEmpty()) { //checks if first name field is empty
+            AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "First name field can not be empty!");
+            System.out.println("First name field failed.");
+            success = false;
+
+        } else if (lastNameRegister.getText().isEmpty()) { //checks if last name field is empty
+            AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Last name field can not be empty!");
+            System.out.println("Last name field failed.");
+            success = false;
+        } else if (GeneratorMain.isParsable(dobRegister.getText())) { //checks if birthday field valid but < 0 or > 991231
+            int tempInt = Integer.parseInt(dobRegister.getText());
+            if (tempInt <= 0) {
+                AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Age can not be less than 0!");
+                System.out.println("Birthday field failed (negative input).");
+                success = false;
+            }
+            if (tempInt > 991231) { //1999, December 31 is the highest accepted value
+                AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Please follow the appropriate format YYMMDD!");
+                System.out.println("Birthday field failed (input exceeds max accepted input).");
+                success = false;
+            }
+        } else if (!GeneratorMain.isParsable(dobRegister.getText())) { //checks if birthday field is empty or invalid
+                AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Please follow the appropriate format YYMMDD!");
+                System.out.println("Birthday field failed (invalid input).");
+                success = false;
+        }
+        if (success) {
+            AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Success", "Member successfully registered! \n" +
+                    firstNameRegister.getText() + "'s generated ID is: " + GeneratorMain.generateID(firstNameRegister.getText(), lastNameRegister.getText(), Integer.parseInt(dobRegister.getText())));
+            System.out.println("Member registration success.");
+        }
     }
 
-    @FXML
     public void viewMember(ActionEvent event) throws IOException {
 
         Parent viewMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/userInfo.fxml"));

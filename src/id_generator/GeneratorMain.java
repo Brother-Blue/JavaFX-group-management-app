@@ -1,5 +1,6 @@
 package id_generator;
 
+import java.text.ParseException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -60,10 +61,20 @@ public class GeneratorMain {
 
         //doMath();
         generatedID = ((int) (concatID / Math.sqrt(charsInName)+(Math.sqrt(birthday)))) / 10;
+        System.out.println(">> Generated ID: " + generatedID);
 
         return generatedID;
     }
 
+    //inspiration from https://stackoverflow.com/questions/6456219/java-checking-if-parseint-throws-exception
+    public static boolean isParsable(String inputText) {
+        try {
+            Integer.parseInt(inputText);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
     public static String inputString(String message) {
         System.out.print(message);
