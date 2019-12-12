@@ -43,7 +43,7 @@ public class Planner {
     public double calcCv(){
          return calcEv() - calcActualCost();
     }
-    
+
     //TODO We need to find a way to extract hours spent on milestones depending on ID in order to do the calculation.
     public double calcActualCost(){
         double actualCost = 0;
