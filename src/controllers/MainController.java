@@ -1,6 +1,8 @@
 package controllers;
 
 import id_generator.GeneratorMain;
+import member_manager.Planner;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -103,7 +105,7 @@ public class MainController {
                 System.out.println("Birthday field failed (negative input).");
                 success = false;
             }
-            if (tempInt > 991231) { //1999, December 31 is the highest accepted value
+            if (tempInt > 20181212) { //The highest accepted value as of the day implemented.
                 AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Please follow the appropriate format YYMMDD!");
                 System.out.println("Birthday field failed (input exceeds max accepted input).");
                 success = false;
@@ -116,7 +118,11 @@ public class MainController {
         if (success) {
             AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Success", "Member successfully registered! \n" +
                     firstNameRegister.getText() + "'s generated ID is: " + GeneratorMain.generateID(firstNameRegister.getText(), lastNameRegister.getText(), Integer.parseInt(dobRegister.getText())));
-            System.out.println("Member registration success.");
+            System.out.println("Member registration successful.");
+            //Add the member to the Planner
+            Planner planner = new Planner();
+            planner.addMember(firstNameRegister.getText(), lastNameRegister.getText(), Integer.parseInt(dobRegister.getText()), 1);
+            System.out.println(firstNameRegister.getText() + " was added to the planner.");
         }
     }
 

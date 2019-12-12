@@ -11,7 +11,7 @@
       <TextField fx:id="dobRegister" layoutX="118.0" layoutY="290.0" prefHeight="45.0" prefWidth="595.0" />
       <Text layoutX="39.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
       <Text layoutX="40.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
-      <Text layoutX="40.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth: (YYMMDD)" wrappingWidth="93.8125" />
+      <Text layoutX="40.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth: (YYYYMMDD)" wrappingWidth="93.8125" />
       <Button fx:id="registerButton" layoutX="381.0" layoutY="371.0" mnemonicParsing="false" onAction="#registerMember" prefHeight="34.0" prefWidth="70.0" text="Submit">
          <font>
             <Font size="14.0" />
