@@ -27,8 +27,8 @@
          <children>
             <AnchorPane>
                <children>
-                  <TextField layoutX="20.0" layoutY="22.0" promptText="Input Employee ID/Name" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="22.0" />
-                  <Button layoutX="327.0" layoutY="22.0" mnemonicParsing="false" onAction="#search" text="Search" />
+                  <TextField fx:id="searchForID" layoutX="20.0" layoutY="22.0" promptText="Input Employee ID" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="22.0" />
+                  <Button fx:id="searchForIDButton" layoutX="327.0" layoutY="22.0" mnemonicParsing="false" onAction="#search" text="Search" />
                   <Text fx:id="previewEmployeeName" layoutX="20.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " />
                   <Text fx:id="previewEmployeeID" layoutX="20.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " />
                   <Button fx:id="editEmployeeB" layoutX="137.0" layoutY="169.0" mnemonicParsing="false" onAction="#editEmployee" text="Edit Employee Data">
@@ -41,11 +41,6 @@
                   <Insets />
                </GridPane.margin>
             </AnchorPane>
-            <ImageView fitHeight="200.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="25.0" />
-               </GridPane.margin>
-            </ImageView>
             <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
               <columns>
                 <TableColumn prefWidth="81.33331298828125" text="Week" />
@@ -84,6 +79,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="200.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
          </children>
