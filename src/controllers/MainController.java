@@ -26,6 +26,8 @@ import java.util.ArrayList;
 
 public class MainController {
 
+    private static Planner planner = new Planner();
+
     ObservableList<String> calculatorBoxList =
             FXCollections.observableArrayList();
 
@@ -110,12 +112,11 @@ public class MainController {
         }
         if (IDValid) {
             //Input the team member's information into the page
-            Planner planner = new Planner();
-
             System.out.println(planner.members);
 
             String memberName = "";
             for (Member member : planner.members) {
+                System.out.println(member.getId());
                 if (searchedID == member.getId()) {
                     IDFound = true;
                     memberName = member.getFirstName().concat(" ").concat(member.getLastName());
@@ -180,13 +181,14 @@ public class MainController {
                 success = false;
         }
         if (success) {
+            int genID = GeneratorMain.generateID(firstNameRegister.getText(), lastNameRegister.getText(), Integer.parseInt(dobRegister.getText()));
             AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Success", "Member successfully registered! \n" +
-                    firstNameRegister.getText() + "'s generated ID is: " + GeneratorMain.generateID(firstNameRegister.getText(), lastNameRegister.getText(), Integer.parseInt(dobRegister.getText())));
+                    firstNameRegister.getText() + "'s generated ID is: " + genID);
             System.out.println("Member registration successful.");
             //Add the member to the Planner
-            Planner planner = new Planner();
             planner.addMember(firstNameRegister.getText(), lastNameRegister.getText(), Integer.parseInt(dobRegister.getText()), 1);
             System.out.println(firstNameRegister.getText() + " was added to the planner.");
+            System.out.println(planner.members);
         }
     }
 

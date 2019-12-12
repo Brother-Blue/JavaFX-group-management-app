@@ -65,7 +65,7 @@ public class Member {
         return  "Name: " + firstName +  " " + lastName + '\n' +
                 "ID: " + id + '\n' +
                 "Birthday: " + dateOfBirth + '\n' +
-                "Salary=" + salary + "/hour" + '\n';
+                "Salary: " + salary + "/hour" + '\n';
 
     }
 }

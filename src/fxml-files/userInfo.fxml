@@ -30,9 +30,9 @@
                   <TextField fx:id="searchForID" layoutX="20.0" layoutY="22.0" promptText="Input Employee ID" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="22.0" />
                   <Button fx:id="searchForIDButton" layoutX="327.0" layoutY="22.0" mnemonicParsing="false" onAction="#search" text="Search" />
                   <Text fx:id="previewEmployeeName" layoutX="20.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " />
-                  <Text fx:id="revealName" layoutX="58.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="77.13671875" />
+                  <Text fx:id="revealName" layoutX="58.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="326.13673400878906" />
                   <Text fx:id="previewEmployeeID" layoutX="20.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " />
-                  <Text fx:id="revealID" layoutX="39.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="52.00000256299967" />
+                  <Text fx:id="revealID" layoutX="39.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.40001392364502" />
                   <Button fx:id="editEmployeeB" layoutX="137.0" layoutY="169.0" mnemonicParsing="false" onAction="#editEmployee" text="Edit Employee Data">
                      <font>
                         <Font size="13.0" />
