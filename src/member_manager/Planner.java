@@ -46,6 +46,11 @@ public class Planner {
          double actualCost = 500;  // here we have to sum total cost we spent so far (all workers hours times salary)
          return calcEv() - actualCost;
     }*/
+
+    public void addMember(String firstName, String lastName, int dateOfBirth, double salary){
+        Member member = new Member(firstName, lastName, dateOfBirth, salary);
+        members.add(member);
+    }
     public void printMembers(){
         for(Member member : members){
             member.toString();
