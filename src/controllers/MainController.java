@@ -75,8 +75,8 @@ public class MainController {
     @FXML
     private DatePicker endDateRegister;
 
-    JsonReader reader = new JsonReader();
-    Planner planner = reader.loadPlanner();
+    private static JsonReader reader = new JsonReader();
+    private static Planner planner = reader.loadPlanner();
 
     public void loadData(){
         String a = "Planned Value (PV)";
