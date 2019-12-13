@@ -33,7 +33,17 @@
                   <Text fx:id="revealName" layoutX="58.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="326.13673400878906" />
                   <Text fx:id="previewEmployeeID" layoutX="20.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " />
                   <Text fx:id="revealID" layoutX="39.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.40001392364502" />
-                  <Button fx:id="editEmployeeB" layoutX="137.0" layoutY="169.0" mnemonicParsing="false" onAction="#editEmployee" text="Edit Employee Data">
+                  <Button fx:id="editEmployeeB" layoutX="248.0" layoutY="194.0" mnemonicParsing="false" onAction="#editEmployee" text="Edit Employee Data">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="showHours" layoutX="20.0" layoutY="149.0" mnemonicParsing="false" onAction="#showHours" prefHeight="30.0" prefWidth="90.0" text="Show hours">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="showSalary" layoutX="20.0" layoutY="193.0" mnemonicParsing="false" onAction="#showSalary" prefHeight="30.0" prefWidth="90.0" text="Show salary">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -52,30 +62,30 @@
             </TableView>
             <AnchorPane GridPane.rowIndex="1">
                <children>
-                  <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compare with Member:">
+                  <Text layoutX="14.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compare with Member:">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Text>
-                  <Text layoutX="155.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comparisons:">
+                  <Text layoutX="155.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comparisons:">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <ChoiceBox fx:id="compareBoxList" layoutX="161.0" layoutY="54.0" prefWidth="150.0" />
-                  <Button fx:id="submitButton" layoutX="322.0" layoutY="54.0" mnemonicParsing="false" text="Submit" />
+                  <ChoiceBox fx:id="compareBoxList" layoutX="155.0" layoutY="123.0" prefWidth="150.0" />
+                  <Button fx:id="submitButton" layoutX="318.0" layoutY="123.0" mnemonicParsing="false" text="Submit" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <LineChart layoutX="14.0" layoutY="14.0" prefHeight="237.0" prefWidth="308.0">
+                  <BarChart fx:id="chart" layoutX="14.0" layoutY="14.0" prefHeight="237.0" prefWidth="308.0">
                     <xAxis>
-                      <CategoryAxis side="BOTTOM" />
+                      <CategoryAxis fx:id="xAxis" side="BOTTOM" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis fx:id="yAxis" side="LEFT" />
                     </yAxis>
-                  </LineChart>
+                  </BarChart>
                   <Button fx:id="backB" layoutX="335.0" layoutY="223.0" mnemonicParsing="false" onAction="#back" text="Back">
                      <font>
                         <Font size="13.0" />

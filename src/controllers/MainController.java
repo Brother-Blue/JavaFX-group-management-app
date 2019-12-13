@@ -1,6 +1,7 @@
 package controllers;
 
 import id_generator.GeneratorMain;
+import javafx.scene.chart.*;
 import javafx.scene.text.Text;
 import json_reader_writer.JsonReader;
 import member_manager.Member;
@@ -19,6 +20,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
@@ -58,9 +60,16 @@ public class MainController {
     private Text revealName;
     @FXML
     private Text revealID;
+    @FXML
+    private NumberAxis yAxis;
+    @FXML
+    private CategoryAxis xAxis;
+    @FXML
+    private BarChart chart;
 
     JsonReader reader = new JsonReader();
     Planner planner = reader.loadPlanner();
+
     /*public void initialize(){
         loadData();
     }*/
@@ -134,9 +143,21 @@ public class MainController {
             } else {
                 AlertHelper.showAlert(Alert.AlertType.INFORMATION, owner, "Error", "Member ID does not yet exist.");
             }
-
-
         }
+    }
+
+    public void showHours(ActionEvent event) throws IOException {
+        //doCode();
+        chart.setTitle("Hours worked by: <name>");
+        xAxis.setLabel("Week");
+        yAxis.setLabel("Hours");
+    }
+
+    public void showSalary(ActionEvent event) throws IOException {
+        //doCode();
+        chart.setTitle("Salaries earned by: <name>");
+        xAxis.setLabel("Week");
+        yAxis.setLabel("Amount (SEK)");
     }
 
     public void addMember(ActionEvent event) throws IOException{

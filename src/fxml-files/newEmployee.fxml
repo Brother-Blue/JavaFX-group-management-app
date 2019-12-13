@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
-      <TextField fx:id="firstNameRegister" layoutX="118.0" layoutY="142.0" prefHeight="45.0" prefWidth="595.0" />
-      <TextField fx:id="lastNameRegister" layoutX="118.0" layoutY="212.0" prefHeight="45.0" prefWidth="595.0" />
-      <TextField fx:id="dobRegister" layoutX="118.0" layoutY="290.0" prefHeight="45.0" prefWidth="595.0" />
-      <Text layoutX="39.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
-      <Text layoutX="40.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
-      <Text layoutX="40.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth: (YYYYMMDD)" wrappingWidth="93.8125" />
+      <TextField fx:id="firstNameRegister" layoutX="118.0" layoutY="142.0" prefHeight="45.0" prefWidth="595.0" promptText="First name" />
+      <TextField fx:id="lastNameRegister" layoutX="118.0" layoutY="212.0" prefHeight="45.0" prefWidth="595.0" promptText="Last name" />
+      <TextField fx:id="dobRegister" layoutX="118.0" layoutY="290.0" prefHeight="45.0" prefWidth="595.0" promptText="Date of Birth: (YYYYMMDD)" />
       <Button fx:id="registerButton" layoutX="381.0" layoutY="371.0" mnemonicParsing="false" onAction="#registerMember" prefHeight="34.0" prefWidth="70.0" text="Submit">
          <font>
             <Font size="14.0" />
