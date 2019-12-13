@@ -20,7 +20,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
@@ -166,6 +165,21 @@ public class MainController {
         chart.setTitle("Hours worked by: " + name);
         xAxis.setLabel("Week");
         yAxis.setLabel("Hours");
+
+        chart.getData().clear();
+        chart.autosize();
+
+        XYChart.Series dataSeries = new XYChart.Series();
+        dataSeries.setName("Test");
+
+        dataSeries.getData().add(new XYChart.Data<>("1", 2));
+        dataSeries.getData().add(new XYChart.Data<>("2", 4));
+        dataSeries.getData().add(new XYChart.Data<>("3", 8));
+        dataSeries.getData().add(new XYChart.Data<>("4", 3));
+        dataSeries.getData().add(new XYChart.Data<>("5", 7));
+        dataSeries.getData().add(new XYChart.Data<>("6", 9));
+
+        chart.getData().add(dataSeries);
     }
 
     public void showSalary(ActionEvent event) throws IOException {
@@ -174,6 +188,21 @@ public class MainController {
         chart.setTitle("Salaries earned by: " + name);
         xAxis.setLabel("Week");
         yAxis.setLabel("Amount (SEK)");
+
+        chart.getData().clear();
+        chart.autosize();
+
+        XYChart.Series dataSeries = new XYChart.Series();
+        dataSeries.setName("Test");
+
+        dataSeries.getData().add(new XYChart.Data<>("1", 145));
+        dataSeries.getData().add(new XYChart.Data<>("2", 298));
+        dataSeries.getData().add(new XYChart.Data<>("3", 1092));
+        dataSeries.getData().add(new XYChart.Data<>("4", 569));
+        dataSeries.getData().add(new XYChart.Data<>("5", 238));
+        dataSeries.getData().add(new XYChart.Data<>("6", 360));
+
+        chart.getData().add(dataSeries);
     }
 
     public void addMember(ActionEvent event) throws IOException{
