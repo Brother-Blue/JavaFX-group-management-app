@@ -5,6 +5,7 @@ import json_reader_writer.JsonReader;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Planner {
 
@@ -31,6 +32,28 @@ public class Planner {
         this.budget = budget;
         this.totalDays = ChronoUnit.DAYS.between(startDate, endDate);
         this.nowDays = ChronoUnit.DAYS.between(startDate, localDate);
+    }
+    //searches for a specific member and returns sum of total hours for all milestones
+    public double getTotalHours(int ID) {
+        double result = 0;
+        for (Milestone milestone : milestones) {
+            if (milestone.getEmployeeHours().containsKey(ID)) {
+                result =  result + ((double) milestone.getEmployeeHours().get(ID));
+            }
+        }
+        return result;
+    }
+    //searches for a specific milestone and member and returns hours for that milestome (can be reused to we can check all members hours for a specific milestone)
+    public double getHours(int ID, String milestoneName){
+        double result = 0;
+        for (Milestone milestone : milestones){
+            if (milestoneName.equals(milestone.getMilestoneName())){
+                if (milestone.getEmployeeHours().containsKey(ID)) {
+                    result = result + ((double) milestone.getEmployeeHours().get(ID));
+                }
+            }
+        }
+        return result;
     }
 
     public double calcPv(){
@@ -61,14 +84,14 @@ public class Planner {
         }
         return actualCost;
     }
-
+    //method for creating a new member
     public void addMember(String firstName, String lastName, int dateOfBirth, double salary) {
         Member member = new Member(firstName, lastName, dateOfBirth, salary);
         members.add(member);
     }
-
-    public void addMilestone(String milestoneName, LocalDate startDate, LocalDate endDate, String milestoneDescription, ArrayList<Member> contribution, boolean accomplished) {
-        Milestone milestone = new Milestone(milestoneName, startDate, endDate, milestoneDescription, contribution);
+    //method for creating a new milestone
+    public void addMilestone(String milestoneName, String milestoneDescription, LocalDate startDate, LocalDate actualEndDate, LocalDate plannedEndDate, Map<Integer, Double> employeeHours) {
+        Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, actualEndDate, plannedEndDate , employeeHours);
         milestones.add(milestone);
     }
     //removed printMembers method as ArrayList has one implemented.
