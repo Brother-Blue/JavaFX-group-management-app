@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+   <children>
+      <TextField layoutX="162.0" layoutY="103.0" mouseTransparent="true" prefHeight="26.0" prefWidth="380.0" promptText="Name of milestone" />
+      <TextField layoutX="162.0" layoutY="267.0" mouseTransparent="true" prefHeight="26.0" prefWidth="380.0" promptText="Responsible member ID's" />
+      <Text layoutX="35.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <TextArea layoutX="162.0" layoutY="153.0" mouseTransparent="true" prefHeight="94.0" prefWidth="380.0" promptText="Milestone description" />
+      <Text layoutX="43.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of milestone:" />
+      <Text layoutX="23.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Milestone description:">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="9.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible member ID's:" textAlignment="CENTER" wrappingWidth="152.516845703125" />
+      <Text layoutX="154.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD MILESTONE" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Text>
+      <Button layoutX="529.0" layoutY="356.0" mnemonicParsing="false" text="Back">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

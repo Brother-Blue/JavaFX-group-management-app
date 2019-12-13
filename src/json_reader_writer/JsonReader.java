@@ -45,11 +45,11 @@ public class JsonReader {
 
         public ArrayList<Member> loadMember(){
         JSONParser jsonParser = new JSONParser();
+        ArrayList<Member> members = new ArrayList<>();
 
         try {
             Object obj = jsonParser.parse(new FileReader("input.json"));
             JSONObject jsonObject = (JSONObject) obj;
-            ArrayList<Member> members = new ArrayList<>();
 
             JSONArray memberArray = (JSONArray) jsonObject.get("members");
             Iterator<JSONObject> iterator = memberArray.iterator();
@@ -57,11 +57,10 @@ public class JsonReader {
                 JSONObject object = iterator.next();
                 String firstName = (String) object.get("firstName");
                 String lastName = (String) object.get("lastName");
-                int dateOfBirth = (int) object.get("dateOfBirth");
-                int salary = (int) object.get("salary");
+                int dateOfBirth = Integer.parseInt((String) object.get("dateOfBirth"));
+                int salary = Integer.parseInt((String) object.get("salary"));
                 Member member = new Member(firstName, lastName, dateOfBirth, salary);
                 members.add(member);
-                return members;
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -70,7 +69,7 @@ public class JsonReader {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return null;
+        return members;
     }
 
     public ArrayList<Milestone> loadMilestone(){

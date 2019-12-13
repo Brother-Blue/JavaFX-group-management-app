@@ -1,14 +1,7 @@
 package member_manager;
 
 import json_reader_writer.JsonReader;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -27,7 +20,7 @@ public class Planner {
     private float percentCompletePlanned = nowDays / totalDays;
     private double percentCompleteActual = 0.2; // This need to be a method which collects the data from the milestones.
 
-    public ArrayList<Member> members = new ArrayList<>();
+    public ArrayList<Member> members = loadMember();
     public ArrayList<Milestone> milestones = new ArrayList<>();
 
 
@@ -80,9 +73,14 @@ public class Planner {
     }
     //removed printMembers method as ArrayList has one implemented.
 
-    public void loadMember(){
+    public ArrayList<Member> loadMember(){
 
+        return reader.loadMember();
     }
+
+    /*public ArrayList<Milestone> loadMilestones(){
+        return reader.loadMilestone();
+    }*/
     @Override
     public String toString() {
         return "Name: " + projectName + "\n" +
