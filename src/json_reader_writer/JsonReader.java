@@ -43,6 +43,7 @@ public class JsonReader {
         return null;
     }
 
+        //Reader and object creator for the members
         public ArrayList<Member> loadMember(){
         JSONParser jsonParser = new JSONParser();
         ArrayList<Member> members = new ArrayList<>();
