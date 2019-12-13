@@ -26,8 +26,6 @@ import java.io.IOException;
 
 public class MainController {
 
-    private static Planner planner = new Planner();
-
     ObservableList<String> calculatorBoxList =
             FXCollections.observableArrayList();
 
@@ -61,6 +59,8 @@ public class MainController {
     @FXML
     private Text revealID;
 
+    JsonReader reader = new JsonReader();
+    Planner planner = reader.loadPlanner();
     /*public void initialize(){
         loadData();
     }*/
@@ -285,5 +285,4 @@ public class MainController {
         // do what you have to do
         stage.close();
     }
-
 }

@@ -1,5 +1,12 @@
 package member_manager;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -70,8 +77,8 @@ public class Planner {
         Milestone milestone = new Milestone(milestoneName, milestoneDescription, member , accomplished);
         milestones.add(milestone);
     }
-
     //removed printMembers method as ArrayList has one implemented.
+
 
     @Override
     public String toString() {

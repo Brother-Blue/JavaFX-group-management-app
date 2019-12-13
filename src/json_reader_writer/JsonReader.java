@@ -1,26 +1,26 @@
 package json_reader_writer;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import member_manager.Member;
+import member_manager.Milestone;
 import member_manager.Planner;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Iterator;
+
 public class JsonReader {
 
-    public void loadPlanner() throws IOException, ParseException {
+    JSONParser jsonParser = new JSONParser();
 
+    public Planner loadPlanner() {
 
-        JSONParser jsonParser = new JSONParser();
+        //JSONParser jsonParser = new JSONParser();
         try {
             //Parsing the contents of the JSON file
             Object obj = jsonParser.parse(new FileReader("input.json"));
@@ -32,8 +32,24 @@ public class JsonReader {
             LocalDate endDate = LocalDate.parse((String) jsonObject.get("endDate"));
             int budget = (int) jsonObject.get("budget");
             Planner planner = new Planner(projectName, startDate, endDate, budget);
+            return planner;
 
-            //Iterating the contents of the memberarray in Json and creates objects
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Member loadMembers() {
+        try {
+            //Parsing the contents of the JSON file
+            Object obj = jsonParser.parse(new FileReader("input.json"));
+            JSONObject jsonObject = (JSONObject) obj;
+
             JSONArray memberArray = (JSONArray) jsonObject.get("members");
             Iterator<JSONObject> iterator = memberArray.iterator();
             while (iterator.hasNext()) {
@@ -42,8 +58,25 @@ public class JsonReader {
                 String lastName = (String) object.get("lastName");
                 int dateOfBirth = (int) object.get("dateOfBirth");
                 int salary = (int) object.get("salary");
-                planner.addMember(firstName, lastName, dateOfBirth, salary);
+                Member member = new Member(firstName, lastName, dateOfBirth, salary);
+                return member;
             }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Milestone loadMilestones(){
+        try {
+            //Parsing the contents of the JSON file
+            Object obj = jsonParser.parse(new FileReader("input.json"));
+            JSONObject jsonObject = (JSONObject) obj;
 
             JSONArray milestoneArray = (JSONArray) jsonObject.get("milestones");
             Iterator<JSONObject> iterator1 = milestoneArray.iterator();
@@ -53,7 +86,8 @@ public class JsonReader {
                 boolean accomplished = (boolean) object.get("accomplished");
                 String milestoneDescription = (String) object.get("milestoneDescription");
                 Member member = (Member) object.get("member"); //dont know how we will solve this just yet.
-                planner.addMilestone(milestoneName, milestoneDescription, member, accomplished);
+                Milestone milestone = new Milestone(milestoneName, milestoneDescription, member, accomplished);
+                return milestone;
             }
 
         } catch (FileNotFoundException e) {
@@ -64,5 +98,6 @@ public class JsonReader {
             e.printStackTrace();
         }
 
+        return null;
     }
 }
