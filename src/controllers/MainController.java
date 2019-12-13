@@ -145,16 +145,33 @@ public class MainController {
         }
     }
 
+    public String getName() {
+        int ID = 0;
+        if (GeneratorMain.isParsable(searchForID.getText())) {
+            ID = Integer.parseInt(searchForID.getText());
+        }
+        String name = "";
+
+        for (Member member : planner.members) {
+            if (ID == member.getId()) {
+                name = member.getFirstName() + " " + member.getLastName();
+            }
+        }
+        return name;
+    }
+
     public void showHours(ActionEvent event) throws IOException {
         //doCode();
-        chart.setTitle("Hours worked by: <name>");
+        String name = getName();
+        chart.setTitle("Hours worked by: " + name);
         xAxis.setLabel("Week");
         yAxis.setLabel("Hours");
     }
 
     public void showSalary(ActionEvent event) throws IOException {
         //doCode();
-        chart.setTitle("Salaries earned by: <name>");
+        String name = getName();
+        chart.setTitle("Salaries earned by: " + name);
         xAxis.setLabel("Week");
         yAxis.setLabel("Amount (SEK)");
     }
