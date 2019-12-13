@@ -75,23 +75,23 @@ public class JsonReader {
     public ArrayList<Milestone> loadMilestone(){
 
         JSONParser jsonParser = new JSONParser();
+        ArrayList<Milestone> milestones = new ArrayList<>();
 
         try {
             Object obj = jsonParser.parse(new FileReader("input.json"));
             JSONObject jsonObject = (JSONObject) obj;
-            ArrayList<Milestone> milestones = new ArrayList<>();
 
             JSONArray milestoneArray = (JSONArray) jsonObject.get("milestones");
             Iterator<JSONObject> iterator1 = milestoneArray.iterator();
             while (iterator1.hasNext()) {
                 JSONObject object = iterator1.next();
                 String milestoneName = (String) object.get("milestoneName");
-                boolean accomplished = (boolean) object.get("accomplished");
+                boolean accomplished = Boolean.parseBoolean((String) object.get("accomplished"));
+                LocalDate startDate = LocalDate.parse((String) jsonObject.get("startDate"));
+                LocalDate endDate = LocalDate.parse((String) jsonObject.get("endDate"));
                 String milestoneDescription = (String) object.get("milestoneDescription");
-                Member member = (Member) object.get("member"); //dont know how we will solve this just yet.
-                Milestone milestone = new Milestone(milestoneName, milestoneDescription, member, accomplished);
+                Milestone milestone = new Milestone(milestoneName, startDate, endDate, milestoneDescription, loadMember());
                 milestones.add(milestone);
-                return milestones;
             }
     } catch (FileNotFoundException e) {
         e.printStackTrace();
@@ -100,6 +100,6 @@ public class JsonReader {
     } catch (ParseException e) {
         e.printStackTrace();
     }
-        return null;
+        return milestones;
     }
 }
