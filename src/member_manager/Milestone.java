@@ -12,13 +12,14 @@ public class Milestone {
     private int memberID;
     ArrayList<Member> contribution;
 
-    public Milestone(String milestoneName, LocalDate startDate, LocalDate endDate, String milestoneDescription, ArrayList<Member> contribution, boolean accomplished) {
+    public Milestone(String milestoneName, LocalDate startDate, LocalDate endDate, String milestoneDescription, ArrayList<Member> contribution) {
         this.milestoneName = milestoneName;
         this.startDate = startDate;
         this.endDate = endDate;
         this.milestoneDescription = milestoneDescription;
         this.accomplished = accomplished;
         this.contribution = contribution;
+        this.accomplished = false;
 
     }
 

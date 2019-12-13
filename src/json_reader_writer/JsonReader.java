@@ -90,7 +90,7 @@ public class JsonReader {
                 LocalDate startDate = LocalDate.parse((String) jsonObject.get("startDate"));
                 LocalDate endDate = LocalDate.parse((String) jsonObject.get("endDate"));
                 String milestoneDescription = (String) object.get("milestoneDescription");
-                Milestone milestone = new Milestone(milestoneName, startDate, endDate, milestoneDescription, loadMember(), accomplished);
+                Milestone milestone = new Milestone(milestoneName, startDate, endDate, milestoneDescription, loadMember());
                 milestones.add(milestone);
             }
     } catch (FileNotFoundException e) {
