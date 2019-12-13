@@ -77,9 +77,6 @@ public class MainController {
 
     private static JsonReader reader = new JsonReader();
     private static Planner planner = reader.loadPlanner();
-    /*public void initialize(){
-        loadData();
-    }*/
 
     public void loadData(){
         String a = "Planned Value (PV)";
