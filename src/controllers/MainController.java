@@ -36,12 +36,8 @@ public class MainController {
 
     @FXML
     private javafx.scene.control.Button exitApp;
-    /*@FXML
-    private Button registerMemberB;*/
     @FXML
     private ChoiceBox<String> calculatorBox;
-    //calculatorBox.setValue("Planned Value (PV)");
-    //calculatorBox.setItems(calculatorBoxList);
     @FXML
     private TextField firstNameRegister;
     @FXML
@@ -50,6 +46,8 @@ public class MainController {
     private TextField dobRegister;
     @FXML
     private Button registerButton;
+    @FXML
+    private Button submitMilestone;
     @FXML
     private TextField searchForID;
     @FXML
@@ -225,9 +223,61 @@ public class MainController {
     @FXML
     public void registerMilestone(ActionEvent event) {
 
-        milestoneMemberRegister.getText();
-        ArrayList<Member> contribution = new ArrayList<>();
-        Milestone milestone = new Milestone(milestoneNameRegister.getText(), startDateRegister.getValue(), endDateRegister.getValue(), milestoneDescripRegister.getText(), contribution);
+        //milestoneMemberRegister.getText();
+        //ArrayList<Member> contribution = new ArrayList<>();
+        //Milestone milestone = new Milestone(milestoneNameRegister.getText(), startDateRegister.getValue(), endDateRegister.getValue(), milestoneDescripRegister.getText(), contribution);
+
+        Window owner = submitMilestone.getScene().getWindow(); //setup the popup
+        boolean success = true;
+
+        if (milestoneNameRegister.getText().isEmpty()) { //checks if first name field is empty
+            AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Name of Milestone field can not be empty!");
+            System.out.println("Milestone name field failed.");
+            success = false;
+
+        } else if (milestoneDescripRegister.getText().isEmpty()) { //checks if last name field is empty
+            AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Milestone Description field can not be empty!");
+            System.out.println("Milestone Description field failed.");
+            success = false;
+
+            //checks if ID field valid but < 0 or > 991231
+        } else if (GeneratorMain.isParsable(milestoneMemberRegister.getText())) {
+            int tempInt = Integer.parseInt(milestoneMemberRegister.getText());
+            if (tempInt <= 0) {
+                AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "ID's can not be negative!");
+                System.out.println("ID field failed (negative input).");
+                success = false;
+            }
+            if (tempInt > 99999) { //The highest accepted value as of the day implemented.
+                AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Please follow the appropriate format XXXXX!");
+                System.out.println("ID field failed (input exceeds max accepted input).");
+                success = false;
+            }
+
+        } else if (!GeneratorMain.isParsable(milestoneMemberRegister.getText())) { //checks if ID field is empty or invalid
+            AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Please follow the appropriate format XXXXX!");
+            System.out.println("ID field failed (invalid input).");
+            success = false;
+
+        } else if (startDateRegister.getValue() == null) { //checks if birthday field is empty or invalid
+            AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Start Date can not be empty.");
+            System.out.println("Start Date field failed (invalid input).");
+            success = false;
+
+        } else if (endDateRegister.getValue() == null) { //checks if birthday field is empty or invalid
+            AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "End Date can not be empty.");
+            System.out.println("End Date field failed (invalid input).");
+            success = false;
+        }
+
+        if (success) {
+
+            ArrayList<Member> contribution = new ArrayList<>();
+            Milestone milestone = new Milestone(milestoneNameRegister.getText(), startDateRegister.getValue(), endDateRegister.getValue(), milestoneDescripRegister.getText(), contribution);
+
+            System.out.println("Milestone registration successful.");
+        }
+
     }
 
     @FXML
@@ -261,6 +311,7 @@ public class MainController {
                 System.out.println("Birthday field failed (invalid input).");
                 success = false;
         }
+
         if (success) {
             int genID = GeneratorMain.generateID(firstNameRegister.getText(), lastNameRegister.getText(), Integer.parseInt(dobRegister.getText()));
             AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Success", "Member successfully registered! \n" +
@@ -282,7 +333,6 @@ public class MainController {
 
         window.setScene(viewMemberScene);
         window.show();
-
 
     }
 
