@@ -1,10 +1,13 @@
 package id_generator;
 
+import java.security.PublicKey;
 import java.text.ParseException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class GeneratorMain {
+
+    private static final int SHORTEN_ID = 10;
 
     //private static ArrayList<id_generator.Digit5> generator5 = new ArrayList<>(); //For storing the ID
     public static Scanner scanner = new Scanner(System.in);
@@ -60,7 +63,7 @@ public class GeneratorMain {
         System.out.println(">> Concatenated ID: " + concatID);
 
         //doMath();
-        generatedID = ((int) (concatID / Math.sqrt(charsInName)+(Math.sqrt(birthday)))) / 10;
+        generatedID = ((int) (concatID / Math.sqrt(charsInName)+(Math.sqrt(birthday)))) / SHORTEN_ID ;
         System.out.println(">> Generated ID: " + generatedID);
 
         return generatedID;
@@ -88,6 +91,7 @@ public class GeneratorMain {
         scanner.nextLine();
         return result;
     }
+
 
    /* public static void main(String[] args) {
         int memberAmount = inputInt(">> How many members are in your team: ");
