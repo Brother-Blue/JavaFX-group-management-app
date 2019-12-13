@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    //private static JsonReader reader = new JsonReader();
+    private static JsonReader reader = new JsonReader();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -30,7 +30,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws IOException, ParseException {
-        //reader.loadPlanner(); //Launches but crashed.
+        //reader.loadPlanner(); Launches but crashed.
         launch(args);
     }
 }

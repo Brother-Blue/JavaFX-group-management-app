@@ -31,7 +31,7 @@ public class Planner {
         //Needed to reference the addMember method
     }
 
-    public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget){
+    public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget) {
         this.projectName = projectName;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -57,23 +57,24 @@ public class Planner {
     }
 
     //TODO We need to find a way to extract hours spent on milestones depending on ID in order to do the calculation.
-    public double calcActualCost(){
+    public double calcActualCost() {
         double actualCost = 0;
-        for(Member member:members){
+        for (Member member:members) {
             member.getSalary();
-            for(Milestone milestone : milestones){
+
+            for (Milestone milestone : milestones) {
 
             }
         }
         return actualCost;
     }
 
-    public void addMember(String firstName, String lastName, int dateOfBirth, double salary){
+    public void addMember(String firstName, String lastName, int dateOfBirth, double salary) {
         Member member = new Member(firstName, lastName, dateOfBirth, salary);
         members.add(member);
     }
 
-    public void addMilestone(String milestoneName, String milestoneDescription, Member member ,boolean accomplished){
+    public void addMilestone(String milestoneName, String milestoneDescription, Member member ,boolean accomplished) {
         Milestone milestone = new Milestone(milestoneName, milestoneDescription, member , accomplished);
         milestones.add(milestone);
     }
