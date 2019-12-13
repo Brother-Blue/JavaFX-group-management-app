@@ -19,12 +19,17 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
 // TODO: FIX ALL ENCAPSULATION
 
 public class MainController {
+    JsonReader reader = new JsonReader();
+    Planner planner = reader.loadPlanner();
+   // JsonReader reader = new JsonReader();
+   // Planner planner = reader.loadPlanner();
 
     ObservableList<String> calculatorBoxList =
             FXCollections.observableArrayList();
@@ -59,8 +64,10 @@ public class MainController {
     @FXML
     private Text revealID;
 
-    JsonReader reader = new JsonReader();
-    Planner planner = reader.loadPlanner();
+
+
+
+
     /*public void initialize(){
         loadData();
     }*/

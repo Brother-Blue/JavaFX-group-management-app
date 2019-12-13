@@ -1,5 +1,6 @@
 package member_manager;
 
+import json_reader_writer.JsonReader;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -13,6 +14,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Planner {
+
+    JsonReader reader = new JsonReader();
 
     private double budget;
     private String projectName;
@@ -80,7 +83,9 @@ public class Planner {
     }
     //removed printMembers method as ArrayList has one implemented.
 
+    public void loadMember(){
 
+    }
     @Override
     public String toString() {
         return "Name: " + projectName + "\n" +
