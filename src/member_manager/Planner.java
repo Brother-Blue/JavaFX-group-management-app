@@ -21,7 +21,7 @@ public class Planner {
     private double percentCompleteActual = 0.2; // This need to be a method which collects the data from the milestones.
 
     public ArrayList<Member> members = loadMember();
-    public ArrayList<Milestone> milestones = new ArrayList<>();
+    public ArrayList<Milestone> milestones =loadMilestones();
 
 
     public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget) {
@@ -67,20 +67,20 @@ public class Planner {
         members.add(member);
     }
 
-    public void addMilestone(String milestoneName, String milestoneDescription, Member member ,boolean accomplished) {
-        Milestone milestone = new Milestone(milestoneName, milestoneDescription, member , accomplished);
+    public void addMilestone(String milestoneName, LocalDate startDate, LocalDate endDate, String milestoneDescription, ArrayList<Member> contribution, boolean accomplished) {
+        Milestone milestone = new Milestone(milestoneName, startDate, endDate, milestoneDescription, contribution , accomplished);
         milestones.add(milestone);
     }
     //removed printMembers method as ArrayList has one implemented.
 
     public ArrayList<Member> loadMember(){
-
         return reader.loadMember();
     }
 
-    /*public ArrayList<Milestone> loadMilestones(){
+    public ArrayList<Milestone> loadMilestones(){
         return reader.loadMilestone();
-    }*/
+    }
+
     @Override
     public String toString() {
         return "Name: " + projectName + "\n" +

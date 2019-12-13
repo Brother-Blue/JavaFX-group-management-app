@@ -1,16 +1,29 @@
 package member_manager;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 public class Milestone {
     private String milestoneName;
     private boolean accomplished;
     private String milestoneDescription;
+    LocalDate startDate;
+    LocalDate endDate;
     private int memberID;
+    ArrayList<Member> contribution;
 
-    public Milestone(String milestoneName, String milestoneDescription, Member member ,boolean accomplished) {
+    public Milestone(String milestoneName, LocalDate startDate, LocalDate endDate, String milestoneDescription, ArrayList<Member> contribution, boolean accomplished) {
         this.milestoneName = milestoneName;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.milestoneDescription = milestoneDescription;
         this.accomplished = accomplished;
-        this.memberID = member.getId(); //Requires member to be initialized in order to get member's ID.
+        this.contribution = contribution;
+
+    }
+
+    public void setHours(){
+
     }
 
     public String getMilestoneName() {

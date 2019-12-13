@@ -53,41 +53,19 @@
       "startDate": "2019-11-12",
       "plannedEndDate": "2019-11-13",
       "actualEndDate": "2019-11-12",
+      "milestoneDescription": "",
+      "accomplished": "true",
       "hoursPerMember": {
         "25718": "0.5"
       }
     },
     {
-      "taskName": "Setup google docs and excel",
+      "milestoneName": "Setup google docs and excel",
       "startDate": "2019-11-12",
       "plannedEndDate": "2019-11-15",
       "actualEndDate": "2019-11-14",
       "hoursPerMember": {
         "24201": "INSERT HOURS HERE"
-      }
-    },
-    {
-      "taskName": "Setup GitLab",
-      "startDate": "2019-11-15",
-      "plannedEndDate": "2019-11-18",
-      "actualEndDate": "2019-11-22",
-      "hoursPerMember": {
-        "18270": "2"
-      }
-    },
-    {
-      "taskName": "Assignment 1",
-      "startDate": "2019-11-25",
-      "plannedEndDate": "2019-11-30",
-      "actualEndDate": "2019-11-29",
-      "hoursPerMember": {
-        "18270": "4",
-        "14483": "1",
-        "24201": "INSERT HOURS",
-        "25718": "INSERT HOURS",
-        "12861": "INSERT HOURS",
-        "14625": "INSERT HOURS",
-        "16654": "INSERT HOURS"
       }
     },
     {
