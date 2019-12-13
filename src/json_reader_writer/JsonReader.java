@@ -107,6 +107,7 @@ public class JsonReader {
         return milestones;
     }
 
+    //Reader and object creator for the risk matrix
     public ArrayList<RiskMatrix> loadRiskMatrix(){
 
         JSONParser jsonParser = new JSONParser();
