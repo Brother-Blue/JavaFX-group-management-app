@@ -225,13 +225,9 @@ public class MainController {
     @FXML
     public void registerMilestone(ActionEvent event) {
 
-
         milestoneMemberRegister.getText();
         ArrayList<Member> contribution = new ArrayList<>();
         Milestone milestone = new Milestone(milestoneNameRegister.getText(), startDateRegister.getValue(), endDateRegister.getValue(), milestoneDescripRegister.getText(), contribution);
-
-
-
     }
 
     @FXML

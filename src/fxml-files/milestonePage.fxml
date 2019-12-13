@@ -9,17 +9,17 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
-      <TextField fx:id="milestoneNameRegister" layoutX="162.0" layoutY="103.0" mouseTransparent="true" prefHeight="26.0" prefWidth="380.0" promptText="Name of milestone" />
-      <TextField fx:id="milestoneMemberRegister" layoutX="162.0" layoutY="230.0" mouseTransparent="true" prefHeight="26.0" prefWidth="380.0" promptText="Responsible member ID's" />
+      <TextField fx:id="milestoneNameRegister" layoutX="210.0" layoutY="134.0" prefHeight="26.0" prefWidth="380.0" promptText="Name of milestone" />
+      <TextField fx:id="milestoneMemberRegister" layoutX="210.0" layoutY="291.0" prefHeight="26.0" prefWidth="380.0" promptText="Responsible member ID's" />
       <Text layoutX="35.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="43.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of milestone:" />
-      <Text layoutX="23.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Milestone description:">
+      <Text layoutX="91.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of milestone:" />
+      <Text layoutX="68.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Milestone description:">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <Text layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible member ID's:" textAlignment="CENTER" wrappingWidth="152.516845703125" />
-      <Text layoutX="154.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD MILESTONE" textAlignment="CENTER">
+      <Text layoutX="52.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible member ID's:" textAlignment="CENTER" wrappingWidth="142.9168701171875" />
+      <Text layoutX="236.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD MILESTONE" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="37.0" />
          </font>
@@ -29,9 +29,14 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <DatePicker fx:id="startDateRegister" layoutX="163.0" layoutY="271.0" prefHeight="17.0" prefWidth="174.0" promptText="Start Date" />
-      <DatePicker fx:id="endDateRegister" layoutX="367.0" layoutY="271.0" promptText="End Date" />
-      <Text layoutX="52.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start and End Date:" />
-      <TextField fx:id="milestoneDescripRegister" layoutX="162.0" layoutY="149.0" prefHeight="61.0" prefWidth="380.0" promptText="Milestone description" />
+      <DatePicker fx:id="startDateRegister" layoutX="210.0" layoutY="340.0" prefHeight="17.0" prefWidth="174.0" promptText="Start Date" />
+      <DatePicker fx:id="endDateRegister" layoutX="415.0" layoutY="340.0" promptText="End Date" />
+      <Text layoutX="92.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start and End Date:" />
+      <TextField fx:id="milestoneDescripRegister" layoutX="210.0" layoutY="192.0" prefHeight="81.0" prefWidth="380.0" promptText="Milestone description" />
+      <Button layoutX="359.0" layoutY="395.0" mnemonicParsing="false" onAction="#registerMilestone" text="Submit">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
