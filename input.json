@@ -96,5 +96,75 @@
         "17004": "0"
       }
     }
-  ]
+  ],
+  "riskMatrix": [
+    {
+      "riskName": "Json files become corrupted and all data is lost",
+      "veryLikely": "Catastrophic",
+      "possible": "Catastrophic",
+      "unlikely": "Severe"
+    },
+    {
+      "riskName": "Developer corrupts the data on purpose",
+      "veryLikely": "Catastrophic",
+      "possible": "Catastrophic",
+      "unlikely": "Moderate"
+    },
+    {
+      "riskName": "Software not matching the requirements",
+      "veryLikely": "Catastrophic",
+      "possible": "Severe",
+      "unlikely": "Moderate"
+    },
+    {
+      "riskName": "User finds the UI complicated to use",
+      "veryLikely": "Catastrophic",
+      "possible": "Moderate",
+      "unlikely": "Low"
+    },
+    {
+      "riskName": "Developer dies",
+      "veryLikely": "Catastrophic",
+      "possible": "Moderate",
+      "unlikely": "Low"
+    },
+    {
+      "riskName": "Bugs after release",
+      "veryLikely": "Severe",
+      "possible": "Severe",
+      "unlikely": "Moderate"
+    },
+    {
+      "riskName": "GitLab crashes and team can’t function in a collaborative way",
+      "veryLikely": "Severe",
+      "possible": "Severe",
+      "unlikely": "Moderate"
+    },
+    {
+      "riskName": "Hardware malfunction",
+      "veryLikely": "Severe",
+      "possible": "Moderate",
+      "unlikely": "Low"
+    },
+    {
+      "riskName": "Miscommunication between developers",
+      "veryLikely": "Severe",
+      "possible": "Moderate",
+      "unlikely": "Low"
+    },
+    {
+      "riskName": "Developer drops out",
+      "veryLikely": "Severe",
+      "possible": "Moderate",
+      "unlikely": "Low"
+    },
+    {
+      "riskName": "User doesn’t understand the language of the software",
+      "veryLikely": "Moderate",
+      "possible": "Low",
+      "unlikely": "Low"
+    }
+
+]
 }
+
