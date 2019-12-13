@@ -19,7 +19,7 @@ public class Member {
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.salary = salary;
-        this.id = setId();
+        this.id = loadID();
     }
     //TODO To be used with the JSON save states
     public void addHours(int week, int hours) {
@@ -49,7 +49,11 @@ public class Member {
         return id;
     }
 
-    public int setId() {
+    public void setID(int id) {
+        this.id = id;
+    }
+
+    public int loadID() {
         id = idGen.generateID(this.firstName, this.lastName, this.dateOfBirth);
         return id;
     }

@@ -124,7 +124,7 @@ public class JsonReader {
                 String possible = (String) jsonObject.get("possible");
                 String unlikely = (String) jsonObject.get("unlikely");
 
-                RiskMatrix risk = new RiskMatrix((riskName, veryLikely, possible, unlikely));
+                RiskMatrix risk = new RiskMatrix(riskName, veryLikely, possible, unlikely);
                 risks.add(risk);
             }
 
