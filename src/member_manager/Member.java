@@ -1,6 +1,7 @@
 package member_manager;
 
 import id_generator.GeneratorMain;
+import java.util.ArrayList;
 
 public class Member {
 
@@ -9,6 +10,8 @@ public class Member {
     private int id;
     private int dateOfBirth;
     private double salary;
+    private ArrayList<Timesheet> hoursWorked = new ArrayList<>();
+
     GeneratorMain idGen = new GeneratorMain();
 
     public Member (String firstName, String lastName, int dateOfBirth, double salary){
@@ -17,6 +20,13 @@ public class Member {
         this.dateOfBirth = dateOfBirth;
         this.salary = salary;
         this.id = setId();
+    }
+    //TODO To be used with the JSON save states
+    public void addHours(int week, int hours) {
+        //change this code to suit saving to JSON
+        int index = week - 1;
+        hoursWorked.get(index).setWeek(week);
+        hoursWorked.get(index).setHours(hours);
     }
 
     public String getFirstName() {
