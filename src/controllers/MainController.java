@@ -367,6 +367,18 @@ public class MainController {
         window.show();
     }
 
+    @FXML
+    public void newMilestone(ActionEvent event) throws IOException {
+
+        Parent milestoneMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/milestonePage.fxml"));
+        Scene milestoneMemberScene = new Scene(milestoneMemberParent);
+
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(milestoneMemberScene);
+        window.show();
+    }
+
     public void exit(){
         Stage stage = (Stage) exitApp.getScene().getWindow();
         // do what you have to do
