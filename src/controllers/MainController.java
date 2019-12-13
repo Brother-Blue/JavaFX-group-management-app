@@ -4,6 +4,7 @@ import id_generator.GeneratorMain;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import jdk.management.jfr.FlightRecorderMXBean;
 import json_reader_writer.JsonReader;
 import member_manager.Member;
 import member_manager.Milestone;
@@ -380,6 +381,15 @@ public class MainController {
         window.setScene(projectMemberScene);
         window.show();
 
+    }
+
+    public void riskMatrix(ActionEvent event) throws IOException{
+        Parent riskMatrixMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/RiskMatrix.fxml"));
+        Scene riskMatrixMemberScene = new Scene(riskMatrixMemberParent);
+
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(riskMatrixMemberScene);
+        window.show();
     }
 
     public void contactUs(ActionEvent event) throws IOException{

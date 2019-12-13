@@ -134,7 +134,7 @@
       "unlikely": "Low"
     },
     {
-      "riskName": "User doesn’t understand the language of the software",
+      "riskName": "User does not understand the language of the software",
       "veryLikely": "Moderate",
       "possible": "Low",
       "unlikely": "Low"
