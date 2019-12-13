@@ -69,7 +69,6 @@ public class MainController {
 
     JsonReader reader = new JsonReader();
     Planner planner = reader.loadPlanner();
-
     /*public void initialize(){
         loadData();
     }*/
