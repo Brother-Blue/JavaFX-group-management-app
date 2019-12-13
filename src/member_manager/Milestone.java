@@ -26,6 +26,11 @@ public class Milestone {
         return milestoneName;
     }
 
+
+    public Map getEmployeeHours() {
+        return employeeHours;
+    }
+
     public boolean isAccomplished(LocalDate today) {
         if(actualEndDate.isBefore(today)){
             return true;
