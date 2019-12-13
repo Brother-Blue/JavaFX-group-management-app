@@ -30,9 +30,6 @@ public class Planner {
     public ArrayList<Member> members = new ArrayList<>();
     public ArrayList<Milestone> milestones = new ArrayList<>();
 
-    public Planner() {
-        //Needed to reference the addMember method
-    }
 
     public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget) {
         this.projectName = projectName;

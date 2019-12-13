@@ -30,7 +30,7 @@ public class JsonReader {
             String projectName = (String) jsonObject.get("projectName");
             LocalDate startDate = LocalDate.parse((String) jsonObject.get("startDate"));
             LocalDate endDate = LocalDate.parse((String) jsonObject.get("endDate"));
-            int budget = (int) jsonObject.get("budget");
+            int budget = Integer.parseInt((String)jsonObject.get("budget"));
             return new Planner(projectName, startDate, endDate, budget);
 
         } catch (ParseException e) {
