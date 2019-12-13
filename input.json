@@ -50,26 +50,51 @@
   "milestones": [
     {
       "milestoneName": "Setup Trello",
+      "milestoneDescription": "Creating a Trello workspace and inviting everyone",
       "startDate": "2019-11-12",
       "plannedEndDate": "2019-11-13",
       "actualEndDate": "2019-11-12",
-      "milestoneDescription": "",
-      "accomplished": "true",
-      "hoursPerMember": {
-        "25718": "0.5"
+      "hoursPerEmployee": {
+        "14587": "0",
+        "23787": "0",
+        "26162": "0",
+        "18619": "0",
+        "13209": "0",
+        "14975": "0",
+        "17004": "0"
       }
     },
     {
       "milestoneName": "Setup google docs and excel",
+      "milestoneDescription": "Creating a google docs and excel files to track our time spent etc.",
       "startDate": "2019-11-12",
       "plannedEndDate": "2019-11-15",
       "actualEndDate": "2019-11-14",
-      "hoursPerMember": {
-        "24201": "INSERT HOURS HERE"
+      "hoursPerEmployee": {
+        "14587": "0",
+        "23787": "0",
+        "26162": "0",
+        "18619": "0",
+        "13209": "0",
+        "14975": "0",
+        "17004": "0"
       }
     },
     {
-      "taskName": "Create "
+      "taskName": "Assignment 1",
+      "milestoneDescription": "Working on the first assignment of the course",
+      "startDate": "2019-11-25",
+      "plannedEndDate": "2019-11-30",
+      "actualEndDate": "2019-11-29",
+      "hoursPerEmployee": {
+        "14587": "1",
+        "23787": "0",
+        "26162": "0",
+        "18619": "4",
+        "13209": "0",
+        "14975": "0",
+        "17004": "0"
+      }
     }
   ],
   "riskMatrix": [

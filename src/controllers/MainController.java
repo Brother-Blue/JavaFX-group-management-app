@@ -28,12 +28,10 @@ import java.util.ArrayList;
 public class MainController {
 
     ObservableList<String> calculatorBoxList =
-            FXCollections.observableArrayList();
-
-    // "Planned Value (PV)", "Earned Value (EV)", "Actual Cost (AC)",
-    //                                                    "Budget at Completion(BAC)", "Schedule Variance (SV)",
-    //                                                    "Schedule Performance Index (SPI)", "Cost Variance (CV)",
-    //                                                    "Cost Performance Index (CPI)"
+            FXCollections.observableArrayList("Planned Value (PV)", "Earned Value (EV)", "Actual Cost (AC)",
+                                                    "Budget at Completion(BAC)", "Schedule Variance (SV)",
+                                                    "Schedule Performance Index (SPI)", "Cost Variance (CV)",
+                                                    "Cost Performance Index (CPI)");
 
     @FXML
     private javafx.scene.control.Button exitApp;
@@ -78,16 +76,8 @@ public class MainController {
     private static Planner planner = reader.loadPlanner();
 
     public void loadData(){
-        String a = "Planned Value (PV)";
-        String b = "Earned Value (EV)";
-        String c = "Actual Cost (AC)";
-        String d = "Budget at Completion(BAC)";
-        String e = "Schedule Variance (SV)";
-        String f = "Schedule Performance Index (SPI)";
-        String g = "Cost Variance (CV)";
-        String h = "Cost Performance Index (CPI)";
 
-        calculatorBoxList.addAll(a,b,c,d,e,f,g,h);
+        calculatorBox.getItems().removeAll();
         calculatorBox.getItems().addAll(calculatorBoxList);
     }
 
@@ -103,6 +93,7 @@ public class MainController {
             AlertHelper.showAlert(Alert.AlertType.INFORMATION, owner, "Info", "Search field must be filled in!");
             System.out.println("Search failed (Empty search).");
             IDValid = false;
+
         } else if (GeneratorMain.isParsable(searchForID.getText())) {
             searchedID = Integer.parseInt(searchForID.getText());
 
@@ -110,11 +101,13 @@ public class MainController {
                 AlertHelper.showAlert(Alert.AlertType.WARNING, owner, "Error", "ID's are positive 5-digit integers!");
                 System.out.println("Search failed (Invalid ID format, less than 5 digits OR negative input).");
                 IDValid = false;
+
             } else if (Integer.parseInt(searchForID.getText()) > 99999) {
                 AlertHelper.showAlert(Alert.AlertType.WARNING, owner, "Error", "ID's are positive 5-digit integers!");
                 System.out.println("Search failed (Invalid ID format, more than 5 digits");
                 IDValid = false;
             }
+
         } else {
             if (!GeneratorMain.isParsable(searchForID.getText())) {
                 AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "ID's must be 5-digit integers!");
