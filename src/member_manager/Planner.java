@@ -43,7 +43,7 @@ public class Planner {
         }
         return result;
     }
-    //searches for a specific milestone and member and returns hours for that milestome (can be reused to we can check all members hours for a specific milestone)
+    //searches for a specific milestone and member and returns hours for that milestone (can be reused to we can check all members hours for a specific milestone)
     public double getHours(int ID, String milestoneName){
         double result = 0;
         for (Milestone milestone : milestones){
