@@ -2,37 +2,35 @@ package member_manager;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Milestone {
     private String milestoneName;
-    private boolean accomplished;
     private String milestoneDescription;
-    LocalDate startDate;
-    LocalDate endDate;
-    private int memberID;
-    ArrayList<Member> contribution;
+    private LocalDate startDate;
+    private LocalDate plannedEndDate;
+    private LocalDate actualEndDate;
 
-    public Milestone(String milestoneName, LocalDate startDate, LocalDate endDate, String milestoneDescription, ArrayList<Member> contribution) {
+    private Map<Integer, Double> employeeHours; //ID as the key, amount of hour as the value. ex. ID 1, hours 8
+
+    public Milestone(String milestoneName, String milestoneDescription, LocalDate startDate, LocalDate plannedEndDate, LocalDate actualEndDate , Map <Integer, Double> employeeHours) {
         this.milestoneName = milestoneName;
-        this.startDate = startDate;
-        this.endDate = endDate;
         this.milestoneDescription = milestoneDescription;
-        this.accomplished = accomplished;
-        this.contribution = contribution;
-        this.accomplished = false;
-
-    }
-
-    public void setHours(){
-
+        this.startDate = startDate;
+        this.plannedEndDate = plannedEndDate;
+        this.actualEndDate = actualEndDate;
+        this.employeeHours = employeeHours;
     }
 
     public String getMilestoneName() {
         return milestoneName;
     }
 
-    public boolean isAccomplished() {
-        return accomplished;
+    public boolean isAccomplished(LocalDate today) {
+        if(actualEndDate.isBefore(today)){
+            return true;
+        }
+        return false;
     }
 
     public String getMilestoneDescription() {
@@ -43,9 +41,8 @@ public class Milestone {
     public String toString() {
         return "{" +
                 "Milestone : '" + milestoneName + '\'' +
-                ", Is it accomplished : " + accomplished +
                 ", Milestone Description : '" + milestoneDescription + '\'' +
-                ", Accomplished by ID : " + memberID +
+                ", Accomplished by ID : " + employeeHours +
                 '}';
     }
 }
