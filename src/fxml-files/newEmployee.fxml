@@ -4,6 +4,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
@@ -20,5 +21,13 @@
             <Font size="13.0" />
          </font>
       </Button>
+      <Text layoutX="285.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD EMPLOYEE">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Text>
+      <Text layoutX="54.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name:" />
+      <Text layoutX="56.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name:" />
+      <Text layoutX="40.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth: (YYYYMMDD)" wrappingWidth="124.27813720703125" />
    </children>
 </AnchorPane>
