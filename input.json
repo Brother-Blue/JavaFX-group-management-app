@@ -3,7 +3,7 @@
     "projectName": "Project 13",
     "startDate": "2019-11-08",
     "endDate": "2020-01-10",
-    "budget": "27 936"
+    "budget": "27936"
   },
   "members": [
     {
@@ -15,37 +15,37 @@
     {
       "firstName": "Altug",
       "lastName": "Altetmek",
-      "dateOfBirth": "000929",
+      "dateOfBirth": "20000929",
       "salary": "210"
     },
     {
       "firstName": "Christian",
       "lastName": "O'Neill",
-      "dateOfBirth": "970627",
+      "dateOfBirth": "19970627",
       "salary": "145"
     },
     {
       "firstName": "Clementine",
       "lastName": "Jensen",
-      "dateOfBirth": "000826",
+      "dateOfBirth": "20000826",
       "salary": "220"
     },
     {
       "firstName": "Hugo",
       "lastName": "Hempel",
-      "dateOfBirth": "960308",
+      "dateOfBirth": "19960308",
       "salary": "250"
     },
     {
       "firstName": "Linus",
       "lastName": "Ivarsson",
-      "dateOfBirth": "930807",
+      "dateOfBirth": "19930807",
       "salary": "150"
     },
     {
       "firstName": "Linus",
       "lastName": "Åberg",
-      "dateOfBirth": "920604",
+      "dateOfBirth": "19920604",
       "salary": "280"
     }
   ],
