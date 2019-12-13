@@ -85,12 +85,14 @@ public class JsonReader {
             Iterator<JSONObject> iterator1 = milestoneArray.iterator();
             while (iterator1.hasNext()) {
                 JSONObject object = iterator1.next();
-                String milestoneName = (String) object.get("milestoneName");
-                boolean accomplished = Boolean.parseBoolean((String) object.get("accomplished"));
+                String milestoneName = (String) jsonObject.get("milestoneName");
+                String milestoneDescription = (String) jsonObject.get("milestoneDescription");
                 LocalDate startDate = LocalDate.parse((String) jsonObject.get("startDate"));
-                LocalDate endDate = LocalDate.parse((String) jsonObject.get("endDate"));
-                String milestoneDescription = (String) object.get("milestoneDescription");
-                Milestone milestone = new Milestone(milestoneName, startDate, endDate, milestoneDescription, loadMember());
+                LocalDate plannedEndDate = LocalDate.parse((String) jsonObject.get("plannedEndDate"));
+                LocalDate actualEndDate = LocalDate.parse((String) jsonObject.get("actualEndDate"));
+                JSONObject hoursPerEmployee = (JSONObject) jsonObject.get("hoursPerEmployee");
+
+                Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, hoursPerEmployee);
                 milestones.add(milestone);
             }
     } catch (FileNotFoundException e) {
