@@ -2,9 +2,11 @@ package controllers;
 
 import id_generator.GeneratorMain;
 import javafx.scene.chart.*;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import json_reader_writer.JsonReader;
 import member_manager.Member;
+import member_manager.Milestone;
 import member_manager.Planner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,15 +16,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 // TODO: FIX ALL ENCAPSULATION
 
@@ -66,6 +65,16 @@ public class MainController {
     private CategoryAxis xAxis;
     @FXML
     private BarChart chart;
+    @FXML
+    private TextField milestoneNameRegister;
+    @FXML
+    private TextField milestoneDescripRegister;
+    @FXML
+    private TextField milestoneMemberRegister;
+    @FXML
+    private DatePicker startDateRegister;
+    @FXML
+    private DatePicker endDateRegister;
 
     JsonReader reader = new JsonReader();
     Planner planner = reader.loadPlanner();
@@ -145,16 +154,33 @@ public class MainController {
         }
     }
 
+    public String getName() {
+        int ID = 0;
+        if (GeneratorMain.isParsable(searchForID.getText())) {
+            ID = Integer.parseInt(searchForID.getText());
+        }
+        String name = "";
+
+        for (Member member : planner.members) {
+            if (ID == member.getId()) {
+                name = member.getFirstName() + " " + member.getLastName();
+            }
+        }
+        return name;
+    }
+
     public void showHours(ActionEvent event) throws IOException {
         //doCode();
-        chart.setTitle("Hours worked by: <name>");
+        String name = getName();
+        chart.setTitle("Hours worked by: " + name);
         xAxis.setLabel("Week");
         yAxis.setLabel("Hours");
     }
 
     public void showSalary(ActionEvent event) throws IOException {
         //doCode();
-        chart.setTitle("Salaries earned by: <name>");
+        String name = getName();
+        chart.setTitle("Salaries earned by: " + name);
         xAxis.setLabel("Week");
         yAxis.setLabel("Amount (SEK)");
     }
@@ -168,6 +194,18 @@ public class MainController {
 
         window.setScene(addMemberScene);
         window.show();
+    }
+
+    @FXML
+    public void registerMilestone(ActionEvent event) {
+
+
+        milestoneMemberRegister.getText();
+        ArrayList<Member> contribution = new ArrayList<>();
+        Milestone milestone = new Milestone(milestoneNameRegister.getText(), startDateRegister.getValue(), endDateRegister.getValue(), milestoneDescripRegister.getText(), contribution);
+
+
+
     }
 
     @FXML
