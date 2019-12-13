@@ -67,8 +67,8 @@ public class MainController {
     @FXML
     private BarChart chart;
 
-    private static JsonReader reader = new JsonReader();
-    private static Planner planner = reader.loadPlanner();
+    JsonReader reader = new JsonReader();
+    Planner planner = reader.loadPlanner();
 
     /*public void initialize(){
         loadData();
