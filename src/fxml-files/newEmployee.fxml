@@ -21,13 +21,13 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Text layoutX="285.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD EMPLOYEE">
+      <Text layoutX="285.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD MEMBER">
          <font>
             <Font name="System Bold" size="37.0" />
          </font>
       </Text>
       <Text layoutX="54.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name:" />
       <Text layoutX="56.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name:" />
-      <Text layoutX="40.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth: (YYYYMMDD)" wrappingWidth="124.27813720703125" />
+      <Text layoutX="14.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth: (YYMMDD)" textAlignment="CENTER" wrappingWidth="124.27813720703125" />
    </children>
 </AnchorPane>
