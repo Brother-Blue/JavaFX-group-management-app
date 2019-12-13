@@ -73,6 +73,7 @@ public class JsonReader {
         return members;
     }
 
+    //Reader and object creator for the milestones
     public ArrayList<Milestone> loadMilestone(){
 
         JSONParser jsonParser = new JSONParser();
