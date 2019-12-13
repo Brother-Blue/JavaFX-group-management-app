@@ -2,7 +2,6 @@ package member_manager;
 
 import json_reader_writer.JsonReader;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
 package member_manager;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Map;
 
 public class Milestone {

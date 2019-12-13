@@ -1,9 +1,6 @@
 package id_generator;
 
-import java.security.PublicKey;
-import java.text.ParseException;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class GeneratorMain {
 
