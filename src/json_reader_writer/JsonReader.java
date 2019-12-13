@@ -11,6 +11,7 @@ import java.util.List;
 import member_manager.Member;
 import member_manager.Milestone;
 import member_manager.Planner;
+import member_manager.RiskMatrix;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -104,4 +105,39 @@ public class JsonReader {
     }
         return milestones;
     }
+
+    public ArrayList<RiskMatrix> loadRiskMatrix(){
+
+        JSONParser jsonParser = new JSONParser();
+        ArrayList<RiskMatrix> risks = new ArrayList<>();
+
+        try{
+            Object obj = jsonParser.parse(new FileReader("input.json"));
+            JSONObject jsonObject = (JSONObject) obj;
+
+            JSONArray milestoneArray = (JSONArray) jsonObject.get("riskMatrix");
+            Iterator<JSONObject> iterator2 = milestoneArray.iterator();
+            while(iterator2.hasNext()){
+                JSONObject object = iterator2.next();
+                String riskName = (String) jsonObject.get("riskNAme");
+                String veryLikely = (String) jsonObject.get("veryLikely");
+                String possible = (String) jsonObject.get("possible");
+                String unlikely = (String) jsonObject.get("unlikely");
+
+                RiskMatrix risk = new RiskMatrix(riskName, veryLikely, possible, unlikely);
+                risks.add(risk);
+            }
+
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return risks;
+
+    }
+
 }

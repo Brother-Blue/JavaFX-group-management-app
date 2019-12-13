@@ -2,6 +2,7 @@ package member_manager;
 
 import json_reader_writer.JsonReader;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class Planner {
 
     public ArrayList<Member> members = loadMember();
     public ArrayList<Milestone> milestones =loadMilestones();
+    public ArrayList<RiskMatrix> risks = loadRiskMatrix();
 
 
     public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget) {
@@ -94,6 +96,11 @@ public class Planner {
         Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, actualEndDate, plannedEndDate , employeeHours);
         milestones.add(milestone);
     }
+
+    public void addRisks(String riskName, String veryLikely, String possible, String unlikely){
+        RiskMatrix risk = new RiskMatrix(riskName, veryLikely, possible, unlikely);
+        risks.add(risk);
+    }
     //removed printMembers method as ArrayList has one implemented.
 
     public ArrayList<Member> loadMember(){
@@ -102,6 +109,10 @@ public class Planner {
 
     public ArrayList<Milestone> loadMilestones(){
         return reader.loadMilestone();
+    }
+
+    public ArrayList<RiskMatrix> loadRiskMatrix(){
+        return reader.loadRiskMatrix();
     }
 
     @Override
