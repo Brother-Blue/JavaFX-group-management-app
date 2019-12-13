@@ -1,55 +1,57 @@
 {
-  "projectName": "Project 13",
-  "startDate": "2019-11-08",
-  "endDate": "2020-01-10",
-  "budget": "27000",
-  "member": [
+  "planner": {
+    "projectName": "Project 13",
+    "startDate": "2019-11-08",
+    "endDate": "2020-01-10",
+    "budget": "27 936"
+  },
+  "members": [
     {
-      "memberForename": "Hjalmar",
-      "memberSurname": "Thunberg",
-      "memberBirth": "951219",
+      "firstName": "Hjalmar",
+      "lastName": "Thunberg",
+      "dateOfBirth": "951219",
       "salary": "250"
     },
     {
-      "memberForename": "Altug",
-      "memberSurname": "Altetmek",
-      "memberBirth": "000929",
+      "firstName": "Altug",
+      "lastName": "Altetmek",
+      "dateOfBirth": "000929",
       "salary": "210"
     },
     {
-      "memberForename": "Christian",
-      "memberSurname": "O'Neill",
-      "memberBirth": "970627",
+      "firstName": "Christian",
+      "lastName": "O'Neill",
+      "dateOfBirth": "970627",
       "salary": "145"
     },
     {
-      "memberForename": "Clementine",
-      "memberSurname": "Jensen",
-      "memberBirth": "000826",
+      "firstName": "Clementine",
+      "lastName": "Jensen",
+      "dateOfBirth": "000826",
       "salary": "220"
     },
     {
-      "memberForename": "Hugo",
-      "memberSurname": "Hempel",
-      "memberBirth": "960308",
+      "firstName": "Hugo",
+      "lastName": "Hempel",
+      "dateOfBirth": "960308",
       "salary": "250"
     },
     {
-      "memberForename": "Linus",
-      "memberSurname": "Ivarsson",
-      "memberBirth": "930807",
+      "firstName": "Linus",
+      "lastName": "Ivarsson",
+      "dateOfBirth": "930807",
       "salary": "150"
     },
     {
-      "memberForename": "Linus",
-      "memberSurname": "Åberg",
-      "memberBirth": "920604",
+      "firstName": "Linus",
+      "lastName": "Åberg",
+      "dateOfBirth": "920604",
       "salary": "280"
     }
   ],
-  "milestone": [
+  "milestones": [
     {
-      "taskName": "Setup Trello",
+      "milestoneName": "Setup Trello",
       "startDate": "2019-11-12",
       "plannedEndDate": "2019-11-13",
       "actualEndDate": "2019-11-12",
@@ -89,6 +91,9 @@
         "14625": "INSERT HOURS",
         "16654": "INSERT HOURS"
       }
+    },
+    {
+      "taskName": "Create "
     }
   ]
 }

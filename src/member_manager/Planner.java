@@ -1,5 +1,13 @@
 package member_manager;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -11,24 +19,26 @@ public class Planner {
     LocalDate startDate;
     LocalDate endDate;
     LocalDate localDate = LocalDate.now();  // creates a date based on todays date [Hjalmar]
-    private float totalDays = ChronoUnit.DAYS.between(startDate, endDate); // compares 2 dates and returns the diff in numbers [Hjalmar]
-    private float nowDays = ChronoUnit.DAYS.between(startDate, localDate);
+    private float totalDays;
+    private float nowDays;
     private float percentCompletePlanned = nowDays / totalDays;
-    private double percentCompleteActual = 0.2; // here we have to sum the time for all tasks, sum all completed tasks and then divide them(?) [Hjalmar]
+    private double percentCompleteActual = 0.2; // This need to be a method which collects the data from the milestones.
 
-    ArrayList<Member> members = new ArrayList<>();
-    ArrayList<Milestone> milestones = new ArrayList<>();
+    public ArrayList<Member> members = new ArrayList<>();
+    public ArrayList<Milestone> milestones = new ArrayList<>();
 
-    public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget){
+    public Planner() {
+        //Needed to reference the addMember method
+    }
+
+    public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget) {
         this.projectName = projectName;
         this.startDate = startDate;
         this.endDate = endDate;
         this.budget = budget;
+        this.totalDays = ChronoUnit.DAYS.between(startDate, endDate);
+        this.nowDays = ChronoUnit.DAYS.between(startDate, localDate);
     }
-
-    public Planner(){}
-
-    /*
 
     public double calcPv(){
          return percentCompletePlanned * budget;
@@ -43,17 +53,34 @@ public class Planner {
     }
 
     public double calcCv(){
-         double actualCost = 500;  // here we have to sum total cost we spent so far (all workers hours times salary)
-         return calcEv() - actualCost;
-    }*/
-    public void printMembers(){
-        for(Member member : members){
-            member.toString();
+         return calcEv() - calcActualCost();
+    }
+
+    //TODO We need to find a way to extract hours spent on milestones depending on ID in order to do the calculation.
+    public double calcActualCost() {
+        double actualCost = 0;
+        for (Member member:members) {
+            member.getSalary();
+
+            for (Milestone milestone : milestones) {
+
+            }
         }
+        return actualCost;
     }
-    public void storeEmployee(Member employee){
-        members.add(employee);
+
+    public void addMember(String firstName, String lastName, int dateOfBirth, double salary) {
+        Member member = new Member(firstName, lastName, dateOfBirth, salary);
+        members.add(member);
     }
+
+    public void addMilestone(String milestoneName, String milestoneDescription, Member member ,boolean accomplished) {
+        Milestone milestone = new Milestone(milestoneName, milestoneDescription, member , accomplished);
+        milestones.add(milestone);
+    }
+    //removed printMembers method as ArrayList has one implemented.
+
+
     @Override
     public String toString() {
         return "Name: " + projectName + "\n" +

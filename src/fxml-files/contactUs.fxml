@@ -36,6 +36,7 @@
                </font>
             </TextArea>
             <TextField layoutX="57.0" layoutY="207.0" prefHeight="26.0" prefWidth="245.0" />
+            <Button layoutX="565.0" layoutY="449.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Submit" />
          </children></AnchorPane>
    </children>
 </GridPane>

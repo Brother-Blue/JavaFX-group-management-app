@@ -7,14 +7,14 @@ public class Member {
     private String firstName;
     private String lastName;
     private int id;
-    private int date_of_birth;
+    private int dateOfBirth;
     private double salary;
     GeneratorMain idGen = new GeneratorMain();
 
-    public Member (String firstName, String lastName, int date_of_birth, double salary){
+    public Member (String firstName, String lastName, int dateOfBirth, double salary){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.date_of_birth = date_of_birth;
+        this.dateOfBirth = dateOfBirth;
         this.salary = salary;
         this.id = setId();
     }
@@ -40,16 +40,16 @@ public class Member {
     }
 
     public int setId() {
-        id = idGen.generateID(this.firstName, this.lastName, this.date_of_birth);
+        id = idGen.generateID(this.firstName, this.lastName, this.dateOfBirth);
         return id;
     }
 
-    public int getDate_of_birth() {
-        return date_of_birth;
+    public int getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDate_of_birth(int date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public void setDateOfBirth(int date_of_birth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public double getSalary() {
@@ -64,8 +64,8 @@ public class Member {
     public String toString() {
         return  "Name: " + firstName +  " " + lastName + '\n' +
                 "ID: " + id + '\n' +
-                "Birthday: " + date_of_birth + '\n' +
-                "Salary=" + salary + "/hour" + '\n';
+                "Birthday: " + dateOfBirth + '\n' +
+                "Salary: " + salary + "/hour" + '\n';
 
     }
 }
