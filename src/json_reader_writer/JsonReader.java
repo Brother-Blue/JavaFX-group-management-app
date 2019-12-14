@@ -87,12 +87,12 @@ public class JsonReader {
             Iterator<JSONObject> iterator1 = milestoneArray.iterator();
             while (iterator1.hasNext()) {
                 JSONObject object = iterator1.next();
-                String milestoneName = (String) jsonObject.get("milestoneName");
-                String milestoneDescription = (String) jsonObject.get("milestoneDescription");
-                LocalDate startDate = LocalDate.parse((String) jsonObject.get("startDate"));
-                LocalDate plannedEndDate = LocalDate.parse((String) jsonObject.get("plannedEndDate"));
-                LocalDate actualEndDate = LocalDate.parse((String) jsonObject.get("actualEndDate"));
-                JSONObject hoursPerEmployee = (JSONObject) jsonObject.get("hoursPerEmployee");
+                String milestoneName = (String) object.get("milestoneName");
+                String milestoneDescription = (String) object.get("milestoneDescription");
+                LocalDate startDate = LocalDate.parse((String) object.get("startDate"));
+                LocalDate plannedEndDate = LocalDate.parse((String) object.get("plannedEndDate"));
+                LocalDate actualEndDate = LocalDate.parse((String) object.get("actualEndDate"));
+                JSONObject hoursPerEmployee = (JSONObject) object.get("hoursPerEmployee");
 
 
                 Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, hoursPerEmployee);
@@ -123,10 +123,10 @@ public class JsonReader {
             Iterator<JSONObject> iterator2 = milestoneArray.iterator();
             while(iterator2.hasNext()){
                 JSONObject object = iterator2.next();
-                String riskName = (String) jsonObject.get("riskNAme");
-                String veryLikely = (String) jsonObject.get("veryLikely");
-                String possible = (String) jsonObject.get("possible");
-                String unlikely = (String) jsonObject.get("unlikely");
+                String riskName = (String) object.get("riskNAme");
+                String veryLikely = (String) object.get("veryLikely");
+                String possible = (String) object.get("possible");
+                String unlikely = (String) object.get("unlikely");
 
                 RiskMatrix risk = new RiskMatrix(riskName, veryLikely, possible, unlikely);
                 risks.add(risk);
