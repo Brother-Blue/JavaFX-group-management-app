@@ -9,10 +9,9 @@ public class Milestone {
     private LocalDate startDate;
     private LocalDate plannedEndDate;
     private LocalDate actualEndDate;
-
     private Map<Integer, Double> employeeHours; //ID as the key, amount of hour as the value. ex. ID 1, hours 8
 
-    public Milestone(String milestoneName, String milestoneDescription, LocalDate startDate, LocalDate plannedEndDate, LocalDate actualEndDate , Map <Integer, Double> employeeHours) {
+    public Milestone(String milestoneName, String milestoneDescription, LocalDate startDate, LocalDate plannedEndDate, LocalDate actualEndDate , Map<Integer, Double> employeeHours) {
         this.milestoneName = milestoneName;
         this.milestoneDescription = milestoneDescription;
         this.startDate = startDate;

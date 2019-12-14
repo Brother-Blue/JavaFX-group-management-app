@@ -94,6 +94,7 @@ public class JsonReader {
                 LocalDate actualEndDate = LocalDate.parse((String) jsonObject.get("actualEndDate"));
                 JSONObject hoursPerEmployee = (JSONObject) jsonObject.get("hoursPerEmployee");
 
+
                 Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, hoursPerEmployee);
                 milestones.add(milestone);
             }
