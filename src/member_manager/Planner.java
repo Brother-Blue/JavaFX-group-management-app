@@ -22,7 +22,7 @@ public class Planner {
     private double percentCompleteActual = 0.2; // This need to be a method which collects the data from the milestones.
 
     public ArrayList<Member> members = loadMember();
-    public ArrayList<Milestone> milestones =loadMilestones();
+    public ArrayList<Milestone> milestones = loadMilestones();
     public ArrayList<RiskMatrix> risks = loadRiskMatrix();
 
 

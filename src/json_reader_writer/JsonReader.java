@@ -63,6 +63,7 @@ public class JsonReader {
                 Member member = new Member(firstName, lastName, dateOfBirth, salary);
                 members.add(member);
             }
+            System.out.println(memberArray);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -93,11 +94,10 @@ public class JsonReader {
                 LocalDate plannedEndDate = LocalDate.parse((String) object.get("plannedEndDate"));
                 LocalDate actualEndDate = LocalDate.parse((String) object.get("actualEndDate"));
                 JSONObject hoursPerEmployee = (JSONObject) object.get("hoursPerEmployee");
-
-
                 Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, hoursPerEmployee);
                 milestones.add(milestone);
             }
+            System.out.println(milestoneArray);
     } catch (FileNotFoundException e) {
         e.printStackTrace();
     } catch (IOException e) {

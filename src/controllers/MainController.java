@@ -177,12 +177,24 @@ public class MainController {
         XYChart.Series dataSeries = new XYChart.Series();
         dataSeries.setName("Test");
 
+        int iteration = 1;
+        for (Milestone milestone : planner.milestones) {
+            double hours = planner.getHours(Integer.parseInt(searchForID.getText()), milestone.getMilestoneName());
+            dataSeries.getData().add(new XYChart.Data(Integer.toString(iteration), (int) hours));
+            iteration++;
+        }
+
+        /*
         dataSeries.getData().add(new XYChart.Data<>("1", 2));
         dataSeries.getData().add(new XYChart.Data<>("2", 4));
         dataSeries.getData().add(new XYChart.Data<>("3", 8));
         dataSeries.getData().add(new XYChart.Data<>("4", 3));
         dataSeries.getData().add(new XYChart.Data<>("5", 7));
         dataSeries.getData().add(new XYChart.Data<>("6", 9));
+
+         */
+
+
 
         chart.getData().add(dataSeries);
     }
