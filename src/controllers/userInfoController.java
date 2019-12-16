@@ -2,10 +2,8 @@ package controllers;
 
 import id_generator.GeneratorMain;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Side;
@@ -14,15 +12,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import json_reader_writer.JsonReader;
 import member_manager.Member;
-import member_manager.Milestone;
-import member_manager.Planner;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +35,8 @@ public class userInfoController extends MainController {
     private Text revealName;
     @FXML
     private Text revealID;
+    @FXML
+    private Text userInfoDescription;
     @FXML
     private PieChart pieChart;
     @FXML
@@ -145,11 +140,11 @@ public class userInfoController extends MainController {
 
         for (Member member : planner.members) {
             int hours = (int) planner.getTotalHours(member.getId());
-            String memberID = member.getFirstName() + " (" + Integer.toString(member.getId()) + ") : " + hours + "hrs";
+            String memberID = member.getFirstName() + ": " + hours + "hours";
             chartData.add(new PieChart.Data(memberID, hours));
         }
 
-        pieChart.setLabelLineLength(40);
+        pieChart.setLabelLineLength(30);
         pieChart.setLegendVisible(true);
         pieChart.setLegendSide(Side.LEFT);
         pieChart.setTitle("Hours worked");
@@ -167,12 +162,24 @@ public class userInfoController extends MainController {
         XYChart.Series dataSeries = new XYChart.Series();
         dataSeries.setName("Hours Worked");
 
+        double totalHours = 0;
+
+        for (Member member : planner.members) {
+            totalHours = totalHours + planner.getTotalHours(member.getId());
+        }
+
+        double avgHours = Math.round(totalHours / planner.members.size());
+
         ArrayList<Double> hoursWorked = planner.getHours(Integer.parseInt(searchForID.getText()));
         for (int i = 0; i < hoursWorked.size(); i++) {
-            double hours = hoursWorked.get(i);
+            double hours = 0;
+            hours = hoursWorked.get(i);
             dataSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), hours));
         }
         chart.getData().add(dataSeries);
+
+        //add in info
+        userInfoDescription.setText("The member's total hours are " + planner.getTotalHours(Integer.parseInt(searchForID.getText())) + " hours. Compared to the total group average of " + avgHours + ".");
     }
 
     public void showSalary(ActionEvent event) throws IOException {
@@ -186,11 +193,11 @@ public class userInfoController extends MainController {
         double totalSalary = 0;
         for (Member member : planner.members) {
             totalSalary = member.getSalary() * planner.getTotalHours(member.getId());
-            String memberID = member.getFirstName() + " (" + Integer.toString(member.getId()) + ") : " + totalSalary + " SEK";
+            String memberID = member.getFirstName() + ": " + totalSalary + " SEK";
             chartData.add(new PieChart.Data(memberID, totalSalary));
         }
 
-        pieChart.setLabelLineLength(40);
+        pieChart.setLabelLineLength(20);
         pieChart.setLegendVisible(true);
         pieChart.setLegendSide(Side.LEFT);
         pieChart.setTitle("Salary Earned");
@@ -211,7 +218,6 @@ public class userInfoController extends MainController {
         ArrayList<Double> hoursWorked = planner.getHours(Integer.parseInt(searchForID.getText()));
 
         double salary = 0;
-
         for (Member member : planner.members) {
             if (Integer.parseInt(searchForID.getText()) == member.getId()) {
                 salary = member.getSalary();
@@ -224,6 +230,14 @@ public class userInfoController extends MainController {
         }
 
         chart.getData().add(dataSeries);
+
+        double avgSalary = 0;
+        for (Member member : planner.members) {
+            avgSalary = Math.round((avgSalary + (member.getSalary() * planner.getTotalHours(member.getId()))) / planner.members.size());
+        }
+
+        //add in info
+        userInfoDescription.setText("The member's total salary is " + planner.getTotalHours(Integer.parseInt(searchForID.getText()))*salary + "sek. Compared to the total group average of " + avgSalary + ".");
     }
 
     public void compareUsers(ActionEvent actionEvent) {

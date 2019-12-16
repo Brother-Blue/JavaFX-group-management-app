@@ -43,6 +43,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
+                  <Text fx:id="userInfoDescription" layoutX="20.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="243.13671112060547" />
                </children>
                <GridPane.margin>
                   <Insets />
@@ -60,7 +61,7 @@
                         <Font size="22.0" />
                      </font>
                   </Text>
-                  <Button fx:id="submitButton" onAction="#compareUsers" layoutX="185.0" layoutY="123.0" mnemonicParsing="false" text="Submit" />
+                  <Button fx:id="submitButton" layoutX="185.0" layoutY="123.0" mnemonicParsing="false" onAction="#compareUsers" text="Submit" />
                   <Button fx:id="editMember" layoutX="255.0" layoutY="228.0" mnemonicParsing="false" onAction="#editMember" text="Edit Employee Data">
                      <font>
                         <Font size="13.0" />
