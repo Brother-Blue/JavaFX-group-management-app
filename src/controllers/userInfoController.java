@@ -1,19 +1,21 @@
 package controllers;
 
 import id_generator.GeneratorMain;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.chart.*;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -40,6 +42,8 @@ public class userInfoController extends MainController {
     private Text revealName;
     @FXML
     private Text revealID;
+    @FXML
+    private PieChart pieChart;
 
     // Code goes into here, whatever you want to happen when you search.
     public void search() {
@@ -124,7 +128,22 @@ public class userInfoController extends MainController {
         return name;
     }
     public void showHours(ActionEvent event) throws IOException {
-        //doCode();
+        //draw pie chart
+        ObservableList<PieChart.Data> chartData = FXCollections.observableArrayList();
+
+        for (Member member : planner.members) {
+            int hours = (int) planner.getTotalHours(member.getId());
+            String memberID = member.getFirstName() + " (" + Integer.toString(member.getId()) + ") : " + hours + "hrs";
+            chartData.add(new PieChart.Data(memberID, hours));
+        }
+
+        pieChart.setLabelLineLength(40);
+        pieChart.setLegendVisible(true);
+        pieChart.setLegendSide(Side.LEFT);
+        pieChart.setTitle("Hours worked");
+        pieChart.setData(chartData);
+
+        //draw graph
         String name = getName();
         chart.setTitle("Hours worked by: " + name);
         xAxis.setLabel("Week");
@@ -134,21 +153,39 @@ public class userInfoController extends MainController {
         chart.autosize();
 
         XYChart.Series dataSeries = new XYChart.Series();
-        dataSeries.setName("Test");
+        dataSeries.setName("Hours Worked");
 
-        ArrayList<Double> hours = planner.getHours(Integer.parseInt(searchForID.getText()));
-
-        for (int i = 0; i < hours.size(); i++) {
-            double hoursWorked = hours.get(i);
-            dataSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), hoursWorked));
-
+        ArrayList<Double> hoursWorked = planner.getHours(Integer.parseInt(searchForID.getText()));
+        for (int i = 0; i < hoursWorked.size(); i++) {
+            double hours = hoursWorked.get(i);
+            dataSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), hours));
         }
-
         chart.getData().add(dataSeries);
     }
 
     public void showSalary(ActionEvent event) throws IOException {
-        //doCode();
+
+        //do pieChart
+
+        pieChart.getData().clear();
+        pieChart.autosize();
+
+        ObservableList<PieChart.Data> chartData = FXCollections.observableArrayList();
+
+        double totalSalary = 0;
+        for (Member member : planner.members) {
+            totalSalary = member.getSalary() * planner.getTotalHours(member.getId());
+            String memberID = member.getFirstName() + " (" + Integer.toString(member.getId()) + ") : " + totalSalary + " SEK";
+            chartData.add(new PieChart.Data(memberID, totalSalary));
+        }
+
+        pieChart.setLabelLineLength(40);
+        pieChart.setLegendVisible(true);
+        pieChart.setLegendSide(Side.LEFT);
+        pieChart.setTitle("Salary Earned");
+        pieChart.setData(chartData);
+
+        //Do barChart
         String name = getName();
         chart.setTitle("Salaries earned by: " + name);
         xAxis.setLabel("Week");
@@ -158,9 +195,9 @@ public class userInfoController extends MainController {
         chart.autosize();
 
         XYChart.Series dataSeries = new XYChart.Series();
-        dataSeries.setName("Test");
+        dataSeries.setName("Salary Earned");
 
-        ArrayList<Double> hours = planner.getHours(Integer.parseInt(searchForID.getText()));
+        ArrayList<Double> hoursWorked = planner.getHours(Integer.parseInt(searchForID.getText()));
 
         double salary = 0;
 
@@ -170,8 +207,8 @@ public class userInfoController extends MainController {
             }
         }
 
-        for (int i = 0; i < hours.size(); i++) {
-            double total = salary*hours.get(i);
+        for (int i = 0; i < hoursWorked.size(); i++) {
+            double total = salary*hoursWorked.get(i);
             dataSeries.getData().add(new XYChart.Data<>(Integer.toString(i), total));
         }
 
