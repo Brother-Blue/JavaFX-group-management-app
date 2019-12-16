@@ -64,6 +64,7 @@ public class JsonReader {
                 double salary = Integer.parseInt((String) object.get("salary"));
                 Member member = new Member(firstName, lastName, ID, salary);
                 members.add(member);
+                System.out.println(member.getId() + ": " + member.getFirstName());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
