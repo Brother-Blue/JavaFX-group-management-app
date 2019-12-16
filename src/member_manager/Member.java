@@ -14,12 +14,21 @@ public class Member {
 
     GeneratorMain idGen = new GeneratorMain();
 
+    //constructor for a new employee where we need birthday to generate a new ID
     public Member (String firstName, String lastName, int dateOfBirth, double salary){
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.salary = salary;
         this.id = loadID();
+    }
+    //constructor for an already existing employee where we have the ID already stored
+    public Member (String firstName, String lastName, float ID, double salary ){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id =(int) ID;  //have to have it as a float then cast it to an int so we have 2 different signatures for the constructors
+        this.salary = salary;
+        System.out.println("uses the load constructor");
     }
     //TODO To be used with the JSON save states
     public void addHours(int week, int hours) {
@@ -53,6 +62,7 @@ public class Member {
         this.id = id;
     }
 
+    //generates a new ID based on names and birthday
     public int loadID() {
         id = idGen.generateID(this.firstName, this.lastName, this.dateOfBirth);
         return id;
