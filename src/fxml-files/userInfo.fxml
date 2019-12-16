@@ -60,8 +60,7 @@
                         <Font size="22.0" />
                      </font>
                   </Text>
-                  <ChoiceBox fx:id="compareBoxList" layoutX="27.0" layoutY="123.0" prefWidth="150.0" />
-                  <Button fx:id="submitButton" layoutX="185.0" layoutY="123.0" mnemonicParsing="false" text="Submit" />
+                  <Button fx:id="submitButton" onAction="#compareUsers" layoutX="185.0" layoutY="123.0" mnemonicParsing="false" text="Submit" />
                   <Button fx:id="editMember" layoutX="255.0" layoutY="228.0" mnemonicParsing="false" onAction="#editMember" text="Edit Employee Data">
                      <font>
                         <Font size="13.0" />
@@ -72,6 +71,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
+                  <ComboBox fx:id="compareUserDropdown" layoutX="27.0" layoutY="123.0" prefWidth="150.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

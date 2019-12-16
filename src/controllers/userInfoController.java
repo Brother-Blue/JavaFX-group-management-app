@@ -44,9 +44,20 @@ public class userInfoController extends MainController {
     private Text revealID;
     @FXML
     private PieChart pieChart;
+    @FXML
+    private ComboBox compareUserDropdown;
+    @FXML
+    private Button submitButton;
 
     // Code goes into here, whatever you want to happen when you search.
     public void search() {
+
+        ObservableList<String> options = FXCollections.observableArrayList();
+        for (Member member : planner.members) {
+            options.add(Integer.toString(member.getId()));
+        }
+        compareUserDropdown.setItems(options);
+
         Window owner = searchForIDButton.getScene().getWindow();
         int searchedID = 0;
         boolean IDValid = true;
@@ -127,6 +138,7 @@ public class userInfoController extends MainController {
         }
         return name;
     }
+
     public void showHours(ActionEvent event) throws IOException {
         //draw pie chart
         ObservableList<PieChart.Data> chartData = FXCollections.observableArrayList();
@@ -166,7 +178,6 @@ public class userInfoController extends MainController {
     public void showSalary(ActionEvent event) throws IOException {
 
         //do pieChart
-
         pieChart.getData().clear();
         pieChart.autosize();
 
@@ -212,18 +223,12 @@ public class userInfoController extends MainController {
             dataSeries.getData().add(new XYChart.Data<>(Integer.toString(i), total));
         }
 
-        /*
-        dataSeries.getData().add(new XYChart.Data<>("1", 145));
-        dataSeries.getData().add(new XYChart.Data<>("2", 298));
-        dataSeries.getData().add(new XYChart.Data<>("3", 1092));
-        dataSeries.getData().add(new XYChart.Data<>("4", 569));
-        dataSeries.getData().add(new XYChart.Data<>("5", 238));
-        dataSeries.getData().add(new XYChart.Data<>("6", 360));
-
-         */
-
         chart.getData().add(dataSeries);
     }
 
-
+    public void compareUsers(ActionEvent actionEvent) {
+        int firstID = Integer.parseInt(searchForID.getText());
+        String compareID = ((String) compareUserDropdown.getValue());
+        System.out.println(firstID + ", " + compareID);
+    }
 }
