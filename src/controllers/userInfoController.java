@@ -138,7 +138,7 @@ public class userInfoController extends MainController {
 
         int iteration = 1;
         for (Milestone milestone : planner.milestones) {
-            double hours = planner.getHours(Integer.parseInt(searchForID.getText()), milestone.getMilestoneName());
+            double hours = planner.getHours(Integer.parseInt(searchForID.getText()));
             dataSeries.getData().add(new XYChart.Data(Integer.toString(iteration), (int) hours));
             iteration++;
         }

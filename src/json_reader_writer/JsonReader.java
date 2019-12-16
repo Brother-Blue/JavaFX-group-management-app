@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.HashMap;
 
 import member_manager.Member;
 import member_manager.Milestone;
@@ -80,6 +82,7 @@ public class JsonReader {
         JSONParser jsonParser = new JSONParser();
         ArrayList<Milestone> milestones = new ArrayList<>();
 
+        double hours = 0;
         try {
             Object obj = jsonParser.parse(new FileReader("input.json"));
             JSONObject jsonObject = (JSONObject) obj;
@@ -94,8 +97,13 @@ public class JsonReader {
                 LocalDate plannedEndDate = LocalDate.parse((String) object.get("plannedEndDate"));
                 LocalDate actualEndDate = LocalDate.parse((String) object.get("actualEndDate"));
                 JSONObject hoursPerEmployee = (JSONObject) object.get("hoursPerEmployee");
-                Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, hoursPerEmployee);
+
+
+                Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, createMembers(hoursPerEmployee));
                 milestones.add(milestone);
+                System.out.println(milestone.getEmployeeHours());
+                System.out.println(milestone.getEmployeeHours().get(18619));
+
             }
             System.out.println(milestoneArray);
     } catch (FileNotFoundException e) {
@@ -106,6 +114,18 @@ public class JsonReader {
         e.printStackTrace();
     }
         return milestones;
+    }
+
+    private Map<Integer, Double> createMembers(JSONObject milestone) {
+        Map<Integer, Double> map = new HashMap<>();
+        Iterator milestoneIterator = milestone.keySet().iterator();
+
+        while (milestoneIterator.hasNext()) {
+            Integer key = Integer.valueOf((String) milestoneIterator.next());
+            double value = Double.valueOf((String) milestone.get(key.toString()));
+            map.put(key, value);
+        }
+        return map;
     }
 
     //TODO: Visualise this information in the input.json with javafx
