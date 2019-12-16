@@ -43,7 +43,7 @@
                   <Text fx:id="revealName" layoutX="58.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="326.13673400878906" />
                   <Text fx:id="previewEmployeeID" layoutX="20.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " />
                   <Text fx:id="revealID" layoutX="39.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.40001392364502" />
-                  <Button fx:id="editEmployeeB" layoutX="248.0" layoutY="194.0" mnemonicParsing="false" onAction="#editMember" text="Edit Employee Data">
+                  <Button fx:id="editMember" layoutX="248.0" layoutY="194.0" mnemonicParsing="false" onAction="#editMember" text="Edit Employee Data">
                      <font>
                         <Font size="13.0" />
                      </font>

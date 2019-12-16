@@ -99,7 +99,7 @@ public class userInfoController extends MainController {
 
     public void editMember(ActionEvent event) throws IOException{
 
-        Parent editMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/addMemberContribution.fxml"));
+        Parent editMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/editMember.fxml"));
         Scene editMemberScene = new Scene(editMemberParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
