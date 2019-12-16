@@ -23,6 +23,7 @@ import member_manager.Milestone;
 import member_manager.Planner;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class userInfoController extends MainController {
     @FXML
@@ -39,7 +40,6 @@ public class userInfoController extends MainController {
     private Text revealName;
     @FXML
     private Text revealID;
-
 
     // Code goes into here, whatever you want to happen when you search.
     public void search() {
@@ -136,24 +136,13 @@ public class userInfoController extends MainController {
         XYChart.Series dataSeries = new XYChart.Series();
         dataSeries.setName("Test");
 
-        int iteration = 1;
-        for (Milestone milestone : planner.milestones) {
-            double hours = planner.getHours(Integer.parseInt(searchForID.getText()));
-            dataSeries.getData().add(new XYChart.Data(Integer.toString(iteration), (int) hours));
-            iteration++;
+        ArrayList<Double> hours = planner.getHours(Integer.parseInt(searchForID.getText()));
+
+        for (int i = 0; i < hours.size(); i++) {
+            double hoursWorked = hours.get(i);
+            dataSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), hoursWorked));
+
         }
-
-        /*
-        dataSeries.getData().add(new XYChart.Data<>("1", 2));
-        dataSeries.getData().add(new XYChart.Data<>("2", 4));
-        dataSeries.getData().add(new XYChart.Data<>("3", 8));
-        dataSeries.getData().add(new XYChart.Data<>("4", 3));
-        dataSeries.getData().add(new XYChart.Data<>("5", 7));
-        dataSeries.getData().add(new XYChart.Data<>("6", 9));
-
-         */
-
-
 
         chart.getData().add(dataSeries);
     }
@@ -171,12 +160,30 @@ public class userInfoController extends MainController {
         XYChart.Series dataSeries = new XYChart.Series();
         dataSeries.setName("Test");
 
+        ArrayList<Double> hours = planner.getHours(Integer.parseInt(searchForID.getText()));
+
+        double salary = 0;
+
+        for (Member member : planner.members) {
+            if (Integer.parseInt(searchForID.getText()) == member.getId()) {
+                salary = member.getSalary();
+            }
+        }
+
+        for (int i = 0; i < hours.size(); i++) {
+            double total = salary*hours.get(i);
+            dataSeries.getData().add(new XYChart.Data<>(Integer.toString(i), total));
+        }
+
+        /*
         dataSeries.getData().add(new XYChart.Data<>("1", 145));
         dataSeries.getData().add(new XYChart.Data<>("2", 298));
         dataSeries.getData().add(new XYChart.Data<>("3", 1092));
         dataSeries.getData().add(new XYChart.Data<>("4", 569));
         dataSeries.getData().add(new XYChart.Data<>("5", 238));
         dataSeries.getData().add(new XYChart.Data<>("6", 360));
+
+         */
 
         chart.getData().add(dataSeries);
     }

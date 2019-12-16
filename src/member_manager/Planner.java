@@ -45,13 +45,12 @@ public class Planner {
         return result;
     }
     //searches for a specific milestone and member and returns hours for that milestone (can be reused to we can check all members hours for a specific milestone)
-    public double getHours(int ID){
-        double result = 0;
+    public ArrayList<Double> getHours(int ID){
+        ArrayList<Double> result = new ArrayList<>();
         for (Milestone milestone : milestones){
-            if (milestone.getEmployeeHours().containsKey(ID)) {
-                result = ((double) milestone.getEmployeeHours().get(ID));
-            }
+            result.add(((double) milestone.getEmployeeHours().get(ID)));
         }
+        //System.out.println(result); debug
         return result;
     }
 
