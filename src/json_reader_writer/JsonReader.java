@@ -65,7 +65,6 @@ public class JsonReader {
                 Member member = new Member(firstName, lastName, ID, salary);
                 members.add(member);
             }
-            System.out.println(memberArray);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -101,11 +100,7 @@ public class JsonReader {
 
                 Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, createMembers(hoursPerEmployee));
                 milestones.add(milestone);
-                System.out.println(milestone.getEmployeeHours());
-                System.out.println(milestone.getEmployeeHours().get(18619));
-
             }
-            System.out.println(milestoneArray);
     } catch (FileNotFoundException e) {
         e.printStackTrace();
     } catch (IOException e) {

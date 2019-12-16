@@ -28,7 +28,6 @@ public class Member {
         this.lastName = lastName;
         this.id =(int) ID;  //have to have it as a float then cast it to an int so we have 2 different signatures for the constructors
         this.salary = salary;
-        System.out.println("uses the load constructor");
     }
     //TODO To be used with the JSON save states
     public void addHours(int week, int hours) {
