@@ -60,9 +60,9 @@ public class JsonReader {
                 JSONObject object = iterator.next();
                 String firstName = (String) object.get("firstName");
                 String lastName = (String) object.get("lastName");
-                int dateOfBirth = Integer.parseInt((String) object.get("dateOfBirth"));
-                int salary = Integer.parseInt((String) object.get("salary"));
-                Member member = new Member(firstName, lastName, dateOfBirth, salary);
+                float ID = Integer.parseInt((String) object.get("ID"));
+                double salary = Integer.parseInt((String) object.get("salary"));
+                Member member = new Member(firstName, lastName, ID, salary);
                 members.add(member);
             }
             System.out.println(memberArray);
