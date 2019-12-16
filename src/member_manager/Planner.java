@@ -70,15 +70,10 @@ public class Planner {
          return calcEv() - calcActualCost();
     }
 
-    //TODO We need to find a way to extract hours spent on milestones depending on ID in order to do the calculation.
     public double calcActualCost() {
         double actualCost = 0;
         for (Member member:members) {
-            member.getSalary();
-
-            for (Milestone milestone : milestones) {
-
-            }
+            actualCost = actualCost + member.getSalary() * getTotalHours(member.getId());
         }
         return actualCost;
     }
