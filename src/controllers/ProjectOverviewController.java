@@ -23,6 +23,9 @@ public class ProjectOverviewController extends MainController implements Initial
 @FXML
 private ComboBox calculatorDropdown;
 
+
+
+
     public void riskMatrixView(ActionEvent event) throws IOException {
         Parent riskMatrixMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/riskMatrix.fxml"));
         Scene riskMatrixMemberScene = new Scene(riskMatrixMemberParent);
@@ -44,6 +47,39 @@ private ComboBox calculatorDropdown;
             calculatorDropdown.setItems(calcOptions);
 
         }
+    public void calcSelection() {
+        String selection = (String) calculatorDropdown.getValue();
+        if (selection == null){
+            //error popup here
+        } else if (selection == "Planned Value (PV)"){
+           plannedValue();
+        } else if (selection == "Earned Value (EV)"){
+           earnedValue();
+        } else if (selection == "Actual Cost (AC)") {
+            actualCost();
+        } else if (selection ==  "Budget at Completion(BAC)") {
+            budgetAtCompl();
+        } else if (selection == "Schedule Variance (SV)") {
+            scheduleVariance();
+        } else if (selection == "Schedule Performance Index (SPI)") {
+            schedulePerfIndex();
+        } else if (selection == "Cost Variance (CV)") {
+            costVariance();
+        } else if (selection == "Cost Performance Index (CPI)"){
+            costPerfIndex();
+
+        }
+
+    }
+
+    public void plannedValue(){}
+    public void earnedValue(){}
+    public void actualCost(){}
+    public void budgetAtCompl(){}
+    public void scheduleVariance(){}
+    public void schedulePerfIndex(){}
+    public void costVariance(){}
+    public void costPerfIndex(){}
 
     }
 

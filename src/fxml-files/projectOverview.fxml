@@ -31,7 +31,7 @@
             </Text>
             <Text layoutX="42.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Calculation Type:" />
             <Text layoutX="42.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Calculation Type:" wrappingWidth="143.865234375" />
-            <Button fx:id="submitCT" layoutX="348.0" layoutY="104.0" mnemonicParsing="false" text="Submit" />
+            <Button fx:id="calcSelection" layoutX="348.0" layoutY="104.0" mnemonicParsing="false" text="Submit" />
             <ComboBox fx:id="calculatorDropdown" layoutX="186.0" layoutY="104.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
