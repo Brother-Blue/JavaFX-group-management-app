@@ -11,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -22,6 +24,12 @@ public class ProjectOverviewController extends MainController implements Initial
 
 @FXML
 private ComboBox calculatorDropdown;
+@FXML
+private TextField calcResult;
+@FXML
+private TextArea calcFormula;
+@FXML
+private TextArea calcDescrip;
 
 
 
@@ -72,14 +80,52 @@ private ComboBox calculatorDropdown;
 
     }
 
-    public void plannedValue(){}
-    public void earnedValue(){}
-    public void actualCost(){}
-    public void budgetAtCompl(){}
-    public void scheduleVariance(){}
-    public void schedulePerfIndex(){}
-    public void costVariance(){}
-    public void costPerfIndex(){}
+    public void plannedValue(){
+        calcDescrip.setText("");
+        double result = planner.calcPv();
+        calcResult.setText("" + result);
+        calcFormula.setText("");
+    }
+    public void earnedValue(){
+        calcDescrip.setText("Expenditures that should have been realised given the actual technical project progress (based on\n" +
+                "the expenditure plan) (From lecture slides)");
+        double result = planner.calcEv();
+        calcResult.setText("" + result);
+        calcFormula.setText("");
+    }
+    public void actualCost(){
+        calcDescrip.setText("");
+        double result = planner.calcActualCost();
+        calcResult.setText("" + result);
+        calcFormula.setText("");
+    }
+    public void budgetAtCompl(){
+        calcDescrip.setText("");
+        calcResult.setText("To be implemented");
+        calcFormula.setText("");
+    }
+    public void scheduleVariance(){
+        calcDescrip.setText("Difference between planned expenditures and earned value (From lecture slides)");
+        double result = planner.calcSv();
+        calcResult.setText("" + result);
+        calcFormula.setText("EV – PV");
+    }
+    public void schedulePerfIndex(){
+        calcDescrip.setText("");
+        calcResult.setText("To be implemented");
+        calcFormula.setText("(EV / PV)*100");
+    }
+    public void costVariance(){
+        calcDescrip.setText("Difference between actual expenditures and earned value (From lecture slides)");
+        double result = planner.calcCv();
+        calcResult.setText("" + result);
+        calcFormula.setText("EV – AV");
+    }
+    public void costPerfIndex(){
+        calcDescrip.setText("");
+        calcResult.setText("To be implemented");
+        calcFormula.setText("(EV / AV)*100");
+    }
 
     }
 
