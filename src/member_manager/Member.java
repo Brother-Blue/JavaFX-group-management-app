@@ -75,11 +75,6 @@ public class Member {
         this.dateOfBirth = dateOfBirth;
     }
 
-    //Added salary getter to find salary of a specific ID.
-    public double getSalary(int id) {
-        return salary;
-    }
-
     public double getSalary() {
         return salary;
     }

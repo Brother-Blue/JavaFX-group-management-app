@@ -61,7 +61,7 @@
                         <Font size="22.0" />
                      </font>
                   </Text>
-                  <Button fx:id="submitButton" layoutX="185.0" layoutY="123.0" mnemonicParsing="false" onAction="#compareUsers" text="Submit" />
+                  <Button fx:id="submitButton" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#compareUsers" text="Submit" />
                   <Button fx:id="editMember" layoutX="255.0" layoutY="228.0" mnemonicParsing="false" onAction="#editMember" text="Edit Employee Data">
                      <font>
                         <Font size="13.0" />
@@ -73,11 +73,12 @@
                      </font>
                   </Button>
                   <ComboBox fx:id="compareUserDropdown" layoutX="27.0" layoutY="123.0" prefWidth="150.0" />
+                  <ComboBox fx:id="compareHoursSalaryDropdown" layoutX="200.0" layoutY="122.0" prefHeight="26.0" prefWidth="117.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <BarChart fx:id="chart" layoutX="14.0" layoutY="14.0" prefHeight="237.0" prefWidth="308.0">
+                  <BarChart fx:id="barChart" layoutX="14.0" layoutY="14.0" prefHeight="237.0" prefWidth="308.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" fx:id="xAxis" />
                     </xAxis>

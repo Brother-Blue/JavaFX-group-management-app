@@ -1,30 +1,8 @@
 package id_generator;
 
-import java.util.Scanner;
-
 public class GeneratorMain {
 
     private static final int SHORTEN_ID = 10;
-
-    //private static ArrayList<id_generator.Digit5> generator5 = new ArrayList<>(); //For storing the ID
-    public static Scanner scanner = new Scanner(System.in);
-
-    //Prompt the user for member information
-   /* public static void createmember() {
-        String firstName = inputString(">> What is the member's first name: ");
-        String lastName = inputString(">> What is the member's last name: ");
-        String maskID = inputString(">> What is the member's preferred nickname: ");
-        int birthday = inputInt(">> Enter member's birthday (YYYYMMDD): ");
-
-        //Create the member's new ID and add it to the ArrayList
-        Digit5 ID = new Digit5(firstName, lastName, maskID, birthday, generateID(firstName, lastName, birthday));
-        generator5.add(ID);
-
-        //good ol feedback to know the adding didnt crash
-        System.out.println("\n>> Member added: " + ID.getFirstName() + " " + ID.getLastName());
-        System.out.println(">> Generating member ID.......");
-        System.out.println(">> Done!");
-    }*/
 
     //method to create the member's unique ID given their information
     public static int generateID(String firstName, String lastName, int birthday) {
@@ -72,31 +50,8 @@ public class GeneratorMain {
             Integer.parseInt(inputText);
             return true;
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             return false;
         }
     }
-
-    public static String inputString(String message) {
-        System.out.print(message);
-        String result = scanner.nextLine();
-        return result;
-    }
-
-    public static int inputInt(String message) {
-        System.out.print(message);
-        int result = scanner.nextInt();
-        scanner.nextLine();
-        return result;
-    }
-
-
-   /* public static void main(String[] args) {
-        int memberAmount = inputInt(">> How many members are in your team: ");
-        while (memberAmount > 0) {
-            memberAmount--;
-            createEmployee();
-        }
-        System.out.println(generator5); //debug to check if all ID's were added
-        scanner.close();
-    }*/
 }
