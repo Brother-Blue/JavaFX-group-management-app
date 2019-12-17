@@ -37,6 +37,16 @@ public class Member {
         hoursWorked.get(index).setHours(hours);
     }
 
+    public ArrayList<Timesheet> getHours(){
+        ArrayList<Timesheet> hoursWorked = new ArrayList<>();
+        for(Timesheet timesheet:hoursWorked){
+            timesheet.getHours();
+            timesheet.getWeek();
+            hoursWorked.add(timesheet);
+        }
+        return hoursWorked;
+    }
+
     public String getFirstName() {
         return firstName;
     }

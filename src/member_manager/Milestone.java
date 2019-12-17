@@ -24,6 +24,17 @@ public class Milestone {
         return milestoneName;
     }
 
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getPlannedEndDate() {
+        return plannedEndDate;
+    }
+
+    public LocalDate getActualEndDate() {
+        return actualEndDate;
+    }
 
     public Map getEmployeeHours() {
         return employeeHours;
@@ -40,17 +51,7 @@ public class Milestone {
         return milestoneDescription;
     }
 
-    public LocalDate getStartDate() {
-        return startDate;
-    }
 
-    public LocalDate getPlannedEndDate() {
-        return plannedEndDate;
-    }
-
-    public LocalDate getActualEndDate() {
-        return actualEndDate;
-    }
 
     @Override
     public String toString() {

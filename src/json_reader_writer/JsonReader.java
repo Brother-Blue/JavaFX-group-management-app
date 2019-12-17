@@ -32,7 +32,7 @@ public class JsonReader {
             String projectName = (String) jsonObject.get("projectName");
             LocalDate startDate = LocalDate.parse((String) jsonObject.get("startDate"));
             LocalDate endDate = LocalDate.parse((String) jsonObject.get("endDate"));
-            int budget = Integer.parseInt((String)jsonObject.get("budget"));
+            double budget = Double.parseDouble((String)jsonObject.get("budget"));
             return new Planner(projectName, startDate, endDate, budget);
 
         } catch (ParseException e) {
@@ -61,7 +61,7 @@ public class JsonReader {
                 String firstName = (String) object.get("firstName");
                 String lastName = (String) object.get("lastName");
                 float ID = Integer.parseInt((String) object.get("ID"));
-                double salary = Integer.parseInt((String) object.get("salary"));
+                double salary = Double.parseDouble((String) object.get("salary"));
                 Member member = new Member(firstName, lastName, ID, salary);
                 members.add(member);
                 System.out.println(member.getId() + ": " + member.getFirstName());
@@ -96,10 +96,10 @@ public class JsonReader {
                 LocalDate startDate = LocalDate.parse((String) object.get("startDate"));
                 LocalDate plannedEndDate = LocalDate.parse((String) object.get("plannedEndDate"));
                 LocalDate actualEndDate = LocalDate.parse((String) object.get("actualEndDate"));
-                JSONObject hoursPerEmployee = (JSONObject) object.get("hoursPerEmployee");
+                JSONObject hoursPerMember = (JSONObject) object.get("hoursPerMember");
 
 
-                Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, createMembers(hoursPerEmployee));
+                Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, createMembers(hoursPerMember));
                 milestones.add(milestone);
             }
     } catch (FileNotFoundException e) {
@@ -139,7 +139,7 @@ public class JsonReader {
             Iterator<JSONObject> iterator2 = milestoneArray.iterator();
             while(iterator2.hasNext()){
                 JSONObject object = iterator2.next();
-                String riskName = (String) object.get("riskNAme");
+                String riskName = (String) object.get("riskName");
                 String veryLikely = (String) object.get("veryLikely");
                 String possible = (String) object.get("possible");
                 String unlikely = (String) object.get("unlikely");
