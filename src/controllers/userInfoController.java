@@ -47,19 +47,6 @@ public class userInfoController extends MainController {
     // Code goes into here, whatever you want to happen when you search.
     public void search() {
 
-        ObservableList<String> optionsIds = FXCollections.observableArrayList();
-        for (Member member : planner.members) {
-            if (member.getId() != Integer.parseInt(searchForID.getText())) {
-                optionsIds.add(Integer.toString(member.getId()) + " : " + member.getFirstName() + " " + member.getLastName().substring(0, 1) + ".");
-            }
-        }
-        compareUserDropdown.setItems(optionsIds);
-
-        ObservableList<String> optionsHoursSalary = FXCollections.observableArrayList();
-            optionsHoursSalary.add("Hours");
-            optionsHoursSalary.add("Salaries");
-        compareHoursSalaryDropdown.setItems(optionsHoursSalary);
-
         Window owner = searchForIDButton.getScene().getWindow();
         int searchedID = 0;
         boolean IDValid = true;
@@ -71,6 +58,19 @@ public class userInfoController extends MainController {
             IDValid = false;
         } else if (GeneratorMain.isParsable(searchForID.getText())) {
             searchedID = Integer.parseInt(searchForID.getText());
+
+            ObservableList<String> optionsIds = FXCollections.observableArrayList();
+            for (Member member : planner.members) {
+                if (member.getId() != Integer.parseInt(searchForID.getText())) {
+                    optionsIds.add(Integer.toString(member.getId()) + " : " + member.getFirstName() + " " + member.getLastName().substring(0, 1) + ".");
+                }
+            }
+            compareUserDropdown.setItems(optionsIds);
+
+            ObservableList<String> optionsHoursSalary = FXCollections.observableArrayList();
+            optionsHoursSalary.add("Hours");
+            optionsHoursSalary.add("Salaries");
+            compareHoursSalaryDropdown.setItems(optionsHoursSalary);
 
             if (Integer.parseInt(searchForID.getText()) < 10000) {
                 AlertHelper.showAlert(Alert.AlertType.WARNING, owner, "Error", "ID's are positive 5-digit integers!");
