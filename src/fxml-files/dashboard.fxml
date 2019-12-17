@@ -45,11 +45,6 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="70.0" layoutY="140.0" mnemonicParsing="false" onAction="#loadData" prefHeight="31.0" prefWidth="141.0" text="Load Data">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="280.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -68,6 +63,16 @@
             <Button layoutX="114.0" layoutY="188.0" mnemonicParsing="false" onAction="#contactUs" prefHeight="31.0" prefWidth="82.0" text="Contact us">
                <font>
                   <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="632.0" layoutY="21.0" mnemonicParsing="false" onAction="#loadData" prefHeight="31.0" prefWidth="141.0" text="Load Data">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="632.0" layoutY="66.0" mnemonicParsing="false" onAction="#saveState" prefHeight="31.0" prefWidth="141.0" text="Save">
+               <font>
+                  <Font size="15.0" />
                </font>
             </Button>
          </children>

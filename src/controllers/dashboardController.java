@@ -71,9 +71,8 @@ public class dashboardController extends MainController {
         window.show();
     }
 
-    public void loadData() {
-
-    }
+    public void loadData(){}
+    public void saveState(){}
 
     public void exit(){
         Stage stage = (Stage) exitApp.getScene().getWindow();
