@@ -57,12 +57,12 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <LineChart layoutX="-30.0" layoutY="-70.0" prefHeight="235.0" prefWidth="400.0">
+            <LineChart fx:id="lineChart" layoutX="-30.0" layoutY="-70.0" prefHeight="235.0" prefWidth="400.0">
               <xAxis>
-                <CategoryAxis side="BOTTOM" />
+                <CategoryAxis fx:id="xAxis" side="BOTTOM" />
               </xAxis>
               <yAxis>
-                <NumberAxis prefHeight="141.0" prefWidth="0.0" side="LEFT" />
+                <NumberAxis fx:id="yAxis" prefHeight="141.0" prefWidth="0.0" side="LEFT" />
               </yAxis>
             </LineChart>
          </children>
