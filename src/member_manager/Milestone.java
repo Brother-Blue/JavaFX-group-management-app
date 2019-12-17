@@ -40,6 +40,18 @@ public class Milestone {
         return milestoneDescription;
     }
 
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getPlannedEndDate() {
+        return plannedEndDate;
+    }
+
+    public LocalDate getActualEndDate() {
+        return actualEndDate;
+    }
+
     @Override
     public String toString() {
         return "{" +

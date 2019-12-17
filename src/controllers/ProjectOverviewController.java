@@ -9,13 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,7 +32,12 @@ private TextField calcResult;
 private TextArea calcFormula;
 @FXML
 private TextArea calcDescrip;
-
+@FXML
+private LineChart lineChart;
+@FXML
+private CategoryAxis xAxis;
+@FXML
+private NumberAxis yAxis;
 
 
 
@@ -55,7 +62,7 @@ private TextArea calcDescrip;
             calculatorDropdown.setItems(calcOptions);
 
         }
-    public void calcSelection() {
+    public void calcSelection(ActionEvent actionEvent) {
         String selection = (String) calculatorDropdown.getValue();
         if (selection == null){
             //error popup here
@@ -82,9 +89,22 @@ private TextArea calcDescrip;
 
     public void plannedValue(){
         calcDescrip.setText("");
-        double result = planner.calcPv();
+        double result = 0;
         calcResult.setText("" + result);
         calcFormula.setText("");
+
+        XYChart.Series pvSeries = new XYChart.Series();
+
+        for (int i = 0; i < planner.milestones.size(); i++) {
+            result = planner.calcPv();
+            pvSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), result));
+            System.out.println(result);
+        }
+
+        xAxis.setAnimated(false);
+        yAxis.setAnimated(false);
+        lineChart.setTitle("Planned Values (PV)");
+        lineChart.getData().add(pvSeries);
     }
     public void earnedValue(){
         calcDescrip.setText("Expenditures that should have been realised given the actual technical project progress (based on\n" +
