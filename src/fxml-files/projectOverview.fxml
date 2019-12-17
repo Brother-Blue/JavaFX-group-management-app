@@ -33,7 +33,7 @@
             </Text>
             <Text layoutX="42.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Calculation Type:" />
             <Text layoutX="42.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Calculation Type:" wrappingWidth="143.865234375" />
-            <Button layoutX="200.0" layoutY="112.0" mnemonicParsing="false" onAction="#calcSelection" text="Submit" />
+            <Button fx:id="submitButton" layoutX="200.0" layoutY="112.0" mnemonicParsing="false" onAction="#calcSelection" text="Submit" />
             <ComboBox fx:id="calculatorDropdown" layoutX="38.0" layoutY="112.0" prefWidth="150.0" />
             <TextArea fx:id="calcDescrip" editable="false" layoutX="39.0" layoutY="160.0" mouseTransparent="true" prefHeight="89.0" prefWidth="270.0" wrapText="true" />
          </children>

@@ -13,10 +13,9 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,6 +37,8 @@ private LineChart lineChart;
 private CategoryAxis xAxis;
 @FXML
 private NumberAxis yAxis;
+@FXML
+private Button submitButton;
 
 
 
@@ -63,9 +64,10 @@ private NumberAxis yAxis;
 
         }
     public void calcSelection(ActionEvent actionEvent) {
+        Window owner = submitButton.getScene().getWindow();
         String selection = (String) calculatorDropdown.getValue();
         if (selection == null){
-            //error popup here
+            AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Please select an option");
         } else if (selection == "Planned Value (PV)"){
            plannedValue();
         } else if (selection == "Earned Value (EV)"){
