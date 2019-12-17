@@ -43,7 +43,4 @@ public class MainController {
         window.show();
     }
 
-
-
-
 }

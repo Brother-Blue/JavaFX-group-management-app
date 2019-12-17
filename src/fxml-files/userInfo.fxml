@@ -67,11 +67,6 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="backB" layoutX="21.0" layoutY="228.0" mnemonicParsing="false" onAction="#back" text="Back">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
                   <ComboBox fx:id="compareUserDropdown" layoutX="27.0" layoutY="123.0" prefWidth="150.0" />
                   <ComboBox fx:id="compareHoursSalaryDropdown" layoutX="200.0" layoutY="122.0" prefHeight="26.0" prefWidth="117.0" />
                </children>
@@ -87,6 +82,11 @@
                     </yAxis>
                   </BarChart>
                   <ImageView fitHeight="200.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="backB" layoutX="341.0" layoutY="228.0" mnemonicParsing="false" onAction="#back" text="Back">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
             <PieChart fx:id="pieChart" GridPane.columnIndex="1" />
