@@ -4,7 +4,7 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -30,9 +30,9 @@
                </font>
             </Text>
             <Text layoutX="42.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Calculation Type:" />
-            <ChoiceBox fx:id="calculatorBox" layoutX="187.0" layoutY="104.0" onMouseClicked="#loadData" prefWidth="150.0" />
             <Text layoutX="42.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Calculation Type:" wrappingWidth="143.865234375" />
             <Button fx:id="submitCT" layoutX="348.0" layoutY="104.0" mnemonicParsing="false" text="Submit" />
+            <ComboBox fx:id="calculatorDropdown" layoutX="186.0" layoutY="104.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
