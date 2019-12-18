@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import json_reader_writer.JsonReader;
+import json_reader_writer.JsonWriter;
 import member_manager.Member;
 import member_manager.Planner;
 
@@ -69,6 +70,8 @@ public class newMemberController extends MainController {
             planner.addMember(firstNameRegister.getText(), lastNameRegister.getText(), Integer.parseInt(dobRegister.getText()), 1);
             System.out.println(firstNameRegister.getText() + " was added to the planner.");
             System.out.println(planner.members);
+            JsonWriter writer = new JsonWriter();
+            writer.savePlanner(planner);
         }
     }
 }

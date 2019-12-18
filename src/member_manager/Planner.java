@@ -1,6 +1,7 @@
 package member_manager;
 
 import json_reader_writer.JsonReader;
+import json_reader_writer.JsonWriter;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -104,6 +105,34 @@ public class Planner {
 
     public ArrayList<RiskMatrix> loadRiskMatrix(){
         return reader.loadRiskMatrix();
+    }
+
+    public double getBudget() {
+        return budget;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public ArrayList<Member> getMembers() {
+        return members;
+    }
+
+    public ArrayList<Milestone> getMilestones() {
+        return milestones;
+    }
+
+    public ArrayList<RiskMatrix> getRisks() {
+        return risks;
     }
 
     @Override
