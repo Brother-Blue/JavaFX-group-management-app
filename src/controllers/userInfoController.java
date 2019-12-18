@@ -300,7 +300,6 @@ public class userInfoController extends MainController {
         System.out.println(member2);
 
         //draw piechart for both members.
-
         pieChart.getData().clear();
         pieChart.autosize();
 
