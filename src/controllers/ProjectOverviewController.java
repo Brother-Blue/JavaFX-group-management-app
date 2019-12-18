@@ -113,13 +113,13 @@ private Button submitButton;
         calcDescrip.setText("Expenditures that should have been realised given the actual technical project progress (based on\n" +
                 "the expenditure plan) (From lecture slides)");
         double result = planner.calcEv();
-        calcResult.setText("" + result);
+        calcResult.setText(Double.toString(Math.round(result*100.00)/100.00));
         calcFormula.setText("");
     }
     public void actualCost(){
         calcDescrip.setText("");
         double result = planner.calcActualCost();
-        calcResult.setText("" + result);
+        calcResult.setText(Double.toString(result));
         calcFormula.setText("");
     }
     public void budgetAtCompl(){
@@ -130,7 +130,7 @@ private Button submitButton;
     public void scheduleVariance(){
         calcDescrip.setText("Difference between planned expenditures and earned value (From lecture slides)");
         double result = planner.calcSv();
-        calcResult.setText("" + result);
+        calcResult.setText(Double.toString(result));
         calcFormula.setText("EV – PV");
     }
     public void schedulePerfIndex(){
@@ -141,7 +141,7 @@ private Button submitButton;
     public void costVariance(){
         calcDescrip.setText("Difference between actual expenditures and earned value (From lecture slides)");
         double result = planner.calcCv();
-        calcResult.setText("" + result);
+        calcResult.setText(Double.toString(result));
         calcFormula.setText("EV – AV");
     }
     public void costPerfIndex(){
