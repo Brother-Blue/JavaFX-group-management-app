@@ -93,7 +93,8 @@ private Button submitButton;
     }
 
     public void plannedValue(){
-        lineChart.getData().clear();
+        XYChart.Series pvSeries = new XYChart.Series();
+        pvSeries.getData().clear();
         planner.calcPv();
 
         calcDescrip.setText("Planned value is the relation between the amount of days a current milestone has been worked on and the current budget. " +
@@ -101,11 +102,9 @@ private Button submitButton;
         float result = 0;
         String currentWeek = Integer.toString(planner.calcWeek());
 
-        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + planner.pcpValues.get(planner.calcWeek()).toString() + "SEK");
+        //calcWeek - 1 brings the graph value thats displayed  ti the correct value.
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + planner.pcpValues.get(planner.calcWeek()-1).toString() + "SEK");
         calcFormula.setText("Planned Value = Days worked / Total days worked (Expected)");
-
-        XYChart.Series pvSeries = new XYChart.Series();
-
         for (int i = 0; i < planner.pcpValues.size(); i++) {
             result = planner.pcpValues.get(i);
             pvSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), result));
@@ -116,7 +115,6 @@ private Button submitButton;
         pvSeries.setName("PV values");
         lineChart.setTitle("Planned Values (PV)");
         lineChart.getData().add(pvSeries);
-        lineChart.setCursor(Cursor.CROSSHAIR);
     }
     public void earnedValue(){
         calcDescrip.setText("Expenditures that should have been realised given the actual technical project progress (based on\n" +

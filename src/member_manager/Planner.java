@@ -57,7 +57,7 @@ public class Planner {
     }
 
     public int calcWeek() {
-        int week = (int) (nowDays/7);
+        int week = ((int) (nowDays/7)) + 1; //+1 is used to move the current week to the week we're currently on instead of weeks that have passed.
         return week;
     }
 
