@@ -3,19 +3,24 @@ package controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -61,8 +66,8 @@ private Button submitButton;
                     "Schedule Performance Index (SPI)", "Cost Variance (CV)",
                     "Cost Performance Index (CPI)");
             calculatorDropdown.setItems(calcOptions);
-
         }
+
     public void calcSelection(ActionEvent actionEvent) {
         Window owner = submitButton.getScene().getWindow();
         String selection = (String) calculatorDropdown.getValue();
@@ -84,30 +89,34 @@ private Button submitButton;
             costVariance();
         } else if (selection == "Cost Performance Index (CPI)"){
             costPerfIndex();
-
         }
-
     }
 
     public void plannedValue(){
+        lineChart.getData().clear();
+        planner.calcPv();
+
         calcDescrip.setText("Planned value is the relation between the amount of days a current milestone has been worked on and the current budget. " +
                 "The current days are measured from when the milestone started up to the current day.");
-        double result = 0;
-        calcResult.setText(Double.toString(result));
+        float result = 0;
+        String currentWeek = Integer.toString(planner.calcWeek());
+
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + planner.pcpValues.get(planner.calcWeek()).toString() + "SEK");
         calcFormula.setText("Planned Value = Days worked / Total days worked (Expected)");
 
         XYChart.Series pvSeries = new XYChart.Series();
 
-        for (int i = 0; i < planner.milestones.size(); i++) {
-            result = planner.calcPv();
+        for (int i = 0; i < planner.pcpValues.size(); i++) {
+            result = planner.pcpValues.get(i);
             pvSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), result));
-            System.out.println(result);
         }
 
         xAxis.setAnimated(false);
         yAxis.setAnimated(false);
+        pvSeries.setName("PV values");
         lineChart.setTitle("Planned Values (PV)");
         lineChart.getData().add(pvSeries);
+        lineChart.setCursor(Cursor.CROSSHAIR);
     }
     public void earnedValue(){
         calcDescrip.setText("Expenditures that should have been realised given the actual technical project progress (based on\n" +
@@ -129,8 +138,8 @@ private Button submitButton;
     }
     public void scheduleVariance(){
         calcDescrip.setText("Difference between planned expenditures and earned value (From lecture slides)");
-        double result = planner.calcSv();
-        calcResult.setText(Double.toString(result));
+        //double result = planner.calcSv();
+        //calcResult.setText(Double.toString(result));
         calcFormula.setText("EV – PV");
     }
     public void schedulePerfIndex(){

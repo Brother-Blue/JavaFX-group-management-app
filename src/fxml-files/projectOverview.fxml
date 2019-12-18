@@ -45,9 +45,9 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
             <Text layoutX="43.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result of Calculation:" />
-            <Text layoutX="43.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculation formula:" />
-            <TextField fx:id="calcResult" editable="false" layoutX="41.0" layoutY="21.0" mouseTransparent="true" />
-            <TextArea fx:id="calcFormula" editable="false" layoutX="43.0" layoutY="71.0" mouseTransparent="true" prefHeight="89.0" prefWidth="270.0" wrapText="true" />
+            <Text layoutX="41.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculation formula:" />
+            <TextField fx:id="calcResult" editable="false" layoutX="41.0" layoutY="21.0" mouseTransparent="true" prefHeight="31.0" prefWidth="270.0" />
+            <TextArea fx:id="calcFormula" editable="false" layoutX="41.0" layoutY="80.0" mouseTransparent="true" prefHeight="89.0" prefWidth="270.0" wrapText="true" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
