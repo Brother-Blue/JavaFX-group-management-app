@@ -11,7 +11,8 @@
       <TextField fx:id="firstNameRegister" layoutX="118.0" layoutY="142.0" prefHeight="45.0" prefWidth="595.0" promptText="First name" />
       <TextField fx:id="lastNameRegister" layoutX="118.0" layoutY="212.0" prefHeight="45.0" prefWidth="595.0" promptText="Last name" />
       <TextField fx:id="dobRegister" layoutX="118.0" layoutY="290.0" prefHeight="45.0" prefWidth="595.0" promptText="Date of Birth: (YYYYMMDD)" />
-      <Button fx:id="registerButton" layoutX="381.0" layoutY="371.0" mnemonicParsing="false" onAction="#registerMember" prefHeight="34.0" prefWidth="70.0" text="Submit">
+      <TextField fx:id="salaryRegister" layoutX="118.0" layoutY="366.0" prefHeight="45.0" prefWidth="595.0" promptText="Ex: 250" />
+      <Button fx:id="registerButton" layoutX="345.0" layoutY="446.0" mnemonicParsing="false" onAction="#registerMember" prefHeight="34.0" prefWidth="70.0" text="Submit">
          <font>
             <Font size="14.0" />
          </font>
@@ -28,6 +29,7 @@
       </Text>
       <Text layoutX="54.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name:" />
       <Text layoutX="56.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name:" />
-      <Text layoutX="14.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth: (YYMMDD)" textAlignment="CENTER" wrappingWidth="124.27813720703125" />
+      <Text layoutX="14.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth: (YYYYMMDD)" textAlignment="CENTER" wrappingWidth="124.27813720703125" />
+      <Text layoutX="14.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member's hourly salary (SEK)" textAlignment="CENTER" wrappingWidth="106.6781005859375" />
    </children>
 </AnchorPane>
