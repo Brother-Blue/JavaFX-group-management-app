@@ -103,7 +103,7 @@ public class userInfoController extends MainController {
             }
 
             if (IDFound) {
-                AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Success", "Member found, loading information...");
+                //AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Success", "Member found, loading information...");
                 revealName.setText(memberName);
                 revealID.setText(Integer.toString(searchedID));
                 System.out.println("Name set to: " + memberName);
