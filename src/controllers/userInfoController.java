@@ -6,7 +6,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -169,6 +168,8 @@ public class userInfoController extends MainController {
 
     public void showHours(ActionEvent event) throws IOException {
         //draw pie chart
+        pieChart.getData().clear();
+
         ObservableList<PieChart.Data> chartData = FXCollections.observableArrayList();
 
         for (Member member : planner.members) {
@@ -177,9 +178,8 @@ public class userInfoController extends MainController {
             chartData.add(new PieChart.Data(memberID, hours));
         }
 
-        pieChart.setLabelLineLength(30);
+        pieChart.setLabelsVisible(false);
         pieChart.setLegendVisible(true);
-        pieChart.setLegendSide(Side.LEFT);
         pieChart.setTitle("Hours worked");
         pieChart.setData(chartData);
 
@@ -222,7 +222,6 @@ public class userInfoController extends MainController {
 
         //do pieChart
         pieChart.getData().clear();
-        pieChart.autosize();
 
         ObservableList<PieChart.Data> chartData = FXCollections.observableArrayList();
 
@@ -233,9 +232,8 @@ public class userInfoController extends MainController {
             chartData.add(new PieChart.Data(memberID, totalSalary));
         }
 
-        pieChart.setLabelLineLength(20);
+        pieChart.setLabelsVisible(false);
         pieChart.setLegendVisible(true);
-        pieChart.setLegendSide(Side.LEFT);
         pieChart.setTitle("Salary Earned");
         pieChart.setData(chartData);
 
@@ -330,8 +328,6 @@ public class userInfoController extends MainController {
 
         ArrayList<Double> hoursWorkedMember1 = planner.getHours(member1.getId());
         ArrayList<Double> hoursWorkedMember2 = planner.getHours(member2.getId());
-        double salaryMember1 = 0;
-        double salaryMember2 = 0;
 
         for (int i = 0; i < hoursWorkedMember1.size(); i++) {
             hoursSeriesMember1.getData().add(new XYChart.Data<>(Integer.toString(i+1), hoursWorkedMember1.get(i)));
@@ -347,14 +343,16 @@ public class userInfoController extends MainController {
         if (!compareType.isEmpty()) {
             if (compareType.equalsIgnoreCase("hours")) {
                 pieChart.getData().clear();
-                pieChart.autosize();
-                pieChart.setLegendVisible(false);
+                pieChart.setLegendVisible(true);
+                pieChart.setLabelsVisible(false);
+                pieChart.setTitle("Compared Hours");
                 pieChart.setData(hoursMembers);
 
                 barChart.getData().clear();
                 barChart.autosize();
                 xAxis.setAnimated(false);
                 yAxis.setAnimated(false);
+                barChart.setTitle("Compared Hours");
                 barChart.getData().addAll(hoursSeriesMember1, hoursSeriesMember2);
 
                 userInfoDescription.setText(member1.getFirstName() + "'s total hours worked are " + planner.getTotalHours(member1.getId()) +
@@ -362,14 +360,16 @@ public class userInfoController extends MainController {
             }
             if (compareType.equalsIgnoreCase("salaries")) {
                 pieChart.getData().clear();
-                pieChart.autosize();
-                pieChart.setLegendVisible(false);
+                pieChart.setLegendVisible(true);
+                pieChart.setLabelsVisible(false);
+                pieChart.setTitle("Compared Salaries");
                 pieChart.setData(salaryMembers);
 
                 barChart.getData().clear();
                 barChart.autosize();
                 xAxis.setAnimated(false);
                 yAxis.setAnimated(false);
+                barChart.setTitle("Compared Salaries");
                 barChart.getData().addAll(salarySeriesMember1, salarySeriesMember2);
 
                 userInfoDescription.setText(member1.getFirstName() + "'s total earned salary is " + planner.getTotalHours(member1.getId()) * member1.getSalary() + "SEK" +
