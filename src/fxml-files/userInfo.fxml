@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.userInfoController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.userInfoController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -33,17 +42,18 @@
                   <Text fx:id="revealName" layoutX="58.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="326.13673400878906" />
                   <Text fx:id="previewEmployeeID" layoutX="20.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " />
                   <Text fx:id="revealID" layoutX="39.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.40001392364502" />
-                  <Button fx:id="showHours" layoutX="282.0" layoutY="157.0" mnemonicParsing="false" onAction="#showHours" prefHeight="30.0" prefWidth="90.0" text="Show hours">
+                  <Button fx:id="showHours" disable="true" layoutX="282.0" layoutY="157.0" mnemonicParsing="false" onAction="#showHours" prefHeight="30.0" prefWidth="90.0" text="Show hours">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="showSalary" layoutX="282.0" layoutY="201.0" mnemonicParsing="false" onAction="#showSalary" prefHeight="30.0" prefWidth="90.0" text="Show salary">
+                  <Button fx:id="showSalary" disable="true" layoutX="282.0" layoutY="201.0" mnemonicParsing="false" onAction="#showSalary" prefHeight="30.0" prefWidth="90.0" text="Show salary">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Button>
                   <Text fx:id="userInfoDescription" layoutX="20.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="243.13671112060547" />
+                  <ComboBox fx:id="memberIdDropdown" onAction="#setText" layoutX="20.0" layoutY="48.0" prefHeight="26.0" prefWidth="150.0" promptText="Member Dropdown" />
                </children>
                <GridPane.margin>
                   <Insets />
@@ -61,14 +71,14 @@
                         <Font size="22.0" />
                      </font>
                   </Text>
-                  <Button fx:id="submitButton" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#compareUsers" text="Submit" />
+                  <Button fx:id="submitButton" disable="true" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#compareUsers" text="Submit" />
                   <Button fx:id="editMember" layoutX="255.0" layoutY="228.0" mnemonicParsing="false" onAction="#editMember" text="Edit Employee Data">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <ComboBox fx:id="compareUserDropdown" layoutX="27.0" layoutY="123.0" prefWidth="150.0" />
-                  <ComboBox fx:id="compareHoursSalaryDropdown" layoutX="200.0" layoutY="122.0" prefHeight="26.0" prefWidth="117.0" />
+                  <ComboBox fx:id="compareUserDropdown" disable="true" layoutX="27.0" layoutY="123.0" prefWidth="150.0" promptText="Select Member" />
+                  <ComboBox fx:id="compareHoursSalaryDropdown" disable="true" layoutX="200.0" layoutY="122.0" prefHeight="26.0" prefWidth="142.0" promptText="Select Comparison" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

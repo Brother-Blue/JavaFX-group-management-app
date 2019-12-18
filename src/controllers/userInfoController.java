@@ -32,6 +32,12 @@ public class userInfoController extends MainController {
     @FXML
     private Button searchForIDButton;
     @FXML
+    private Button showHours;
+    @FXML
+    private Button showSalary;
+    @FXML
+    private Button submitButton;
+    @FXML
     private Text revealName;
     @FXML
     private Text revealID;
@@ -43,6 +49,20 @@ public class userInfoController extends MainController {
     private ComboBox compareUserDropdown;
     @FXML
     private ComboBox compareHoursSalaryDropdown;
+    @FXML
+    private ComboBox memberIdDropdown;
+
+    public void initialize() {
+        ObservableList<String> memberDropdownItems = FXCollections.observableArrayList();
+        for (Member member : planner.members) {
+            memberDropdownItems.add(Integer.toString(member.getId()) + " : " + member.getFirstName() + " " + member.getLastName());
+        }
+        memberIdDropdown.setItems(memberDropdownItems);
+    }
+
+    public void setText(ActionEvent actionEvent) {
+        searchForID.setText(memberIdDropdown.getValue().toString().substring(0, 5));
+    }
 
     // Code goes into here, whatever you want to happen when you search.
     public void search() {
@@ -108,6 +128,12 @@ public class userInfoController extends MainController {
                 revealID.setText(Integer.toString(searchedID));
                 System.out.println("Name set to: " + memberName);
                 System.out.println("ID set to: " + searchedID);
+
+                showHours.setDisable(false);
+                showSalary.setDisable(false);
+                submitButton.setDisable(false);
+                compareHoursSalaryDropdown.setDisable(false);
+                compareUserDropdown.setDisable(false);
             } else {
                 AlertHelper.showAlert(Alert.AlertType.INFORMATION, owner, "Error", "Member ID does not yet exist.");
             }
