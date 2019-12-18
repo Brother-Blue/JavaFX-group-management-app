@@ -94,8 +94,7 @@ private Button submitButton;
                 "The current days are measured from when the milestone started up to the current day.");
         double result = 0;
         calcResult.setText(Double.toString(result));
-        calcFormula.setText("Days worked = Milestone start date -> Current date. \nTotal days worked (Expected) = Milestone start date -> Milestone completion date." +
-                "\n\nPlanned Value = Days worked / Total days worked (Expected)");
+        calcFormula.setText("Planned Value = Days worked / Total days worked (Expected)");
 
         XYChart.Series pvSeries = new XYChart.Series();
 
