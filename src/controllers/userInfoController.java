@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Duration;
 import member_manager.Member;
 
 import java.io.IOException;
@@ -174,14 +175,21 @@ public class userInfoController extends MainController {
 
         for (Member member : planner.members) {
             int hours = (int) planner.getTotalHours(member.getId());
-            String memberID = member.getFirstName() + ": " + hours + "hours";
+            String memberID = member.getFirstName() + ": " + hours + " hours";
             chartData.add(new PieChart.Data(memberID, hours));
         }
 
         pieChart.setLabelsVisible(false);
-        pieChart.setLegendVisible(true);
+        pieChart.setLegendVisible(false);
         pieChart.setTitle("Hours worked");
         pieChart.setData(chartData);
+
+        pieChart.getData().stream().forEach(data -> {
+            Tooltip valuesToolTip = new Tooltip();
+            valuesToolTip.setText(data.getName());
+            Tooltip.install(data.getNode(), valuesToolTip);
+            valuesToolTip.setShowDelay(Duration.ZERO);
+        });
 
         //draw graph
         String name = getName();
@@ -236,6 +244,13 @@ public class userInfoController extends MainController {
         pieChart.setLegendVisible(true);
         pieChart.setTitle("Salary Earned");
         pieChart.setData(chartData);
+
+        pieChart.getData().stream().forEach(data -> {
+            Tooltip valuesToolTip = new Tooltip();
+            valuesToolTip.setText(data.getName());
+            Tooltip.install(data.getNode(), valuesToolTip);
+            valuesToolTip.setShowDelay(Duration.ZERO);
+        });
 
         //Do barChart
         String name = getName();
@@ -347,6 +362,13 @@ public class userInfoController extends MainController {
                 pieChart.setTitle("Compared Hours");
                 pieChart.setData(hoursMembers);
 
+                pieChart.getData().stream().forEach(data -> {
+                    Tooltip valuesToolTip = new Tooltip();
+                    valuesToolTip.setText(data.getName() + "\n" + data.getPieValue() + " hours");
+                    Tooltip.install(data.getNode(), valuesToolTip);
+                    valuesToolTip.setShowDelay(Duration.ZERO);
+                });
+
                 barChart.getData().clear();
                 barChart.autosize();
                 xAxis.setAnimated(false);
@@ -363,6 +385,13 @@ public class userInfoController extends MainController {
                 pieChart.setLabelsVisible(false);
                 pieChart.setTitle("Compared Salaries");
                 pieChart.setData(salaryMembers);
+
+                pieChart.getData().stream().forEach(data -> {
+                    Tooltip valuesToolTip = new Tooltip();
+                    valuesToolTip.setText(data.getName() + "\n" + data.getPieValue() + "SEK");
+                    Tooltip.install(data.getNode(), valuesToolTip);
+                    valuesToolTip.setShowDelay(Duration.ZERO);
+                });
 
                 barChart.getData().clear();
                 barChart.autosize();
