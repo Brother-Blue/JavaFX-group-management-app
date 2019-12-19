@@ -19,12 +19,13 @@ public class Planner {
     LocalDate localDate = LocalDate.now();  // creates a date based on todays date [Hjalmar]
     private float totalDays;
     private float nowDays;
-    private float percentCompletePlanned = nowDays / totalDays;
+    //private float percentCompletePlanned = nowDays / totalDays; NOTICE: MOVED CALCULATIONS INTO calcPv();
     private double percentCompleteActual = 0.2; // This need to be a method which collects the data from the milestones.
 
     public ArrayList<Member> members = loadMember();
     public ArrayList<Milestone> milestones = loadMilestones();
     public ArrayList<RiskMatrix> risks = loadRiskMatrix();
+    public ArrayList<Float> pcpValues = new ArrayList<>();
 
 
     public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget) {
@@ -55,17 +56,30 @@ public class Planner {
         return result;
     }
 
-    public double calcPv(){
-         return percentCompletePlanned * budget;
+    public int calcWeek() {
+        int week = ((int) (nowDays/7)) + 1; //+1 is used to move the current week to the week we're currently on instead of weeks that have passed.
+        return week;
+    }
+
+    public ArrayList<Float> calcPv(){
+        int totalWeeks = (int) totalDays/7;
+        for (int i = 0; i < totalWeeks; i++) {
+            float pcp = (float) (Math.round((budget/(totalWeeks-i))*100.00)/100.00);
+            pcpValues.add(pcp);
+        }
+        return pcpValues;
     }
 
     public double calcEv(){
          return percentCompleteActual * budget;
     }
 
+    /*
     public double calcSv(){
          return calcEv() - calcPv();
     }
+
+     */
 
     public double calcCv(){
          return calcEv() - calcActualCost();

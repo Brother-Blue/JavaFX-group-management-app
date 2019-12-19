@@ -33,8 +33,7 @@
             </Text>
             <Text layoutX="42.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Calculation Type:" />
             <Text layoutX="42.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Calculation Type:" wrappingWidth="143.865234375" />
-            <Button fx:id="submitButton" layoutX="200.0" layoutY="112.0" mnemonicParsing="false" onAction="#calcSelection" text="Submit" />
-            <ComboBox fx:id="calculatorDropdown" layoutX="38.0" layoutY="112.0" prefWidth="150.0" />
+            <ComboBox fx:id="calculatorDropdown" onAction="#calcSelection" layoutX="38.0" layoutY="112.0" prefWidth="150.0" />
             <TextArea fx:id="calcDescrip" editable="false" layoutX="39.0" layoutY="160.0" mouseTransparent="true" prefHeight="89.0" prefWidth="270.0" wrapText="true" />
          </children>
       </AnchorPane>
@@ -45,9 +44,9 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
             <Text layoutX="43.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result of Calculation:" />
-            <Text layoutX="43.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculation formula:" />
-            <TextField fx:id="calcResult" editable="false" layoutX="41.0" layoutY="21.0" mouseTransparent="true" />
-            <TextArea fx:id="calcFormula" editable="false" layoutX="43.0" layoutY="71.0" mouseTransparent="true" prefHeight="89.0" prefWidth="270.0" wrapText="true" />
+            <Text layoutX="41.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculation formula:" />
+            <TextField fx:id="calcResult" editable="false" layoutX="41.0" layoutY="21.0" mouseTransparent="true" prefHeight="31.0" prefWidth="270.0" />
+            <TextArea fx:id="calcFormula" editable="false" layoutX="41.0" layoutY="80.0" mouseTransparent="true" prefHeight="89.0" prefWidth="270.0" wrapText="true" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
