@@ -38,6 +38,7 @@ private CategoryAxis xAxis;
 @FXML
 private NumberAxis yAxis;
 
+    private String currentWeek = Integer.toString(planner.calcWeek());
 
     public void riskMatrixView(ActionEvent event) throws IOException {
         Parent riskMatrixMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/riskMatrix.fxml"));
@@ -58,6 +59,9 @@ private NumberAxis yAxis;
                     "Schedule Performance Index (SPI)", "Cost Variance (CV)",
                     "Cost Performance Index (CPI)");
             calculatorDropdown.setItems(calcOptions);
+
+        xAxis.setAnimated(false);
+        yAxis.setAnimated(false);
         }
 
     public void calcSelection(ActionEvent actionEvent) {
@@ -92,7 +96,8 @@ private NumberAxis yAxis;
         calcDescrip.setText("Planned value is the relation between the amount of days a current milestone has been worked on and the current budget. " +
                 "The current days are measured from when the milestone started up to the current day.");
         float result = 0;
-        String currentWeek = Integer.toString(planner.calcWeek());
+
+        pvSeries.getData().add(new XYChart.Data<>("0", 0));
 
         //calcWeek - 1 brings the graph value thats displayed  ti the correct value.
         calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + planner.pcpValues.get(planner.calcWeek()-1).toString() + "SEK");
@@ -102,8 +107,6 @@ private NumberAxis yAxis;
             pvSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), result));
         }
 
-        xAxis.setAnimated(false);
-        yAxis.setAnimated(false);
         pvSeries.setName("PV values");
         lineChart.setTitle("Planned Values (PV)");
         lineChart.getData().add(pvSeries);
@@ -116,10 +119,24 @@ private NumberAxis yAxis;
         calcFormula.setText("");
     }
     public void actualCost(){
-        calcDescrip.setText("");
-        double result = planner.calcActualCost();
-        calcResult.setText(Double.toString(result));
-        calcFormula.setText("");
+        XYChart.Series acSeries = new XYChart.Series();
+        acSeries.getData().clear();
+        planner.calcActualCost();
+
+        calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).");
+        double result = 0;
+        calcResult.setText("Current week: " + currentWeek + ", Actual Costs: " + planner.actualCosts.get(planner.actualCosts.size()-1) + "SEK");
+        calcFormula.setText("Actual Cost = Budget - Costs.");
+
+        acSeries.getData().add(new XYChart.Data<>("0", 0));
+
+        for (int i = 0; i < planner.actualCosts.size(); i++) {
+            result = planner.actualCosts.get(i);
+            acSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), result));
+        }
+        acSeries.setName("Actual costs per milestone");
+        lineChart.setTitle("Actual Costs (AC)");
+        lineChart.getData().add(acSeries);
     }
     public void budgetAtCompl(){
         calcDescrip.setText("");
@@ -139,7 +156,7 @@ private NumberAxis yAxis;
     }
     public void costVariance(){
         calcDescrip.setText("Difference between actual expenditures and earned value (From lecture slides)");
-        double result = planner.calcCv();
+        double result = 0;
         calcResult.setText(Double.toString(result));
         calcFormula.setText("EV – AV");
     }

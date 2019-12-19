@@ -26,6 +26,7 @@ public class Planner {
     public ArrayList<Milestone> milestones = loadMilestones();
     public ArrayList<RiskMatrix> risks = loadRiskMatrix();
     public ArrayList<Float> pcpValues = new ArrayList<>();
+    public ArrayList<Double> actualCosts = new ArrayList<>();
 
 
     public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget) {
@@ -36,6 +37,7 @@ public class Planner {
         this.totalDays = ChronoUnit.DAYS.between(startDate, endDate);
         this.nowDays = ChronoUnit.DAYS.between(startDate, localDate);
     }
+
     //searches for a specific member and returns sum of total hours for all milestones
     public double getTotalHours(int ID) {
         double result = 0;
@@ -81,16 +83,27 @@ public class Planner {
 
      */
 
+    /*
     public double calcCv(){
          return calcEv() - calcActualCost();
     }
+     */
 
-    public double calcActualCost() {
-        double actualCost = 0;
-        for (Member member:members) {
-            actualCost = actualCost + member.getSalary() * getTotalHours(member.getId());
+    public ArrayList<Double> calcActualCost() { //Shows actual cost per milestone instead of per week since we don't have enough milestones in input.json atm
+        double costsPerMilestone = 0;
+        double hoursPerMilestone = 0;
+
+        for (Milestone milestone : milestones) {
+            for (Member member : members) {
+                hoursPerMilestone = hoursPerMilestone + (double) milestone.getEmployeeHours().get(member.getId());
+                costsPerMilestone = costsPerMilestone + (member.getSalary() * hoursPerMilestone);
+            }
+            actualCosts.add(costsPerMilestone);
+            hoursPerMilestone = 0;
+            costsPerMilestone = 0;
         }
-        return actualCost;
+        System.out.println(actualCosts);
+        return actualCosts;
     }
     //method for creating a new member
     public void addMember(String firstName, String lastName, int dateOfBirth, double salary) {
