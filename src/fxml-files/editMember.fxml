@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -13,40 +14,36 @@
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="editInfo" layoutX="141.0" layoutY="446.0" mnemonicParsing="false" onAction="#editInfo" text="Edit Information">
+        <Button fx:id="saveButton" layoutX="26.0" layoutY="348.0" mnemonicParsing="false" onAction="#saveInfo" text="Save">
             <font>
                 <Font size="14.0" />
             </font></Button>
-        <Text layoutX="60.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="147.294921875">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Text>
-        <Text layoutX="60.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " wrappingWidth="110.49609375">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Text>
-        <Text layoutX="523.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Updated Information:">
+        <Text layoutX="349.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Updated member Information:">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
         </Text>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="422.0" layoutX="434.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="343.0" />
-        <Text layoutX="451.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Text>
-        <Text layoutX="451.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Text>
-        <Text layoutX="115.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Information:">
-            <font>
-                <Font name="System Bold" size="16.0" />
-            </font>
-        </Text>
+      <ComboBox fx:id="memberIdDropdown" layoutX="25.0" layoutY="144.0" onAction="#setText" prefHeight="26.0" prefWidth="149.0" />
+      <Text layoutX="27.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select member to edit" />
+      <TextField fx:id="updateName" layoutX="26.0" layoutY="205.0" promptText="First name" />
+      <TextField fx:id="updateLastName" layoutX="26.0" layoutY="258.0" promptText="Lastname" />
+      <TextField fx:id="updateSalary" layoutX="26.0" layoutY="312.0" promptText="New salary" />
+      <TextField fx:id="searchForID" layoutX="26.0" layoutY="118.0" />
+      <Text layoutX="26.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter new firstname" />
+      <Text layoutX="27.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter new lastname" />
+      <Text layoutX="25.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter new salary" />
+      <Text layoutX="30.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Member">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+      <TextField fx:id="updatedFirstName" editable="false" layoutX="352.0" layoutY="152.0" pickOnBounds="false" prefHeight="0.0" prefWidth="149.0" />
+      <TextField fx:id="updatedLastName" editable="false" layoutX="352.0" layoutY="197.0" pickOnBounds="false" />
+      <TextField fx:id="updatedSalary" editable="false" layoutX="352.0" layoutY="250.0" mouseTransparent="true" />
+      <Text layoutX="351.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Firstname" />
+      <Text layoutX="352.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname" />
+      <Text layoutX="352.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary" />
+      <TextField fx:id="showID" editable="false" layoutX="352.0" layoutY="105.0" pickOnBounds="false" prefHeight="0.0" prefWidth="149.0" />
+      <Text layoutX="352.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
     </children>
 </AnchorPane>
