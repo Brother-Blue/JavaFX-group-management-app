@@ -3,11 +3,9 @@ package controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,11 +14,8 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,9 +37,6 @@ private LineChart lineChart;
 private CategoryAxis xAxis;
 @FXML
 private NumberAxis yAxis;
-@FXML
-private Button submitButton;
-
 
 
     public void riskMatrixView(ActionEvent event) throws IOException {
@@ -69,8 +61,8 @@ private Button submitButton;
         }
 
     public void calcSelection(ActionEvent actionEvent) {
-        Window owner = submitButton.getScene().getWindow();
-        String selection = (String) calculatorDropdown.getValue();
+        Window owner = calculatorDropdown.getScene().getWindow();
+        String selection = calculatorDropdown.getValue().toString();
         if (selection == null){
             AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Please select an option");
         } else if (selection == "Planned Value (PV)"){
