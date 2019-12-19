@@ -9,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -32,7 +29,7 @@ private TextArea calcFormula;
 @FXML
 private TextArea calcDescrip;
 @FXML
-private LineChart lineChart;
+private BarChart barChart;
 @FXML
 private CategoryAxis xAxis;
 @FXML
@@ -60,13 +57,14 @@ private NumberAxis yAxis;
                     "Cost Performance Index (CPI)");
             calculatorDropdown.setItems(calcOptions);
 
-        xAxis.setAnimated(false);
-        yAxis.setAnimated(false);
+            xAxis.setAnimated(false);
+            yAxis.setAnimated(false);
         }
 
     public void calcSelection(ActionEvent actionEvent) {
         Window owner = calculatorDropdown.getScene().getWindow();
         String selection = calculatorDropdown.getValue().toString();
+
         if (selection == null){
             AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error", "Please select an option");
         } else if (selection == "Planned Value (PV)"){
@@ -89,27 +87,26 @@ private NumberAxis yAxis;
     }
 
     public void plannedValue(){
-        XYChart.Series pvSeries = new XYChart.Series();
-        pvSeries.getData().clear();
         planner.calcPv();
 
         calcDescrip.setText("Planned value is the relation between the amount of days a current milestone has been worked on and the current budget. " +
-                "The current days are measured from when the milestone started up to the current day.");
-        float result = 0;
-
-        pvSeries.getData().add(new XYChart.Data<>("0", 0));
-
-        //calcWeek - 1 brings the graph value thats displayed  ti the correct value.
+                "The current days are measured from when the milestone started up to the current day."); //calcWeek - 1 brings the graph value thats displayed  ti the correct value.
         calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + planner.pcpValues.get(planner.calcWeek()-1).toString() + "SEK");
         calcFormula.setText("Planned Value = Days worked / Total days worked (Expected)");
+
+        float result;
+        xAxis.setLabel("Week");
+
+        barChart.getData().clear();
+        barChart.autosize();
+        XYChart.Series series = new XYChart.Series();
         for (int i = 0; i < planner.pcpValues.size(); i++) {
             result = planner.pcpValues.get(i);
-            pvSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), result));
+            series.getData().add(new XYChart.Data<>(Integer.toString(i+1), result));
         }
 
-        pvSeries.setName("PV values");
-        lineChart.setTitle("Planned Values (PV)");
-        lineChart.getData().add(pvSeries);
+        barChart.setTitle("Planned Values (SEK)");
+        barChart.getData().add(series);
     }
     public void earnedValue(){
         calcDescrip.setText("Expenditures that should have been realised given the actual technical project progress (based on\n" +
@@ -119,8 +116,6 @@ private NumberAxis yAxis;
         calcFormula.setText("");
     }
     public void actualCost(){
-        XYChart.Series acSeries = new XYChart.Series();
-        acSeries.getData().clear();
         planner.calcActualCost();
 
         calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).");
@@ -128,15 +123,18 @@ private NumberAxis yAxis;
         calcResult.setText("Current week: " + currentWeek + ", Actual Costs: " + planner.actualCosts.get(planner.actualCosts.size()-1) + "SEK");
         calcFormula.setText("Actual Cost = Budget - Costs.");
 
-        acSeries.getData().add(new XYChart.Data<>("0", 0));
+        xAxis.setLabel("Week");
 
+        barChart.getData().clear();
+        barChart.autosize();
+        XYChart.Series series = new XYChart.Series();
         for (int i = 0; i < planner.actualCosts.size(); i++) {
             result = planner.actualCosts.get(i);
-            acSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), result));
+            series.getData().add(new XYChart.Data<>(Integer.toString(i+1), result));
         }
-        acSeries.setName("Actual costs per milestone");
-        lineChart.setTitle("Actual Costs (AC)");
-        lineChart.getData().add(acSeries);
+
+        barChart.setTitle("Actual Costs (SEK)");
+        barChart.getData().add(series);
     }
     public void budgetAtCompl(){
         calcDescrip.setText("");
