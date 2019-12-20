@@ -7,6 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import json_reader_writer.JsonReader;
+import json_reader_writer.JsonWriter;
+import member_manager.Planner;
 
 import java.io.IOException;
 
@@ -71,8 +74,14 @@ public class dashboardController extends MainController {
         window.show();
     }
 
-    public void loadData(){}
-    public void saveState(){}
+    public void loadData(){
+        JsonReader reader = new JsonReader();
+       planner = reader.loadPlanner();
+    }
+    public void saveState(){
+        JsonWriter writer = new JsonWriter();
+        writer.savePlanner(planner);
+    }
 
     public void exit(){
         Stage stage = (Stage) exitApp.getScene().getWindow();

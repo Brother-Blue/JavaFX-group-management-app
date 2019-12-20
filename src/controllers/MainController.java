@@ -27,8 +27,7 @@ import java.util.ArrayList;
 
 public class MainController {
 
-    private static JsonReader reader = new JsonReader();
-    static Planner planner = reader.loadPlanner();
+    static Planner planner;
 
     // This code is for all back buttons that go back to the dashboard.
     @FXML

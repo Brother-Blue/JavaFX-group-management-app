@@ -84,8 +84,7 @@ public class newMemberController extends MainController {
             planner.addMember(firstNameRegister.getText(), lastNameRegister.getText(), Integer.parseInt(dobRegister.getText()), Double.parseDouble(salaryRegister.getText()));
             System.out.println(firstNameRegister.getText() + " was added to the planner.");
             System.out.println(planner.members);
-            JsonWriter writer = new JsonWriter();
-            writer.savePlanner(planner);
+
         }
     }
 }
