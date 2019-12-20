@@ -13,22 +13,24 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
-//This is only a template for json simple 1.1.1, we will have to refqctor it but it is here at the moment
-//for us to understand how it works.
+
+// Inspiration for logic of the json reader and writer comes from the following site:
+// https://stackabuse.com/reading-and-writing-json-in-java/
 //TODO: Refactor this for our code so that information read from the Milestones.txt are correctly printed on print.
 
 public class JsonWriter {
+
+    //Formatter to easily parse Date format to correct string format.
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-LL-dd");
+
+    @SuppressWarnings("unchecked")
     public void savePlanner(Planner planner){
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy LL dd");
         JSONObject plannerObject = new JSONObject();
         plannerObject.put("projectName", planner.getProjectName());
         plannerObject.put("startDate", planner.getStartDate().format(formatter));
         plannerObject.put("endDate", planner.getEndDate().format((formatter)));
         plannerObject.put("budget", Double.toString(planner.getBudget()));
         JSONArray memberList = new JSONArray();
-        //JSONObject memberObject = new JSONObject();
-        //memberObject.put("members", memberList);
 
         for(Member member: planner.members){
             JSONObject memberDetails = new JSONObject();
@@ -60,14 +62,12 @@ public class JsonWriter {
             milestoneDetails.put("plannedEndDate", milestone.getPlannedEndDate().format(formatter));
             milestoneDetails.put("actualEndDate", milestone.getActualEndDate().format(formatter));
 
-            JSONArray hoursPerMember = new JSONArray();
             JSONObject hoursWorkedDetails = new JSONObject();
             Map<Integer, Double> map = milestone.getEmployeeHours();
             for (Map.Entry<Integer, Double> entry : map.entrySet()) {
                 hoursWorkedDetails.put(entry.getKey().toString(), entry.getValue().toString());
-                //JSONObject hoursWorkedDetails = new JSONObject();
-
             }
+
             milestoneDetails.put("hoursPerMember", hoursWorkedDetails);
             milestoneList.add(milestoneDetails);
             plannerObject.put("milestones" ,milestoneList);
@@ -90,75 +90,10 @@ public class JsonWriter {
 
         try (FileWriter file = new FileWriter("input.json")){
             file.write(plannerObject.toJSONString());
-            //file.write(memberList.toJSONString());
             file.flush();
         } catch (IOException e){
             e.printStackTrace();
         }
     }
-
-
-    /*public static void main(String[] args) throws FileNotFoundException {
-
-        Employee altug = new Employee("altug", "altetmek", 20000929, 20000);
-
-        Employee hjalmar = new Employee("hjalmar", "idk", 19891209, 30000);
-
-
-        Milestones trello = new Milestones("Trello", LocalDate.of(2019, 12, 7),
-                LocalDate.of(2019, 12, 8), LocalDate.of(2019, 12, 9));
-
-        Milestones trello2 = new Milestones("Trello2", LocalDate.of(2019, 12, 7),
-                LocalDate.of(2019, 12, 8), LocalDate.of(2019, 12, 9));
-
-        Milestones trello3 = new Milestones("Trello3", LocalDate.of(2019, 12, 7),
-                LocalDate.of(2019, 12, 8), LocalDate.of(2019, 12, 9));
-
-        //create json object for employee
-        JSONObject employee1 = new JSONObject();
-        employee1.put("name", altug.getForename());
-        employee1.put("name", hjalmar.getForename());
-
-        //create json object for milestone
-        JSONObject milestone1 = new JSONObject();
-        JSONObject milestone2 = new JSONObject();
-        milestone1.put("Task", trello.toString());
-        milestone1.put("Task2", trello2.toString());
-        milestone2.put("Task3", trello3.toString());
-
-        //create json array for milestones
-        JSONArray milestonesAltug = new JSONArray();
-        JSONArray milestonesHjalmar = new JSONArray();
-
-        milestonesAltug.add(milestone1);
-        milestonesHjalmar.add(milestone2);
-
-        //add the array with info into employee1
-        employee1.put("Altug did tasks", milestonesAltug);
-        employee1.put("Hjalmar did tasks", milestonesHjalmar);
-
-        //System.out.println(employee1.toJSONString());
-
-        File file = new File("Milestones.txt");
-
-        try (PrintWriter writer = new PrintWriter(file)) {
-            writer.print(employee1.toJSONString());
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.toString());
-        }
-
-        System.out.println("File created successfully.");
-        try {
-            Scanner scanner = new Scanner(file);
-            StringBuilder jsonIn = new StringBuilder();
-            while (scanner.hasNextLine()) {
-                jsonIn.append(scanner.nextLine());
-            }
-            System.out.println(jsonIn.toString());
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.toString());
-        }
-
-    }*/
 }
 

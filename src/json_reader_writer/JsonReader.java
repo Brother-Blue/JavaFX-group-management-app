@@ -22,7 +22,7 @@ public class JsonReader {
 
     public Planner loadPlanner() {
         JSONParser jsonParser = new JSONParser();
-
+        Planner planner = null;
         try {
             //Parsing the contents of the JSON file
             Object obj = jsonParser.parse(new FileReader("input.json"));
@@ -33,16 +33,12 @@ public class JsonReader {
             LocalDate startDate = LocalDate.parse((String) jsonObject.get("startDate"));
             LocalDate endDate = LocalDate.parse((String) jsonObject.get("endDate"));
             double budget = Double.parseDouble((String)jsonObject.get("budget"));
-            return new Planner(projectName, startDate, endDate, budget);
+            planner = new Planner(projectName, startDate, endDate, budget);
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return planner;
     }
 
         //Reader and object creator for the members
@@ -55,9 +51,8 @@ public class JsonReader {
             JSONObject jsonObject = (JSONObject) obj;
 
             JSONArray memberArray = (JSONArray) jsonObject.get("members");
-            Iterator<JSONObject> iterator = memberArray.iterator();
-            while (iterator.hasNext()) {
-                JSONObject object = iterator.next();
+
+            for (JSONObject object : (Iterable<JSONObject>) memberArray) {
                 String firstName = (String) object.get("firstName");
                 String lastName = (String) object.get("lastName");
                 float ID = Integer.parseInt((String) object.get("ID"));
@@ -66,31 +61,25 @@ public class JsonReader {
                 members.add(member);
                 System.out.println(member.getId() + ": " + member.getFirstName());
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
-        return members;
+            return members;
     }
 
-    //Reader and object creator for the milestones
+
     public ArrayList<Milestone> loadMilestone(){
 
         JSONParser jsonParser = new JSONParser();
         ArrayList<Milestone> milestones = new ArrayList<>();
 
-        double hours = 0;
         try {
             Object obj = jsonParser.parse(new FileReader("input.json"));
             JSONObject jsonObject = (JSONObject) obj;
 
             JSONArray milestoneArray = (JSONArray) jsonObject.get("milestones");
-            Iterator<JSONObject> iterator1 = milestoneArray.iterator();
-            while (iterator1.hasNext()) {
-                JSONObject object = iterator1.next();
+
+            for (JSONObject object : (Iterable<JSONObject>) milestoneArray) {
                 String milestoneName = (String) object.get("milestoneName");
                 String milestoneDescription = (String) object.get("milestoneDescription");
                 LocalDate startDate = LocalDate.parse((String) object.get("startDate"));
@@ -102,11 +91,7 @@ public class JsonReader {
                 Milestone milestone = new Milestone(milestoneName, milestoneDescription, startDate, plannedEndDate, actualEndDate, createMembers(hoursPerMember));
                 milestones.add(milestone);
             }
-    } catch (FileNotFoundException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    } catch (ParseException e) {
+    } catch (ParseException | IOException e) {
         e.printStackTrace();
     }
         return milestones;
@@ -114,11 +99,10 @@ public class JsonReader {
 
     private Map<Integer, Double> createMembers(JSONObject milestone) {
         Map<Integer, Double> map = new HashMap<>();
-        Iterator milestoneIterator = milestone.keySet().iterator();
 
-        while (milestoneIterator.hasNext()) {
-            Integer key = Integer.valueOf((String) milestoneIterator.next());
-            double value = Double.valueOf((String) milestone.get(key.toString()));
+        for (Object o : milestone.keySet()) {
+            Integer key = Integer.valueOf((String) o);
+            double value = Double.parseDouble((String) milestone.get(key.toString()));
             map.put(key, value);
         }
         return map;
@@ -136,9 +120,8 @@ public class JsonReader {
             JSONObject jsonObject = (JSONObject) obj;
 
             JSONArray milestoneArray = (JSONArray) jsonObject.get("riskMatrix");
-            Iterator<JSONObject> iterator2 = milestoneArray.iterator();
-            while(iterator2.hasNext()){
-                JSONObject object = iterator2.next();
+
+            for (JSONObject object : (Iterable<JSONObject>) milestoneArray) {
                 String riskName = (String) object.get("riskName");
                 String veryLikely = (String) object.get("veryLikely");
                 String possible = (String) object.get("possible");
@@ -148,12 +131,7 @@ public class JsonReader {
                 risks.add(risk);
             }
 
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
         return risks;
