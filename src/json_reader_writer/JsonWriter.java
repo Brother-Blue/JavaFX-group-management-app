@@ -40,15 +40,17 @@ public class JsonWriter {
             memberDetails.put("salary", Double.toString(member.getSalary()));
             JSONArray timesheetList = new JSONArray();
 
+            /*
             for(Timesheet timesheet:member.getHours()){
                 JSONObject timesheetDetails = new JSONObject();
-                timesheetDetails.put("week",timesheet.getWeek());
-                timesheetDetails.put("hours", timesheet.getHours());
+                //timesheetDetails.put("week",timesheet.getWeek());
+                //timesheetDetails.put("hours", timesheet.getHours());
                 timesheetList.add(timesheetDetails);
                 memberDetails.put("hoursWorked",timesheetList);
             }
             memberList.add(memberDetails);
             plannerObject.put("members", memberList);
+             */
 
         }
 

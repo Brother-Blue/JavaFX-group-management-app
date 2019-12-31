@@ -25,6 +25,7 @@ public class Planner {
     public ArrayList<Member> members = loadMember();
     public ArrayList<Milestone> milestones = loadMilestones();
     public ArrayList<RiskMatrix> risks = loadRiskMatrix();
+    public ArrayList<Timesheet> timesheets = loadTimesheet();
     public ArrayList<Float> pcpValues = new ArrayList<>();
     public ArrayList<Double> actualCosts = new ArrayList<>();
 
@@ -133,6 +134,10 @@ public class Planner {
     public ArrayList<RiskMatrix> loadRiskMatrix(){
         return reader.loadRiskMatrix();
     }
+
+    public ArrayList<Timesheet> loadTimesheet() {
+        return reader.loadTimesheet();
+    };
 
     public double getBudget() {
         return budget;

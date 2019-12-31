@@ -29,6 +29,7 @@ public class Member {
         this.id =(int) ID;  //have to have it as a float then cast it to an int so we have 2 different signatures for the constructors
         this.salary = salary;
     }
+    /*
     //TODO To be used with the JSON save states
     public void addHours(int week, int hours) {
         //change this code to suit saving to JSON
@@ -46,6 +47,7 @@ public class Member {
         }
         return hoursWorked;
     }
+     */
 
     public String getFirstName() {
         return firstName;

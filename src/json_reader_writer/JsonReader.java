@@ -4,15 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 
-import member_manager.Member;
-import member_manager.Milestone;
-import member_manager.Planner;
-import member_manager.RiskMatrix;
+import member_manager.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -95,6 +89,30 @@ public class JsonReader {
         e.printStackTrace();
     }
         return milestones;
+    }
+
+    public ArrayList<Timesheet> loadTimesheet() {
+        JSONParser jsonParser = new JSONParser();
+        ArrayList<Timesheet> timesheets = new ArrayList<>();
+
+        try {
+            Object obj = jsonParser.parse(new FileReader("input.json"));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray timesheetArray = (JSONArray) jsonObject.get("timesheet");
+            Map<Integer, ArrayList<Double>> mappedHours = new HashMap<>();
+
+            for (JSONObject object : (Iterable<JSONObject>) timesheetArray) {
+                int weekNumber = (int) object.get("week");
+                ArrayList<Double> totalHoursWorked = (ArrayList) object.get("hoursWorked");
+                mappedHours.put(weekNumber, totalHoursWorked);
+                Timesheet timesheet = new Timesheet(mappedHours);
+
+                timesheets.add(timesheet);
+            }
+        } catch (ParseException | IOException | InputMismatchException e) {
+            e.printStackTrace();
+        }
+        return timesheets;
     }
 
     private Map<Integer, Double> createMembers(JSONObject milestone) {

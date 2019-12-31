@@ -12,7 +12,11 @@ public class Timesheet {
     private LocalDate endDate = planner.getEndDate();
     private ArrayList<Integer> memberIDs = getMemberIDs();
     private ArrayList<Integer> weekCount = initWeekCount();
-    private Map<Integer, ArrayList<Integer>> weeks = initTimeSheet();
+    private Map<Integer, ArrayList<Double>> weeks;
+
+    public Timesheet(Map<Integer, ArrayList<Double>> weeks) {
+        this.weeks = weeks;
+    }
 
     private Map<Integer, Integer> getMemberHours(int week, int memberID) {
         Map<Integer, Integer> weeklyHours = new HashMap<>();
