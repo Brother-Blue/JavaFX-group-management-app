@@ -91,23 +91,23 @@ public class JsonReader {
         return milestones;
     }
 
-    public ArrayList<Timesheet> loadTimesheet() {
+    public Map<Integer, ArrayList<Double>> loadTimesheet() {
         JSONParser jsonParser = new JSONParser();
-        ArrayList<Timesheet> timesheets = new ArrayList<>();
+        Map<Integer, ArrayList<Double>> timesheets = new HashMap<>();
 
         try {
             Object obj = jsonParser.parse(new FileReader("input.json"));
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray timesheetArray = (JSONArray) jsonObject.get("timesheet");
-            Map<Integer, ArrayList<Double>> mappedHours = new HashMap<>();
 
             for (JSONObject object : (Iterable<JSONObject>) timesheetArray) {
-                int weekNumber = (int) object.get("week");
-                ArrayList<Double> totalHoursWorked = (ArrayList) object.get("hoursWorked");
-                mappedHours.put(weekNumber, totalHoursWorked);
-                Timesheet timesheet = new Timesheet(mappedHours);
-
-                timesheets.add(timesheet);
+                int weekNumber = Integer.valueOf((String) object.get("week"));
+                JSONObject getHoursWorked = (JSONObject) object.get("hoursWorked");
+                ArrayList<Double> totalHoursWorked = new ArrayList<>();
+                for (Object hours : getHoursWorked.values()) {
+                    totalHoursWorked.add(Double.parseDouble(hours.toString()));
+                }
+                timesheets.put(weekNumber, totalHoursWorked);
             }
         } catch (ParseException | IOException | InputMismatchException e) {
             e.printStackTrace();

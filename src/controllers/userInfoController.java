@@ -134,6 +134,8 @@ public class userInfoController extends MainController {
                 submitButton.setDisable(false);
                 compareHoursSalaryDropdown.setDisable(false);
                 compareUserDropdown.setDisable(false);
+
+                System.out.println(planner.timesheet);
             } else {
                 AlertHelper.showAlert(Alert.AlertType.INFORMATION, owner, "Error", "Member ID does not yet exist.");
             }
