@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import json_reader_writer.JsonReader;
 import json_reader_writer.JsonWriter;
@@ -16,7 +17,19 @@ import java.io.IOException;
 public class dashboardController extends MainController {
 
     @FXML
-    private javafx.scene.control.Button exitApp;
+    private Button exitApp;
+    @FXML
+    private Button saveDataButton;
+    @FXML
+    private Button loadDataButton;
+    @FXML
+    private Button projectOverviewButton;
+    @FXML
+    private Button newMilestoneButton;
+    @FXML
+    private Button viewMemberButton;
+    @FXML
+    private Button newMemberButton;
 
     public void addMember(ActionEvent event) throws IOException {
 
@@ -77,6 +90,13 @@ public class dashboardController extends MainController {
     public void loadData(){
         JsonReader reader = new JsonReader();
        planner = reader.loadPlanner();
+
+       saveDataButton.setDisable(false);
+       newMemberButton.setDisable(false);
+       newMilestoneButton.setDisable(false);
+       projectOverviewButton.setDisable(false);
+       viewMemberButton.setDisable(false);
+       loadDataButton.setDisable(true);
     }
     public void saveState(){
         JsonWriter writer = new JsonWriter();

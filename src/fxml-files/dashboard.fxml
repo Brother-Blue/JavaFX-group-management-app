@@ -17,12 +17,12 @@
    <children>
       <AnchorPane fx:id="test" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: CBE5E4; -fx-border-width: 3px; -fx-border-style: solid; -fx-border-color: rgba(0, 0, 0 ,0.25);" GridPane.columnIndex="1">
          <children>
-            <Button fx:id="newMemberB" layoutX="240.0" layoutY="140.0" mnemonicParsing="false" onAction="#addMember" prefHeight="31.0" prefWidth="141.0" text="New Member">
+            <Button fx:id="newMemberButton" disable="true" layoutX="240.0" layoutY="140.0" mnemonicParsing="false" onAction="#addMember" prefHeight="31.0" prefWidth="141.0" text="New Member">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="viewMemberB" layoutX="409.0" layoutY="140.0" mnemonicParsing="false" onAction="#viewMember" prefHeight="31.0" prefWidth="141.0" text="View Member">
+            <Button fx:id="viewMemberButton" disable="true" layoutX="409.0" layoutY="140.0" mnemonicParsing="false" onAction="#viewMember" prefHeight="31.0" prefWidth="141.0" text="View Member">
                <font>
                   <Font size="15.0" />
                </font>
@@ -32,12 +32,12 @@
                   <Font name="System Bold" size="32.0" />
                </font></Text>
             <Text layoutX="267.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Group 13's Project Managing Software" />
-            <Button fx:id="projectOverviewB" layoutX="409.0" layoutY="189.0" mnemonicParsing="false" onAction="#projectOverview" prefHeight="31.0" prefWidth="141.0" text="Project Overview">
+            <Button fx:id="projectOverviewButton" disable="true" layoutX="409.0" layoutY="189.0" mnemonicParsing="false" onAction="#projectOverview" prefHeight="31.0" prefWidth="141.0" text="Project Overview">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="240.0" layoutY="189.0" mnemonicParsing="false" onAction="#newMilestone" prefHeight="31.0" prefWidth="141.0" text="New Milestone">
+            <Button fx:id="newMilestoneButton" disable="true" layoutX="240.0" layoutY="189.0" mnemonicParsing="false" onAction="#newMilestone" prefHeight="31.0" prefWidth="141.0" text="New Milestone">
                <font>
                   <Font size="15.0" />
                </font>
@@ -62,12 +62,12 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button layoutX="632.0" layoutY="21.0" mnemonicParsing="false" onAction="#loadData" prefHeight="31.0" prefWidth="141.0" text="Load Data">
+            <Button fx:id="loadDataButton" layoutX="632.0" layoutY="21.0" mnemonicParsing="false" onAction="#loadData" prefHeight="31.0" prefWidth="141.0" text="Load Data">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="632.0" layoutY="66.0" mnemonicParsing="false" onAction="#saveState" prefHeight="31.0" prefWidth="141.0" text="Save">
+            <Button fx:id="saveDataButton" disable="true" layoutX="632.0" layoutY="66.0" mnemonicParsing="false" onAction="#saveState" prefHeight="31.0" prefWidth="141.0" text="Save">
                <font>
                   <Font size="15.0" />
                </font>
