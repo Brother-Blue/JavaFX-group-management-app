@@ -39,6 +39,17 @@ public class Planner {
         this.nowDays = ChronoUnit.DAYS.between(startDate, localDate);
     }
 
+    public double getHoursFromWeek(int week) {
+        double totalHours = 0;
+        if (timesheet.containsKey(week)) {
+            ArrayList<Double> placeholder = timesheet.get(week);
+            for (Double hour : placeholder) {
+                totalHours = totalHours + hour;
+            }
+        }
+        return totalHours;
+    }
+
     //searches for a specific member and returns sum of total hours for all milestones
     public double getTotalHours(int ID) {
         double result = 0;

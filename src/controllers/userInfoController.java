@@ -82,7 +82,7 @@ public class userInfoController extends MainController {
             ObservableList<String> optionsIds = FXCollections.observableArrayList();
             for (Member member : planner.members) {
                 if (member.getId() != Integer.parseInt(searchForID.getText())) {
-                    optionsIds.add(Integer.toString(member.getId()) + " : " + member.getFirstName() + " " + member.getLastName().substring(0, 1) + ".");
+                    optionsIds.add((member.getId()) + " : " + member.getFirstName() + " " + member.getLastName().substring(0, 1) + ".");
                 }
             }
             compareUserDropdown.setItems(optionsIds);
@@ -135,7 +135,6 @@ public class userInfoController extends MainController {
                 compareHoursSalaryDropdown.setDisable(false);
                 compareUserDropdown.setDisable(false);
 
-                System.out.println(planner.timesheet);
             } else {
                 AlertHelper.showAlert(Alert.AlertType.INFORMATION, owner, "Error", "Member ID does not yet exist.");
             }
