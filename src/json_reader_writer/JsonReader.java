@@ -113,6 +113,25 @@ public class JsonReader {
         return timesheets;
     }
 
+    public ArrayList<Double> percentComplete() {
+        JSONParser jsonParser = new JSONParser();
+        ArrayList<Double> percentages = new ArrayList<>();
+
+        try {
+            Object obj = jsonParser.parse(new FileReader("input.json"));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray timesheetArray = (JSONArray) jsonObject.get("timesheet");
+
+            for (JSONObject object : (Iterable<JSONObject>) timesheetArray) {
+                double percent = Double.parseDouble((String) object.get("percentComplete"));
+                percentages.add(percent);
+            }
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+        }
+        return percentages;
+    }
+
     private Map<Integer, Double> createMembers(JSONObject milestone) {
         Map<Integer, Double> map = new HashMap<>();
 

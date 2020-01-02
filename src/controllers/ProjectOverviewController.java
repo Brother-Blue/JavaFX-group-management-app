@@ -97,7 +97,7 @@ private Button searchButton;
 
         calcDescrip.setText("Planned value is the relation between the amount of days a current milestone has been worked on and the current budget. " +
                 "The current days are measured from when the milestone started up to the current day."); //calcWeek - 1 brings the graph value thats displayed  ti the correct value.
-        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + planner.pcpValues.get(planner.calcWeek()-1).toString() + "SEK");
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + "SEK");
         calcFormula.setText("Planned Value = Days worked / Total days worked (Expected)");
 
         pvSeries.setName("PV Values");
@@ -111,18 +111,46 @@ private Button searchButton;
 
     }
     public void earnedValue(){
+        ArrayList<Double> results = planner.calcEv();
+        searchButton.setDisable(true);
+        XYChart.Series evSeries = new XYChart.Series();
+        areaChart.getData().clear();
+
         calcDescrip.setText("Expenditures that should have been realised given the actual technical project progress (based on\n" +
                 "the expenditure plan) (From lecture slides)");
-        double result = planner.calcEv();
-        calcResult.setText(Double.toString(Math.round(result*100.00)/100.00));
+        calcResult.setText("If you see this it means Chris forgot to fix this part :)");
         calcFormula.setText("");
+
+        evSeries.setName("Earned Value");
+        xAxis.setLabel("Week");
+        yAxis.setLabel("Amount (SEK)");
+
+        for (int i = 0; i < results.size(); i++) {
+            evSeries.getData().add(new XYChart.Data(Integer.toString(i+1), results.get(i)));
+        }
+
+        areaChart.getData().add(evSeries);
+
     }
     public void actualCost(){
-        planner.calcActualCost();
+        ArrayList<Double> results = planner.calcActualCost();
+        searchButton.setDisable(true);
+        XYChart.Series acSeries = new XYChart.Series();
+        areaChart.getData().clear();
 
         calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).");
         calcResult.setText("Current week: " + currentWeek + ", Actual Costs: " + "SEK");
         calcFormula.setText("Actual Cost = Budget - Costs.");
+
+        acSeries.setName("Actual Costs");
+        xAxis.setLabel("Week");
+        yAxis.setLabel("Amount (SEK)");
+
+        for (int i = 0; i < results.size(); i++) {
+            acSeries.getData().add(new XYChart.Data(Integer.toString(i+1), results.get(i)));
+        }
+
+        areaChart.getData().add(acSeries);
 
     }
     public void budgetAtCompl(){
