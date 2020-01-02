@@ -55,7 +55,7 @@ private Button searchButton;
 
             ObservableList<String> calcOptions = FXCollections.observableArrayList();
             calcOptions.addAll("Planned Value (PV)", "Earned Value (EV)", "Actual Cost (AC)",
-                    "Budget at Completion(BAC)", "Schedule Variance (SV)",
+                    "Budget at Completion (BAC)", "Schedule Variance (SV)",
                     "Schedule Performance Index (SPI)", "Cost Variance (CV)",
                     "Cost Performance Index (CPI)");
             calculatorDropdown.setItems(calcOptions);
@@ -76,7 +76,7 @@ private Button searchButton;
            earnedValue();
         } else if (selection == "Actual Cost (AC)") {
             actualCost();
-        } else if (selection ==  "Budget at Completion(BAC)") {
+        } else if (selection ==  "Budget at Completion (BAC)") {
             budgetAtCompl();
         } else if (selection == "Schedule Variance (SV)") {
             scheduleVariance();
@@ -154,9 +154,24 @@ private Button searchButton;
 
     }
     public void budgetAtCompl(){
+        ArrayList<Double> results = planner.calcBAC();
+        searchButton.setDisable(true);
+        XYChart.Series bacSeries = new XYChart.Series();
+        areaChart.getData().clear();
+
         calcDescrip.setText("");
         calcResult.setText("To be implemented");
         calcFormula.setText("");
+
+        bacSeries.setName("Budget at Completion - (Week)");
+        xAxis.setLabel("Week");
+        yAxis.setLabel("Amount (SEK)");
+
+        for (int i = 0; i < results.size(); i++) {
+            bacSeries.getData().add(new XYChart.Data(Integer.toString(i+1), results.get(i)));
+        }
+
+        areaChart.getData().add(bacSeries);
     }
     public void scheduleVariance(){
         ArrayList<Double> results = planner.calcSv();
@@ -222,9 +237,25 @@ private Button searchButton;
         areaChart.getData().add(cvSeries);
     }
     public void costPerfIndex(){
+        ArrayList<Double> results = planner.calcCPI();
+        searchButton.setDisable(true);
+        XYChart.Series cpiSeries = new XYChart.Series();
+        areaChart.getData().clear();
+
         calcDescrip.setText("");
         calcResult.setText("To be implemented");
-        calcFormula.setText("(EV / AV)*100");
+        calcFormula.setText("(EV / AV)");
+
+        cpiSeries.setName("Cost Performance Index");
+        xAxis.setLabel("Week");
+        yAxis.setLabel("Index");
+
+        for (int i = 0; i < results.size(); i++) {
+            cpiSeries.getData().add(new XYChart.Data(Integer.toString(i+1), results.get(i)));
+
+        }
+
+        areaChart.getData().add(cpiSeries);
     }
 
     public void enableSearch(ActionEvent actionEvent) {

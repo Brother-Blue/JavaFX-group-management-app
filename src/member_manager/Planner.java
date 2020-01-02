@@ -200,7 +200,48 @@ public class Planner {
             double result = (evResults.get(i)/pvResults.get(i));
             results.add(result);
         }
-        System.out.println(results);
+        //System.out.println(results);
+        return results;
+    }
+
+    public ArrayList<Double> calcCPI() { //Values displayed are skewed due to not all hours input into the json file.
+        ArrayList<Double> results = new ArrayList<>();
+        ArrayList<Double> evResults = calcEv();
+        ArrayList<Double> acResults = calcActualCost();
+        double acResult = 0;
+        double evResult = 0;
+
+        for (int i = 0; i < acResults.size(); i++) {
+            if (acResults.get(i) == 0) {
+                acResult = 1;
+            } else {
+                acResult = acResults.get(i);
+            }
+            if (evResults.get(i) == 0) {
+                evResult = 1;
+            } else {
+                evResult = evResults.get(i);
+            }
+
+            double result = (evResult/acResult);
+            results.add(result);
+        }
+        //System.out.println(results); //debugger
+        return results;
+    }
+
+    public ArrayList<Double> calcBAC() {
+        double totalSalaries = 0;
+        ArrayList<Double> results = new ArrayList<>();
+        for (int i = 0; i < calcWeek(); i++) {
+            System.out.println(i);
+            for (Member member : members) {
+                totalSalaries = totalSalaries + getWeeklySalaryForMember(i+1, member.getId());
+            }
+            double result = budget - totalSalaries;
+            results.add(result);
+        }
+        //System.out.println(results); //debug
         return results;
     }
 
