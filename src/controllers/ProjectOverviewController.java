@@ -91,7 +91,7 @@ private Button searchButton;
 
     public void plannedValue(){
         searchButton.setDisable(true);
-        ArrayList<Float> results = planner.calcPv();
+        ArrayList<Double> results = planner.calcPv();
         XYChart.Series pvSeries = new XYChart.Series();
         areaChart.getData().clear();
 
@@ -159,21 +159,67 @@ private Button searchButton;
         calcFormula.setText("");
     }
     public void scheduleVariance(){
+        ArrayList<Double> results = planner.calcSv();
+        searchButton.setDisable(true);
+        XYChart.Series svSeries = new XYChart.Series();
+        areaChart.getData().clear();
+
         calcDescrip.setText("Difference between planned expenditures and earned value (From lecture slides)");
         //double result = planner.calcSv();
         //calcResult.setText(Double.toString(result));
         calcFormula.setText("EV – PV");
+
+        svSeries.setName("Scheduled Variance");
+        xAxis.setLabel("Week");
+        yAxis.setLabel("Amount (SEK)");
+
+        for (int i = 0; i < results.size(); i++) {
+            svSeries.getData().add(new XYChart.Data(Integer.toString(i+1), results.get(i)));
+        }
+
+        areaChart.getData().add(svSeries);
+
     }
     public void schedulePerfIndex(){
+        ArrayList<Double> results = planner.calcSPI();
+        searchButton.setDisable(true);
+        XYChart.Series spiSeries = new XYChart.Series();
+        areaChart.getData().clear();
+
         calcDescrip.setText("");
         calcResult.setText("To be implemented");
         calcFormula.setText("(EV / PV)*100");
+
+        spiSeries.setName("Scheduled Performance Index");
+        xAxis.setLabel("Week");
+        yAxis.setLabel("Index");
+
+        for (int i = 0; i < results.size(); i++) {
+            spiSeries.getData().add(new XYChart.Data(Integer.toString(i+1), results.get(i)));
+        }
+
+        areaChart.getData().add(spiSeries);
     }
     public void costVariance(){
+        ArrayList<Double> results = planner.calcCv();
+        searchButton.setDisable(true);
+        XYChart.Series cvSeries = new XYChart.Series();
+        areaChart.getData().clear();
+
         calcDescrip.setText("Difference between actual expenditures and earned value (From lecture slides)");
         double result = 0;
         calcResult.setText(Double.toString(result));
         calcFormula.setText("EV – AV");
+
+        cvSeries.setName("Cost Variance");
+        xAxis.setLabel("Week");
+        yAxis.setLabel("Amount (SEK)");
+
+        for (int i = 0; i < results.size(); i++) {
+            cvSeries.getData().add(new XYChart.Data(Integer.toString(i+1), results.get(i)));
+        }
+
+        areaChart.getData().add(cvSeries);
     }
     public void costPerfIndex(){
         calcDescrip.setText("");

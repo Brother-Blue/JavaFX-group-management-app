@@ -131,46 +131,79 @@ public class Planner {
         return week;
     }
 
-    public ArrayList<Float> calcPv(){
-        ArrayList<Float> pcpValues = new ArrayList<>();
+    public ArrayList<Double> calcPv(){
+        ArrayList<Double> pcpValues = new ArrayList<>();
         int totalWeeks = (int) totalDays/7;
         for (int i = 0; i < totalWeeks; i++) {
-            float pcp = (float) (Math.round((budget/(totalWeeks-i))*100.00)/100.00);
+            double pcp = (Math.round((budget/(totalWeeks-i))*100.00)/100.00);
             pcpValues.add(pcp);
         }
         return pcpValues;
     }
 
     public ArrayList<Double> calcEv(){
-        ArrayList<Double> result = new ArrayList<>();
+        ArrayList<Double> results = new ArrayList<>();
         for (int i = 0; i < percentComplete.size(); i++) {
-            result.add((double) Math.round(((percentComplete.get(i) * budget)*100.00)/100.00));
+            results.add((double) Math.round(((percentComplete.get(i) * budget)*100.00)/100.00));
         }
-        System.out.println(result); //debugger
-        return result;
+        //System.out.println(result); //debugger
+        return results;
     }
 
-    /*
-    public double calcSv(){
-         return calcEv() - calcPv();
+    public ArrayList<Double> calcSv(){ //ev-pv
+        ArrayList<Double> results = new ArrayList<>();
+        ArrayList<Double> evResults = calcEv();
+        ArrayList<Double> pvResults = calcPv();
+
+        for (int i = 0; i < pvResults.size(); i++) {
+            double result = (Math.round(evResults.get(i) - pvResults.get(i)*100.00)/100.00);
+            results.add(result);
+        }
+        //System.out.println(results); //debugger
+        return results;
     }
 
-     */
+    public ArrayList<Double> calcCv(){
+        ArrayList<Double> results = new ArrayList<>();
+        ArrayList<Double> avResults = calcActualCost();
+        ArrayList<Double> evResults = calcEv();
 
-    /*
-    public double calcCv(){
-         return calcEv() - calcActualCost();
+        for (int i = 0; i < avResults.size(); i++) {
+            double result = (Math.round(evResults.get(i) - avResults.get(i)*100.00)/100.00);
+            results.add(result);
+        }
+        //System.out.println(results); //debugger
+        return results;
     }
-     */
 
     public ArrayList<Double> calcActualCost() {
         ArrayList<Double> actualCosts = new ArrayList<>();
-        for (Member member : members) {
-            actualCosts.add(getTotalSalaryForMember(member.getId()));
+        double weeklyCosts = 0;
+
+        for (int i = 0; i < calcWeek(); i++) {
+            for (Member member : members) {
+                weeklyCosts = getWeeklySalaryForMember(i, member.getId());
+            }
+            actualCosts.add(weeklyCosts);
+            weeklyCosts = 0;
         }
-        System.out.println(actualCosts); //debugger
+        //System.out.println(actualCosts); //debugger
         return actualCosts;
     }
+
+    public ArrayList<Double> calcSPI() {
+        ArrayList<Double> results = new ArrayList<>();
+        ArrayList<Double> evResults = calcEv();
+        ArrayList<Double> pvResults = calcPv();
+
+        for (int i = 0; i < pvResults.size(); i++) {
+            double result = (evResults.get(i)/pvResults.get(i));
+            results.add(result);
+        }
+        System.out.println(results);
+        return results;
+    }
+
     //method for creating a new member
     public void addMember(String firstName, String lastName, int dateOfBirth, double salary) {
         Member member = new Member(firstName, lastName, dateOfBirth, salary);

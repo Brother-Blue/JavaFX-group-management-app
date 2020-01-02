@@ -109,7 +109,7 @@ public class JsonReader {
         } catch (ParseException | IOException | InputMismatchException e) {
             e.printStackTrace();
         }
-        System.out.println(timesheets);
+        //System.out.println(timesheets); //debugger
         return timesheets;
     }
 
