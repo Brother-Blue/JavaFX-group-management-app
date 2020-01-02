@@ -25,9 +25,9 @@ public class Planner {
     public ArrayList<Member> members = loadMember();
     public ArrayList<Milestone> milestones = loadMilestones();
     public ArrayList<RiskMatrix> risks = loadRiskMatrix();
-    public Map<Integer, ArrayList<Double>> timesheet = loadTimesheet();
+    public Map<Integer, Map<Integer, Double>> timesheet = loadTimesheet();
     public ArrayList<Float> pcpValues = new ArrayList<>();
-    public ArrayList<Double> actualCosts = new ArrayList<>();
+    //public ArrayList<Double> actualCosts = new ArrayList<>();
 
 
     public Planner(String projectName, LocalDate startDate, LocalDate endDate, double budget) {
@@ -39,6 +39,7 @@ public class Planner {
         this.nowDays = ChronoUnit.DAYS.between(startDate, localDate);
     }
 
+    /*
     public double getHoursFromWeek(int week) {
         double totalHours = 0;
         if (timesheet.containsKey(week)) {
@@ -49,6 +50,8 @@ public class Planner {
         }
         return totalHours;
     }
+
+     */
 
     //searches for a specific member and returns sum of total hours for all milestones
     public double getTotalHours(int ID) {
@@ -101,19 +104,11 @@ public class Planner {
     }
      */
 
-    public ArrayList<Double> calcActualCost() { //Shows actual cost per milestone instead of per week since we don't have enough milestones in input.json atm
-        double costsPerMilestone = 0;
-        double hoursPerMilestone = 0;
+    public ArrayList<Double> calcActualCost() {
+        ArrayList<Double> actualCosts = new ArrayList<>();
 
-        for (Milestone milestone : milestones) {
-            for (Member member : members) {
-                hoursPerMilestone = hoursPerMilestone + (double) milestone.getEmployeeHours().get(member.getId());
-                costsPerMilestone = costsPerMilestone + (member.getSalary() * hoursPerMilestone);
-            }
-            actualCosts.add(costsPerMilestone);
-            hoursPerMilestone = 0;
-            costsPerMilestone = 0;
-        }
+
+
         System.out.println(actualCosts);
         return actualCosts;
     }
@@ -146,7 +141,7 @@ public class Planner {
         return reader.loadRiskMatrix();
     }
 
-    public Map<Integer, ArrayList<Double>> loadTimesheet() {
+    public Map<Integer, Map<Integer, Double>> loadTimesheet() {
         return reader.loadTimesheet();
     };
 

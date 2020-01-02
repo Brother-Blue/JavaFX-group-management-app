@@ -91,9 +91,9 @@ public class JsonReader {
         return milestones;
     }
 
-    public Map<Integer, ArrayList<Double>> loadTimesheet() {
+    public Map<Integer, Map<Integer, Double>> loadTimesheet() {
         JSONParser jsonParser = new JSONParser();
-        Map<Integer, ArrayList<Double>> timesheets = new HashMap<>();
+        Map<Integer, Map<Integer, Double>> timesheets = new HashMap<>();
 
         try {
             Object obj = jsonParser.parse(new FileReader("input.json"));
@@ -103,15 +103,13 @@ public class JsonReader {
             for (JSONObject object : (Iterable<JSONObject>) timesheetArray) {
                 int weekNumber = Integer.valueOf((String) object.get("week"));
                 JSONObject getHoursWorked = (JSONObject) object.get("hoursWorked");
-                ArrayList<Double> totalHoursWorked = new ArrayList<>();
-                for (Object hours : getHoursWorked.values()) {
-                    totalHoursWorked.add(Double.parseDouble(hours.toString()));
-                }
-                timesheets.put(weekNumber, totalHoursWorked);
+                Map<Integer, Double> membersWithHours = createMembers(getHoursWorked);
+                timesheets.put(weekNumber, membersWithHours);
             }
         } catch (ParseException | IOException | InputMismatchException e) {
             e.printStackTrace();
         }
+        System.out.println(timesheets);
         return timesheets;
     }
 

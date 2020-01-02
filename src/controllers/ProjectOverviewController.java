@@ -95,7 +95,6 @@ private Button searchButton;
         XYChart.Series pvSeries = new XYChart.Series();
         areaChart.getData().clear();
 
-
         calcDescrip.setText("Planned value is the relation between the amount of days a current milestone has been worked on and the current budget. " +
                 "The current days are measured from when the milestone started up to the current day."); //calcWeek - 1 brings the graph value thats displayed  ti the correct value.
         calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + planner.pcpValues.get(planner.calcWeek()-1).toString() + "SEK");
@@ -122,7 +121,7 @@ private Button searchButton;
         planner.calcActualCost();
 
         calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).");
-        calcResult.setText("Current week: " + currentWeek + ", Actual Costs: " + planner.actualCosts.get(planner.actualCosts.size()-1) + "SEK");
+        calcResult.setText("Current week: " + currentWeek + ", Actual Costs: " + "SEK");
         calcFormula.setText("Actual Cost = Budget - Costs.");
 
     }
@@ -154,5 +153,8 @@ private Button searchButton;
         calcFormula.setText("(EV / AV)*100");
     }
 
+    public void enableSearch(ActionEvent actionEvent) {
+        searchButton.setDisable(false);
     }
+}
 

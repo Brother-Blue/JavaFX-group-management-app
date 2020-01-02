@@ -34,7 +34,7 @@
             </Text>
             <Text layoutX="42.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Calculation Type:" />
             <Text layoutX="42.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Calculation Type:" wrappingWidth="143.865234375" />
-            <ComboBox fx:id="calculatorDropdown" layoutX="38.0" layoutY="112.0" prefHeight="26.0" prefWidth="184.0" />
+            <ComboBox fx:id="calculatorDropdown" onAction="#enableSearch" layoutX="38.0" layoutY="112.0" prefHeight="26.0" prefWidth="184.0" />
             <TextArea fx:id="calcDescrip" editable="false" layoutX="39.0" layoutY="160.0" mouseTransparent="true" prefHeight="89.0" prefWidth="270.0" wrapText="true" />
             <Button fx:id="searchButton" onAction="#calcSelection" layoutX="230.0" layoutY="112.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Search" />
          </children>
