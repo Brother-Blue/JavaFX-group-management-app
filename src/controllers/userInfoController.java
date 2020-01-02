@@ -175,7 +175,7 @@ public class userInfoController extends MainController {
         ObservableList<PieChart.Data> chartData = FXCollections.observableArrayList();
 
         for (Member member : planner.members) {
-            int hours = (int) planner.getTotalHours(member.getId());
+            int hours = (int) planner.getAllHoursForMember(member.getId());
             String memberID = member.getFirstName() + ": " + hours + " hours";
             chartData.add(new PieChart.Data(memberID, hours));
         }
@@ -207,16 +207,15 @@ public class userInfoController extends MainController {
         double totalHours = 0;
 
         for (Member member : planner.members) {
-            totalHours = totalHours + planner.getTotalHours(member.getId());
+            totalHours = totalHours + planner.getAllHoursForMember(member.getId());
         }
 
         double avgHours = Math.round(totalHours / planner.members.size());
 
-        ArrayList<Double> hoursWorked = planner.getHours(Integer.parseInt(searchForID.getText()));
-        for (int i = 0; i < hoursWorked.size(); i++) {
-            double hours = 0;
-            hours = hoursWorked.get(i);
-            dataSeries.getData().add(new XYChart.Data<>(Integer.toString(i+1), hours));
+        for (Integer week : planner.timesheet.keySet()) {
+            double hoursWorked = 0;
+            hoursWorked = planner.getWeeklyHoursForMember(week, Integer.parseInt(searchForID.getText()));
+            dataSeries.getData().add(new XYChart.Data<>(Integer.toString(week), hoursWorked));
         }
 
         xAxis.setAnimated(false);
@@ -224,7 +223,7 @@ public class userInfoController extends MainController {
         barChart.getData().add(dataSeries);
 
         //add in info
-        userInfoDescription.setText(name + "'s total hours are " + planner.getTotalHours(Integer.parseInt(searchForID.getText())) + " hours. Compared to the total group average of " + avgHours + ".");
+        userInfoDescription.setText(name + "'s total hours are " + planner.getAllHoursForMember(Integer.parseInt(searchForID.getText())) + " hours. Compared to the total group average of " + avgHours + ".");
     }
 
     public void showSalary(ActionEvent event) throws IOException {
@@ -236,7 +235,7 @@ public class userInfoController extends MainController {
 
         double totalSalary = 0;
         for (Member member : planner.members) {
-            totalSalary = member.getSalary() * planner.getTotalHours(member.getId());
+            totalSalary = member.getSalary() * planner.getAllHoursForMember(member.getId());
             String memberID = member.getFirstName() + ": " + totalSalary + " SEK";
             chartData.add(new PieChart.Data(memberID, totalSalary));
         }
@@ -267,16 +266,10 @@ public class userInfoController extends MainController {
 
         ArrayList<Double> hoursWorked = planner.getHours(Integer.parseInt(searchForID.getText()));
 
-        double salary = 0;
-        for (Member member : planner.members) {
-            if (Integer.parseInt(searchForID.getText()) == member.getId()) {
-                salary = member.getSalary();
-            }
-        }
-
-        for (int i = 0; i < hoursWorked.size(); i++) {
-            double total = salary*hoursWorked.get(i);
-            dataSeries.getData().add(new XYChart.Data<>(Integer.toString(i), total));
+        double total = 0;
+        for (Integer week : planner.timesheet.keySet()) {
+            total = planner.getWeeklySalaryForMember(week, Integer.parseInt(searchForID.getText()));
+            dataSeries.getData().add(new XYChart.Data<>(Integer.toString(week), total));
         }
 
         xAxis.setAnimated(false);
@@ -289,7 +282,7 @@ public class userInfoController extends MainController {
         }
 
         //add in info
-        userInfoDescription.setText(name + "'s total salary is " + planner.getTotalHours(Integer.parseInt(searchForID.getText()))*salary + "sek. Compared to the total group average of " + avgSalary + ".");
+        userInfoDescription.setText(name + "'s total salary is " + planner.getTotalSalaryForMember(Integer.parseInt(searchForID.getText())) + "sek. Compared to the total group average of " + avgSalary + ".");
     }
 
     public void compareUsers(ActionEvent actionEvent) {
@@ -322,14 +315,14 @@ public class userInfoController extends MainController {
         //lists for hours pie chart
         ObservableList<PieChart.Data> hoursMembers = FXCollections.observableArrayList();
 
-        hoursMembers.add(new PieChart.Data(member1.getFirstName(), planner.getTotalHours(member1.getId())));
-        hoursMembers.add(new PieChart.Data(member2.getFirstName(), planner.getTotalHours(member2.getId())));
+        hoursMembers.add(new PieChart.Data(member1.getFirstName(), planner.getAllHoursForMember(member1.getId())));
+        hoursMembers.add(new PieChart.Data(member2.getFirstName(), planner.getAllHoursForMember(member2.getId())));
 
         //lists for salaries pie chart
         ObservableList<PieChart.Data> salaryMembers = FXCollections.observableArrayList();
 
-        salaryMembers.add(new PieChart.Data(member1.getFirstName(), planner.getTotalHours(member1.getId()) * member1.getSalary()));
-        salaryMembers.add(new PieChart.Data(member2.getFirstName(), planner.getTotalHours(member2.getId()) * member2.getSalary()));
+        salaryMembers.add(new PieChart.Data(member1.getFirstName(), planner.getTotalSalaryForMember(member1.getId())));
+        salaryMembers.add(new PieChart.Data(member2.getFirstName(), planner.getTotalSalaryForMember(member2.getId())));
 
         //data series for hours bar chart
         XYChart.Series hoursSeriesMember1 = new XYChart.Series();
@@ -341,17 +334,11 @@ public class userInfoController extends MainController {
         XYChart.Series salarySeriesMember2 = new XYChart.Series();
             salarySeriesMember2.setName(member2.getFirstName());
 
-        ArrayList<Double> hoursWorkedMember1 = planner.getHours(member1.getId());
-        ArrayList<Double> hoursWorkedMember2 = planner.getHours(member2.getId());
-
-        for (int i = 0; i < hoursWorkedMember1.size(); i++) {
-            hoursSeriesMember1.getData().add(new XYChart.Data<>(Integer.toString(i+1), hoursWorkedMember1.get(i)));
-            salarySeriesMember1.getData().add(new XYChart.Data<>(Integer.toString(i+1), (hoursWorkedMember1.get(i) * member1.getSalary())));
-        }
-
-        for (int i = 0; i < hoursWorkedMember2.size(); i++) {
-            hoursSeriesMember2.getData().add(new XYChart.Data<>(Integer.toString(i+1), hoursWorkedMember2.get(i)));
-            salarySeriesMember2.getData().add(new XYChart.Data<>(Integer.toString(i+1), hoursWorkedMember2.get(i) * member2.getSalary()));
+        for (Integer week : planner.timesheet.keySet()) {
+            hoursSeriesMember1.getData().add(new XYChart.Data<>(Integer.toString(week), planner.getWeeklyHoursForMember(week, member1.getId())));
+            salarySeriesMember1.getData().add(new XYChart.Data<>(Integer.toString(week), planner.getWeeklySalaryForMember(week, member1.getId())));
+            hoursSeriesMember2.getData().add(new XYChart.Data<>(Integer.toString(week), planner.getWeeklyHoursForMember(week, member2.getId())));
+            salarySeriesMember2.getData().add(new XYChart.Data<>(Integer.toString(week), planner.getWeeklySalaryForMember(week, member2.getId())));
         }
 
         //draw graphs
@@ -377,8 +364,8 @@ public class userInfoController extends MainController {
                 barChart.setTitle("Compared Hours");
                 barChart.getData().addAll(hoursSeriesMember1, hoursSeriesMember2);
 
-                userInfoDescription.setText(member1.getFirstName() + "'s total hours worked are " + planner.getTotalHours(member1.getId()) +
-                        "\nWhile " + member2.getFirstName() + "'s total hours worked are " + planner.getTotalHours(member2.getId()) + ".");
+                userInfoDescription.setText(member1.getFirstName() + "'s total hours worked are " + planner.getAllHoursForMember(member1.getId()) +
+                        "\nWhile " + member2.getFirstName() + "'s total hours worked are " + planner.getAllHoursForMember(member2.getId()) + ".");
             }
             if (compareType.equalsIgnoreCase("salaries")) {
                 pieChart.getData().clear();
@@ -401,8 +388,8 @@ public class userInfoController extends MainController {
                 barChart.setTitle("Compared Salaries");
                 barChart.getData().addAll(salarySeriesMember1, salarySeriesMember2);
 
-                userInfoDescription.setText(member1.getFirstName() + "'s total earned salary is " + planner.getTotalHours(member1.getId()) * member1.getSalary() + "SEK" +
-                        "\nWhereas " + member2.getFirstName() + "'s total earned salary is " + planner.getTotalHours(member2.getId()) * member2.getSalary() + "SEK.");
+                userInfoDescription.setText(member1.getFirstName() + "'s total earned salary is " + planner.getTotalSalaryForMember(member1.getId()) + "SEK" +
+                        "\nWhereas " + member2.getFirstName() + "'s total earned salary is " + planner.getTotalSalaryForMember(member2.getId()) + "SEK.");
             }
         }
     }
