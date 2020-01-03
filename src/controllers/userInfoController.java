@@ -264,8 +264,6 @@ public class userInfoController extends MainController {
         XYChart.Series dataSeries = new XYChart.Series();
         dataSeries.setName("Salary Earned");
 
-        ArrayList<Double> hoursWorked = planner.getHours(Integer.parseInt(searchForID.getText()));
-
         double total = 0;
         for (Integer week : planner.timesheet.keySet()) {
             total = planner.getWeeklySalaryForMember(week, Integer.parseInt(searchForID.getText()));
@@ -278,7 +276,7 @@ public class userInfoController extends MainController {
 
         double avgSalary = 0;
         for (Member member : planner.members) {
-            avgSalary = Math.round((avgSalary + (member.getSalary() * planner.getTotalHours(member.getId()))) / planner.members.size());
+            avgSalary = Math.round((avgSalary + (planner.getTotalSalaryForMember(member.getId()))) / planner.members.size());
         }
 
         //add in info

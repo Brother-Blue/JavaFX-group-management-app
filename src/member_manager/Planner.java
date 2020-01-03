@@ -107,6 +107,7 @@ public class Planner {
     }
 
     //searches for a specific member and returns sum of total hours for all milestones
+    /*
     public double getTotalHours(int ID) {
         double result = 0;
         for (Milestone milestone : milestones) {
@@ -125,6 +126,7 @@ public class Planner {
         //System.out.println(result); debug
         return result;
     }
+     */
 
     public int calcWeek() {
         int week = ((int) (nowDays/7)) + 1; //+1 is used to move the current week to the week we're currently on instead of weeks that have passed.
