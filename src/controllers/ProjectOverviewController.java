@@ -13,6 +13,7 @@ import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import member_manager.Member;
 
 import java.io.IOException;
 import java.net.URL;
@@ -138,8 +139,13 @@ private Button searchButton;
         XYChart.Series acSeries = new XYChart.Series();
         areaChart.getData().clear();
 
+        double actual = 0;
+        for (Member member : planner.members) {
+            actual = actual + planner.getTotalSalaryForMember(member.getId());
+        }
+
         calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).");
-        calcResult.setText("Current week: " + currentWeek + ", Actual Costs: " + "SEK");
+        calcResult.setText("Total costs: " + actual + "SEK");
         calcFormula.setText("Actual Cost = Budget - Costs.");
 
         acSeries.setName("Actual Costs");
