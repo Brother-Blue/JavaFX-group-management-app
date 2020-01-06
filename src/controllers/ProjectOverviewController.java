@@ -196,6 +196,7 @@ private Button searchButton;
 
         for (int i = 0; i < results.size(); i++) {
             svSeries.getData().add(new XYChart.Data(Integer.toString(i+1), results.get(i)));
+            System.out.println(results.get(i));
         }
 
         areaChart.getData().add(svSeries);
