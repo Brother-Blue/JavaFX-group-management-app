@@ -248,51 +248,163 @@
   ],
   "milestones": [
     {
-      "actualEndDate": "2019-11-12",
-      "milestoneName": "Setup Trello",
-      "milestoneDescription": "Creating a Trello workspace and inviting everyone",
-      "startDate": "2019-11-12",
-      "plannedEndDate": "2019-11-13",
+      "actualEndDate": "2019-11-14",
+      "milestoneName": "Planning Meetings",
+      "milestoneDescription": "Group got together and planned the week",
+      "startDate": "2019-11-11",
+      "plannedEndDate": "2019-11-15",
+      "hoursPerMember": {
+        "26162": "3.0",
+        "17004": "3.0",
+        "13209": "3.0",
+        "14587": "3.0",
+        "18619": "3.0",
+        "23787": "3.0",
+        "14975": "3.0"
+      }
+    },
+    {
+      "actualEndDate": "2019-12-22",
+      "milestoneName": "Create FXML files",
+      "milestoneDescription": "Creating a complete class diagram over our software",
+      "startDate": "2019-11-22",
+      "plannedEndDate": "2019-11-15",
+      "hoursPerMember": {
+        "26162": "19.0",
+        "17004": "0.0",
+        "13209": "10.0",
+        "14587": "0.0",
+        "18619": "3.0",
+        "23787": "4.0",
+        "14975": "16.0"
+      }
+    },
+    {
+      "actualEndDate": "2019-11-15",
+      "milestoneName": "Class diagram",
+      "milestoneDescription": "Creating a complete class diagram over our software",
+      "startDate": "2019-11-13",
+      "plannedEndDate": "2019-11-15",
       "hoursPerMember": {
         "26162": "2.0",
-        "17004": "13.0",
-        "13209": "20.0",
-        "14587": "5.0",
-        "18619": "1.0",
-        "23787": "3.0",
+        "17004": "0.0",
+        "13209": "0.0",
+        "14587": "0.0",
+        "18619": "3.0",
+        "23787": "8.0",
+        "14975": "2.0"
+      }
+    },
+    {
+      "actualEndDate": "2019-12-22",
+      "milestoneName": "Create Controllers",
+      "milestoneDescription": "Creating all controllers classes for our interface",
+      "startDate": "2019-11-22",
+      "plannedEndDate": "2019-11-27",
+      "hoursPerMember": {
+        "26162": "18.0",
+        "17004": "0.0",
+        "13209": "10.0",
+        "14587": "0.0",
+        "18619": "3.0",
+        "23787": "20.0",
+        "14975": "18.0"
+      }
+    },
+    {
+      "actualEndDate": "2020-01-10",
+      "milestoneName": "Develop methods",
+      "milestoneDescription": "Complete all methods for the software",
+      "startDate": "2019-11-18",
+      "plannedEndDate": "2020-01-10",
+      "hoursPerMember": {
+        "26162": "10.0",
+        "17004": "18.0",
+        "13209": "15.0",
+        "14587": "10.0",
+        "18619": "17.0",
+        "23787": "17.0",
         "14975": "8.0"
       }
     },
     {
-      "actualEndDate": "2019-11-14",
-      "milestoneName": "Setup google docs and excel",
-      "milestoneDescription": "Creating a google docs and excel files to track our time spent etc.",
-      "startDate": "2019-11-12",
+      "actualEndDate": "2019-12-22",
+      "milestoneName": "Implement JSON",
+      "milestoneDescription": "Create JSON reader, writer and input files",
+      "startDate": "2019-11-25",
       "plannedEndDate": "2019-11-15",
       "hoursPerMember": {
-        "26162": "8.0",
-        "17004": "4.0",
-        "13209": "3.0",
-        "14587": "3.0",
-        "18619": "5.0",
-        "23787": "3.0",
-        "14975": "9.0"
+        "26162": "0.0",
+        "17004": "14.0",
+        "13209": "0.0",
+        "14587": "20.0",
+        "18619": "12.0",
+        "23787": "5.0",
+        "14975": "4.0"
       }
     },
     {
-      "actualEndDate": "2019-11-29",
-      "milestoneName": "Assignment 1",
-      "milestoneDescription": "Working on the first assignment of the course",
+      "actualEndDate": "2020-01-09",
+      "milestoneName": "Finish coding",
+      "milestoneDescription": "Complete the entire code for the entire software",
       "startDate": "2019-11-25",
-      "plannedEndDate": "2019-11-30",
+      "plannedEndDate": "2019-01-10",
       "hoursPerMember": {
-        "26162": "7.0",
+        "26162": "6.0",
+        "17004": "14.0",
+        "13209": "15.0",
+        "14587": "15.0",
+        "18619": "10.0",
+        "23787": "20.0",
+        "14975": "8.0"
+      }
+    },
+    {
+      "actualEndDate": "2020-01-10",
+      "milestoneName": "Final report",
+      "milestoneDescription": "Write the final report for our course",
+      "startDate": "2019-12-17",
+      "plannedEndDate": "2020-01-17",
+      "hoursPerMember": {
+        "26162": "8.0",
         "17004": "8.0",
-        "13209": "1.0",
-        "14587": "13.0",
-        "18619": "3.0",
-        "23787": "4.0",
-        "14975": "9.0"
+        "13209": "8.0",
+        "14587": "8.0",
+        "18619": "8.0",
+        "23787": "8.0",
+        "14975": "8.0"
+      }
+    },
+    {
+      "actualEndDate": "2020-01-10",
+      "milestoneName": "Create executable",
+      "milestoneDescription": "Create a executable program of our software",
+      "startDate": "2019-12-17",
+      "plannedEndDate": "2020-01-10",
+      "hoursPerMember": {
+        "26162": "0.0",
+        "17004": "4.0",
+        "13209": "0.0",
+        "14587": "0.0",
+        "18619": "0.0",
+        "23787": "0.0",
+        "14975": "0.0"
+      }
+    },
+    {
+      "actualEndDate": "2019-12-01",
+      "milestoneName": "Migration to JavaFX",
+      "milestoneDescription": "Move our Java based project to a new one and migrate it to JavaFX",
+      "startDate": "2019-11-18",
+      "plannedEndDate": "2019-11-29",
+      "hoursPerMember": {
+        "26162": "6.0",
+        "17004": "0.0",
+        "13209": "0.0",
+        "14587": "0.0",
+        "18619": "0.0",
+        "23787": "1.0",
+        "14975": "1.0"
       }
     }
   ],
