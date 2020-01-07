@@ -18,7 +18,8 @@ public class dashboardController extends MainController {
 
     @FXML
     private Button exitApp;
-
+    @FXML
+    private Button saveDataButton;
     @FXML
     private Button loadDataButton;
     @FXML
@@ -29,6 +30,28 @@ public class dashboardController extends MainController {
     private Button viewMemberButton;
     @FXML
     private Button newMemberButton;
+
+    private static boolean loaded = false;
+
+    public void initialize() {
+        if (!loaded) {
+            saveDataButton.setDisable(true);
+            projectOverviewButton.setDisable(true);
+            newMilestoneButton.setDisable(true);
+            viewMemberButton.setDisable(true);
+            newMemberButton.setDisable(true);
+        } else {
+            loadButtons();
+        }
+    }
+
+    public void loadButtons() {
+        saveDataButton.setDisable(false);
+        projectOverviewButton.setDisable(false);
+        newMilestoneButton.setDisable(false);
+        viewMemberButton.setDisable(false);
+        newMemberButton.setDisable(false);
+    }
 
     public void addMember(ActionEvent event) throws IOException {
 
@@ -88,14 +111,9 @@ public class dashboardController extends MainController {
 
     public void loadData(){
         JsonReader reader = new JsonReader();
-       planner = reader.loadPlanner();
-
-
-       newMemberButton.setDisable(false);
-       newMilestoneButton.setDisable(false);
-       projectOverviewButton.setDisable(false);
-       viewMemberButton.setDisable(false);
-       loadDataButton.setDisable(true);
+        planner = reader.loadPlanner();
+        loaded = true;
+        loadButtons();
     }
     public void saveState(){
         JsonWriter writer = new JsonWriter();
