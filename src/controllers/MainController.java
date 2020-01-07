@@ -28,6 +28,7 @@ import java.util.ArrayList;
 public class MainController {
 
     static Planner planner;
+//this is a comment
 
     // This code is for all back buttons that go back to the dashboard.
     @FXML
