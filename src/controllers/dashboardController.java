@@ -18,8 +18,7 @@ public class dashboardController extends MainController {
 
     @FXML
     private Button exitApp;
-    @FXML
-    private Button saveDataButton;
+
     @FXML
     private Button loadDataButton;
     @FXML
@@ -91,7 +90,7 @@ public class dashboardController extends MainController {
         JsonReader reader = new JsonReader();
        planner = reader.loadPlanner();
 
-       saveDataButton.setDisable(false);
+
        newMemberButton.setDisable(false);
        newMilestoneButton.setDisable(false);
        projectOverviewButton.setDisable(false);
