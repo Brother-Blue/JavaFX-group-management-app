@@ -7,10 +7,21 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import json_reader_writer.JsonReader;
+import member_manager.RiskMatrix;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class riskMatrixController extends MainController {
+
+    public void visualRisks(){
+        JsonReader jsonReader = new JsonReader();
+        ArrayList<RiskMatrix> risks = new ArrayList<>();
+        risks = jsonReader.loadRiskMatrix();
+
+        //todo add fxid things and make em display this amazing arraylist.
+    }
 
     @Override
     public void back(ActionEvent event) throws IOException {

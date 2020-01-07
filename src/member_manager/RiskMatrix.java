@@ -13,6 +13,7 @@ public class RiskMatrix {
         this.unlikely = unlikely;
     }
 
+
     public String getRiskName() {  return riskName; }
 
     public void setRiskName(String riskName) { this.riskName = riskName; }
