@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProjectScheduleController">
+   <children>
+      <Button layoutX="717.0" layoutY="444.0" mnemonicParsing="false" onAction="#backProject" text="Back">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="66.0" layoutY="24.0" mnemonicParsing="false" onAction="#loadAnalysis" prefHeight="31.0" prefWidth="145.0" text="Analysis">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="242.0" layoutY="24.0" mnemonicParsing="false" onAction="#loadUI" prefHeight="31.0" prefWidth="145.0" text="UI Design">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="418.0" layoutY="24.0" mnemonicParsing="false" onAction="#loadDevelopment" prefHeight="31.0" prefWidth="145.0" text="Development">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="591.0" layoutY="24.0" mnemonicParsing="false" onAction="#loadCompletion" prefHeight="31.0" prefWidth="145.0" text="Completion">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Text fx:id="headline" layoutX="74.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Analysis" wrappingWidth="336.13671875">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <VBox layoutX="613.0" layoutY="164.0" prefHeight="200.0" prefWidth="100.0" />
+      <TableView fx:id="tableView" layoutX="30.0" layoutY="164.0" prefHeight="200.0" prefWidth="750.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="62.0" text="ID" />
+          <TableColumn fx:id="task" prefWidth="115.0" text="Task" />
+            <TableColumn fx:id="startDate" prefWidth="84.0" text="Start Date" />
+            <TableColumn fx:id="finishDate" prefWidth="96.0" text="Finished Date" />
+            <TableColumn fx:id="duration" prefWidth="84.0" text="Duration" />
+            <TableColumn fx:id="resources" prefWidth="308.0" text="Resources" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

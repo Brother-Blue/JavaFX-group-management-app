@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.chart.AreaChart?>
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProjectOverviewController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProjectOverviewController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -34,14 +24,22 @@
             </Text>
             <Text layoutX="42.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Calculation Type:" />
             <Text layoutX="42.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Calculation Type:" wrappingWidth="143.865234375" />
-            <ComboBox fx:id="calculatorDropdown" onAction="#enableSearch" layoutX="38.0" layoutY="112.0" prefHeight="26.0" prefWidth="184.0" />
+            <ComboBox fx:id="calculatorDropdown" layoutX="38.0" layoutY="112.0" onAction="#enableSearch" prefHeight="26.0" prefWidth="184.0" />
             <TextArea fx:id="calcDescrip" editable="false" layoutX="39.0" layoutY="160.0" mouseTransparent="true" prefHeight="89.0" prefWidth="270.0" wrapText="true" />
-            <Button fx:id="searchButton" onAction="#calcSelection" layoutX="230.0" layoutY="112.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Search" />
+            <Button fx:id="searchButton" layoutX="230.0" layoutY="112.0" mnemonicParsing="false" onAction="#calcSelection" prefHeight="26.0" prefWidth="81.0" text="Search" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
-            <Button fx:id="riskMatrix" layoutX="171.0" layoutY="102.0" mnemonicParsing="false" onAction="#riskMatrixView" text="RiskMatrix" />
+            <Button fx:id="riskMatrix" layoutX="200.0" layoutY="106.0" mnemonicParsing="false" onAction="#riskMatrixView" prefHeight="39.0" prefWidth="120.0" text="Risk Matrix">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button layoutX="42.0" layoutY="106.0" mnemonicParsing="false" onAction="#projectScheduleView" prefHeight="39.0" prefWidth="120.0" text="Project Schedule">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>

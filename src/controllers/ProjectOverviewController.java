@@ -51,6 +51,16 @@ private Button searchButton;
         window.show();
     }
 
+    public void projectScheduleView(ActionEvent event) throws IOException{
+        Parent projectScheduleParent = FXMLLoader.load(getClass().getResource("../fxml-files/projectSchedule.fxml"));
+        Scene projectScheduleScene = new Scene(projectScheduleParent);
+
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(projectScheduleScene);
+        window.show();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
