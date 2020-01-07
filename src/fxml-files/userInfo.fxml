@@ -72,7 +72,7 @@
                      </font>
                   </Text>
                   <Button fx:id="submitButton" disable="true" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#compareUsers" text="Submit" />
-                  <Button fx:id="editMember" layoutX="255.0" layoutY="228.0" mnemonicParsing="false" onAction="#editMember" text="Edit Employee Data">
+                  <Button fx:id="editMember" layoutX="255.0" layoutY="228.0" mnemonicParsing="false" onAction="#editMember" text="Edit Member Data">
                      <font>
                         <Font size="13.0" />
                      </font>
