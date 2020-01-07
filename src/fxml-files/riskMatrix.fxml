@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.riskMatrixController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.riskMatrixController">
    <children>
       <Button layoutX="715.0" layoutY="447.0" mnemonicParsing="false" onAction="#back" text="Back" />
       <TableView layoutX="25.0" layoutY="26.0" prefHeight="25.0" prefWidth="661.0">
@@ -19,46 +15,126 @@
             <TableColumn prefWidth="137.33331298828125" text="Unlikely" />
         </columns>
       </TableView>
-      <Label layoutX="322.0" layoutY="6.0" prefHeight="17.0" prefWidth="362.0" text="                             Likelihood of occurence" />
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="67.0" prefHeight="64.0" prefWidth="519.0">
         <items>
-          <AnchorPane fx:id="event11" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-          <AnchorPane fx:id="likely21" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely31" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely41" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="e11" alignment="TOP_LEFT" layoutY="-2.0" prefHeight="62.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l21" layoutX="36.0" layoutY="22.0" prefHeight="62.0" prefWidth="100.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l31" layoutX="45.0" layoutY="22.0" prefHeight="62.0" prefWidth="117.33333333333333" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l41" layoutX="46.0" layoutY="22.0" prefHeight="62.0" prefWidth="132.66666666666666" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
         </items>
       </SplitPane>
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="131.0" prefHeight="73.0" prefWidth="519.0">
          <items>
-            <AnchorPane fx:id="event12" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely22" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely32" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely42" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="event12" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="e12" alignment="TOP_LEFT" layoutX="61.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="150.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l22" layoutX="36.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="100.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l32" layoutX="45.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="117.33333333333333" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l42" layoutX="52.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="132.66666666666666" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </items>
       </SplitPane>
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="204.0" prefHeight="73.0" prefWidth="519.0">
          <items>
-            <AnchorPane fx:id="event13" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely23" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely33" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely43" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="e13" alignment="TOP_LEFT" layoutX="61.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="150.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l23" layoutX="36.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="100.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l33" layoutX="45.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="117.33333333333333" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l43" layoutX="46.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="132.66666666666666" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </items>
       </SplitPane>
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="277.0" prefHeight="73.0" prefWidth="519.0">
          <items>
-            <AnchorPane fx:id="event14" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely24" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely34" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely44" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="e14" alignment="TOP_LEFT" layoutX="61.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="150.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l24" layoutX="36.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="100.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l34" layoutX="45.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="117.33333333333333" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l44" layoutX="46.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="132.66666666666666" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </items>
       </SplitPane>
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="350.0" prefHeight="73.0" prefWidth="519.0">
          <items>
-            <AnchorPane fx:id="event15" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely 25" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely 35" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane fx:id="likely45" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="e15" alignment="TOP_LEFT" layoutX="61.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="150.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l25" layoutX="36.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="100.0" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l35" layoutX="37.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="117.33333333333333" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="l45" layoutX="52.0" layoutY="27.0" prefHeight="71.33333333333333" prefWidth="132.66666666666666" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </items>
       </SplitPane>
+      <Label layoutX="322.0" layoutY="6.0" prefHeight="17.0" prefWidth="362.0" text="                             Likelihood of occurence" />
    </children>
 </AnchorPane>

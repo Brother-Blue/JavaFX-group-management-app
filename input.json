@@ -47,25 +47,25 @@
   ],
   "riskMatrix": [
     {
-      "riskName": "Json files become corrupted and all data is lost",
+      "riskName": "Json files become corrupted  \nand all data is lost",
       "unlikely": "Severe",
       "veryLikely": "Catastrophic",
       "possible": "Catastrophic"
     },
     {
-      "riskName": "Developer corrupts the data on purpose",
+      "riskName": "Developer corrupts the \ndata on purpose",
       "unlikely": "Moderate",
       "veryLikely": "Catastrophic",
       "possible": "Catastrophic"
     },
     {
-      "riskName": "Software not matching the requirements",
+      "riskName": "Software not matching \nthe requirements",
       "unlikely": "Moderate",
       "veryLikely": "Catastrophic",
       "possible": "Severe"
     },
     {
-      "riskName": "User finds the UI complicated to use",
+      "riskName": "User finds the UI \ncomplicated to use",
       "unlikely": "Low",
       "veryLikely": "Catastrophic",
       "possible": "Moderate"

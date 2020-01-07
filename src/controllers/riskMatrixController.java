@@ -12,67 +12,100 @@ import javafx.stage.Stage;
 import json_reader_writer.JsonReader;
 import member_manager.RiskMatrix;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class riskMatrixController extends MainController {
 
     @FXML
-    private AnchorPane event11;
+    private javafx.scene.control.Label e11;
     @FXML
-    private AnchorPane event12;
+    private javafx.scene.control.Label e12;
     @FXML
-    private AnchorPane event13;
+    private javafx.scene.control.Label e13;
     @FXML
-    private AnchorPane event14;
+    private javafx.scene.control.Label e14;
     @FXML
-    private AnchorPane event15;
+    private javafx.scene.control.Label e15;
     @FXML
-    private AnchorPane likely21;
+    private javafx.scene.control.Label l22;
     @FXML
-    private AnchorPane likely22;
+    private javafx.scene.control.Label l23;
     @FXML
-    private AnchorPane likely23;
+    private javafx.scene.control.Label l21;
     @FXML
-    private AnchorPane likely24;
+    private javafx.scene.control.Label l24;
     @FXML
-    private AnchorPane likely25;
+    private javafx.scene.control.Label l25;
     @FXML
-    private AnchorPane likely31;
+    private javafx.scene.control.Label l32;
     @FXML
-    private AnchorPane likely32;
+    private javafx.scene.control.Label l34;
     @FXML
-    private AnchorPane likely33;
+    private javafx.scene.control.Label l44;
     @FXML
-    private AnchorPane likely34;
+    private javafx.scene.control.Label l33;
     @FXML
-    private AnchorPane likely35;
+    private javafx.scene.control.Label l45;
     @FXML
-    private AnchorPane likely41;
+    private javafx.scene.control.Label l31;
     @FXML
-    private AnchorPane likely42;
+    private javafx.scene.control.Label l42;
     @FXML
-    private AnchorPane likely43;
+    private javafx.scene.control.Label l43;
     @FXML
-    private AnchorPane likely44;
+    private javafx.scene.control.Label l41;
     @FXML
-    private AnchorPane likely45;
 
 
-    public void visualRisks(){
+
+    public void visualRisks() {
         JsonReader jsonReader = new JsonReader();
-        ArrayList<RiskMatrix> risks = new ArrayList<>();
+        ArrayList<RiskMatrix> risks;
         risks = jsonReader.loadRiskMatrix();
-        event11.setAccessibleText(risks.get(0).getRiskName());
+        e11.setText(risks.get(0).getRiskName());
+        l21.setText(risks.get(0).getVeryLikely());
+        l31.setText(risks.get(0).getPossible());
+        l41.setText(risks.get(0).getUnlikely());
+
+        e12.setText(risks.get(1).getRiskName());
+        l22.setText(risks.get(1).getVeryLikely());
+        l32.setText(risks.get(1).getPossible());
+        l42.setText(risks.get(1).getUnlikely());
+
+        e13.setText(risks.get(2).getRiskName());
+        l23.setText(risks.get(2).getVeryLikely());
+        l33.setText(risks.get(2).getPossible());
+        l43.setText(risks.get(2).getUnlikely());
+
+        e14.setText(risks.get(3).getRiskName());
+        l24.setText(risks.get(3).getVeryLikely());
+        l34.setText(risks.get(3).getPossible());
+        l44.setText(risks.get(3).getUnlikely());
+
+        e15.setText(risks.get(4).getRiskName());
+        l25.setText(risks.get(4).getVeryLikely());
+        l45.setText(risks.get(4).getUnlikely());
+        l34.setText(risks.get(4).getPossible());
+
+
+
+
+    }
+    public void initialize () {
+        visualRisks();
+    }
+
 
         //todo add fxid things and make em display this amazing arraylist.
-    }
 
     @Override
     public void back(ActionEvent event) throws IOException {
 
         Parent backMemberParent = FXMLLoader.load(getClass().getResource("../fxml-files/projectOverview.fxml"));
         Scene backMemberScene = new Scene(backMemberParent);
+
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
