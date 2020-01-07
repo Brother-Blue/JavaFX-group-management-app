@@ -1,0 +1,301 @@
+
+{
+  "endDate": "2020-01-10",
+  "members": [
+    {
+      "firstName": "Hjalmar",
+      "lastName": "Thunberg",
+      "ID": "18619",
+      "salary": "250.0"
+    },
+    {
+      "firstName": "Altug",
+      "lastName": "Altetmek",
+      "ID": "14587",
+      "salary": "210.0"
+    },
+    {
+      "firstName": "Christian",
+      "lastName": "O'Neill",
+      "ID": "23787",
+      "salary": "145.0"
+    },
+    {
+      "firstName": "Clementine",
+      "lastName": "Jensen",
+      "ID": "26162",
+      "salary": "220.0"
+    },
+    {
+      "firstName": "Hugo",
+      "lastName": "Hempel",
+      "ID": "13209",
+      "salary": "250.0"
+    },
+    {
+      "firstName": "Linus",
+      "lastName": "Ivarsson",
+      "ID": "14975",
+      "salary": "150.0"
+    },
+    {
+      "firstName": "Linus",
+      "lastName": "Åberg",
+      "ID": "17004",
+      "salary": "280.0"
+    }
+  ],
+  "riskMatrix": [
+    {
+      "riskName": "Json files become corrupted and all data is lost",
+      "unlikely": "Severe",
+      "veryLikely": "Catastrophic",
+      "possible": "Catastrophic"
+    },
+    {
+      "riskName": "Developer corrupts the data on purpose",
+      "unlikely": "Moderate",
+      "veryLikely": "Catastrophic",
+      "possible": "Catastrophic"
+    },
+    {
+      "riskName": "Software not matching the requirements",
+      "unlikely": "Moderate",
+      "veryLikely": "Catastrophic",
+      "possible": "Severe"
+    },
+    {
+      "riskName": "User finds the UI complicated to use",
+      "unlikely": "Low",
+      "veryLikely": "Catastrophic",
+      "possible": "Moderate"
+    },
+    {
+      "riskName": "Developer dies",
+      "unlikely": "Low",
+      "veryLikely": "Catastrophic",
+      "possible": "Moderate"
+    },
+    {
+      "riskName": "Bugs after release",
+      "unlikely": "Moderate",
+      "veryLikely": "Severe",
+      "possible": "Severe"
+    },
+    {
+      "riskName": "GitLab crashes and team can’t function in a collaborative way",
+      "unlikely": "Moderate",
+      "veryLikely": "Severe",
+      "possible": "Severe"
+    },
+    {
+      "riskName": "Hardware malfunction",
+      "unlikely": "Low",
+      "veryLikely": "Severe",
+      "possible": "Moderate"
+    },
+    {
+      "riskName": "Miscommunication between developers",
+      "unlikely": "Low",
+      "veryLikely": "Severe",
+      "possible": "Moderate"
+    },
+    {
+      "riskName": "Developer drops out",
+      "unlikely": "Low",
+      "veryLikely": "Severe",
+      "possible": "Moderate"
+    },
+    {
+      "riskName": "User does not understand the language of the software",
+      "unlikely": "Low",
+      "veryLikely": "Moderate",
+      "possible": "Low"
+    }
+  ],
+  "projectName": "Project 13",
+  "timesheet": [
+    {
+      "week": "1",
+      "hoursWorked": {
+        "26162": "11",
+        "17004": "4",
+        "13209": "4",
+        "14587": "2",
+        "18619": "8",
+        "23787": "7",
+        "14975": "5"
+      },
+      "percentComplete" : "0.05"
+    },
+    {
+      "week": "2",
+      "hoursWorked": {
+        "26162": "17",
+        "17004": "1",
+        "13209": "2",
+        "14587": "11",
+        "18619": "12",
+        "23787": "12",
+        "14975": "2"
+      },
+      "percentComplete" : "0.11"
+    },
+    {
+      "week": "3",
+      "hoursWorked": {
+        "26162": "17",
+        "17004": "20",
+        "13209": "12",
+        "14587": "14",
+        "18619": "15",
+        "23787": "11",
+        "14975": "20"
+      },
+      "percentComplete" : "0.18"
+    },
+    {
+      "week": "4",
+      "hoursWorked": {
+        "26162": "2",
+        "17004": "14",
+        "13209": "4",
+        "14587": "1",
+        "18619": "4",
+        "23787": "27",
+        "14975": "23"
+      },
+      "percentComplete" : "0.41"
+    },
+    {
+      "week": "5",
+      "hoursWorked": {
+        "26162": "0",
+        "17004": "0",
+        "13209": "0",
+        "14587": "0",
+        "18619": "0",
+        "23787": "8",
+        "14975": "0"
+      },
+      "percentComplete" : "0.64"
+    },
+    {
+      "week": "6",
+      "hoursWorked": {
+        "26162": "0",
+        "17004": "0",
+        "13209": "0",
+        "14587": "0",
+        "18619": "0",
+        "23787": "2",
+        "14975": "0"
+      },
+      "percentComplete" : "0.85"
+    },
+    {
+      "week": "7",
+      "hoursWorked": {
+        "26162": "0",
+        "17004": "0",
+        "13209": "0",
+        "14587": "0",
+        "18619": "0",
+        "23787": "0",
+        "14975": "0"
+      },
+      "percentComplete" : "0.87"
+    },
+    {
+      "week": "8",
+      "hoursWorked": {
+        "26162": "0",
+        "17004": "0",
+        "13209": "0",
+        "14587": "0",
+        "18619": "0",
+        "23787": "7",
+        "14975": "0"
+      },
+      "percentComplete" : "0.89"
+    },
+    {
+      "week": "9",
+      "hoursWorked": {
+        "26162": "0",
+        "17004": "0",
+        "13209": "0",
+        "14587": "0",
+        "18619": "0",
+        "23787": "0",
+        "14975": "0"
+      },
+      "percentComplete" : "0.0"
+    },
+    {
+      "week": "10",
+      "hoursWorked": {
+        "26162": "0",
+        "17004": "0",
+        "13209": "0",
+        "14587": "0",
+        "18619": "0",
+        "23787": "0",
+        "14975": "0"
+      },
+      "percentComplete" : "1.0"
+    }
+  ],
+  "milestones": [
+    {
+      "actualEndDate": "2019-11-12",
+      "milestoneName": "Setup Trello",
+      "milestoneDescription": "Creating a Trello workspace and inviting everyone",
+      "startDate": "2019-11-12",
+      "plannedEndDate": "2019-11-13",
+      "hoursPerMember": {
+        "26162": "2.0",
+        "17004": "13.0",
+        "13209": "20.0",
+        "14587": "5.0",
+        "18619": "1.0",
+        "23787": "3.0",
+        "14975": "8.0"
+      }
+    },
+    {
+      "actualEndDate": "2019-11-14",
+      "milestoneName": "Setup google docs and excel",
+      "milestoneDescription": "Creating a google docs and excel files to track our time spent etc.",
+      "startDate": "2019-11-12",
+      "plannedEndDate": "2019-11-15",
+      "hoursPerMember": {
+        "26162": "8.0",
+        "17004": "4.0",
+        "13209": "3.0",
+        "14587": "3.0",
+        "18619": "5.0",
+        "23787": "3.0",
+        "14975": "9.0"
+      }
+    },
+    {
+      "actualEndDate": "2019-11-29",
+      "milestoneName": "Assignment 1",
+      "milestoneDescription": "Working on the first assignment of the course",
+      "startDate": "2019-11-25",
+      "plannedEndDate": "2019-11-30",
+      "hoursPerMember": {
+        "26162": "7.0",
+        "17004": "8.0",
+        "13209": "1.0",
+        "14587": "13.0",
+        "18619": "3.0",
+        "23787": "4.0",
+        "14975": "9.0"
+      }
+    }
+  ],
+  "startDate": "2019-11-08",
+  "budget": "27936.0"
+}
