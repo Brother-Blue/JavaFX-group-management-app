@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -51,7 +50,7 @@
                   <Font size="17.0" />
                </font>
             </Text>
-            <Text layoutX="48.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cdnasjnkrfnudrifjewiodkaiodjsuifjedfmaskdjmdjwiadkaosdmoanmfioaem,coaskdiwedmalkdmsakldmilelamdskldmeiwalmdskldmiewmfcalmskldmwiladmkaslmfejfmakldm,apdmaidmklasfmdo,aslødmwndweoamda" wrappingWidth="215.3333386182785" />
+            <Text layoutX="48.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This software was created by Group 13 during the course &quot;Mini Project: Team Programming&quot; over the course of 8 weeks. There were a total of 7 people working on all the different aspects of the program. " wrappingWidth="215.3333386182785" />
             <Button fx:id="exitApp" layoutX="714.0" layoutY="204.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="60.0" text="Exit">
                <font>
                   <Font size="14.0" />
