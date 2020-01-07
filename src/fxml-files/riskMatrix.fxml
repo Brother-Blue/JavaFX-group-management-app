@@ -22,42 +22,42 @@
       <Label layoutX="322.0" layoutY="6.0" prefHeight="17.0" prefWidth="362.0" text="                             Likelihood of occurence" />
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="67.0" prefHeight="64.0" prefWidth="519.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane fx:id="event11" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane fx:id="likely21" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely31" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely41" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
         </items>
       </SplitPane>
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="131.0" prefHeight="73.0" prefWidth="519.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="event12" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely22" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely32" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely42" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
          </items>
       </SplitPane>
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="204.0" prefHeight="73.0" prefWidth="519.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="event13" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely23" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely33" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely43" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
          </items>
       </SplitPane>
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="277.0" prefHeight="73.0" prefWidth="519.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="event14" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely24" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely34" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely44" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
          </items>
       </SplitPane>
       <SplitPane dividerPositions="0.2957474226804124, 0.5006443298969072, 0.73840206185567" layoutX="163.0" layoutY="350.0" prefHeight="73.0" prefWidth="519.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="event15" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely 25" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely 35" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            <AnchorPane fx:id="likely45" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
          </items>
       </SplitPane>
    </children>
