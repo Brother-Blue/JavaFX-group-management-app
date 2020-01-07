@@ -11,6 +11,8 @@ import java.util.Map;
 
 public class Planner {
 
+    // Hello gamers
+
     JsonReader reader = new JsonReader();
 
     private double budget;
