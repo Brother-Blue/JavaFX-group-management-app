@@ -108,6 +108,17 @@ public class Planner {
         return totalMemberSalary;
     }
 
+    public ArrayList<String> getMilestonesWorkedOn(int id) {
+        ArrayList<String> milestonesWorkedOn = new ArrayList<>();
+        for (Milestone milestone : milestones) {
+            Map<Integer, Double> employeeHours = milestone.getEmployeeHours();
+            if (employeeHours.containsKey(id) && (employeeHours.get(id) > 0)) {
+                milestonesWorkedOn.add(milestone.getMilestoneName());
+            }
+        }
+        return milestonesWorkedOn;
+    }
+
     //searches for a specific member and returns sum of total hours for all milestones
     /*
     public double getTotalHours(int ID) {

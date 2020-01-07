@@ -62,6 +62,7 @@ public class userInfoController extends MainController {
 
     public void setText(ActionEvent actionEvent) {
         searchForID.setText(memberIdDropdown.getValue().toString().substring(0, 5));
+        search();
     }
 
     // Code goes into here, whatever you want to happen when you search.
@@ -132,9 +133,12 @@ public class userInfoController extends MainController {
                 showHours.setDisable(false);
                 showSalary.setDisable(false);
                 submitButton.setDisable(false);
+                searchForIDButton.setDisable(false);
                 compareHoursSalaryDropdown.setDisable(false);
                 compareUserDropdown.setDisable(false);
 
+                userInfoDescription.setText("Milestones worked on by " + memberName + ":\n" +
+                        planner.getMilestonesWorkedOn(searchedID).toString().substring(1, planner.getMilestonesWorkedOn(searchedID).toString().length() -1));
             } else {
                 AlertHelper.showAlert(Alert.AlertType.INFORMATION, owner, "Error", "Member ID does not yet exist.");
             }
