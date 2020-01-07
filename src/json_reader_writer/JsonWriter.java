@@ -3,16 +3,10 @@ package json_reader_writer;
 import member_manager.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Scanner;
 
 // Inspiration for logic of the json reader and writer comes from the following site:
 // https://stackabuse.com/reading-and-writing-json-in-java/
