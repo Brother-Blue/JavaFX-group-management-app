@@ -37,23 +37,24 @@
             <AnchorPane>
                <children>
                   <TextField fx:id="searchForID" layoutX="20.0" layoutY="22.0" promptText="Input Employee ID" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="22.0" />
-                  <Button fx:id="searchForIDButton" layoutX="327.0" layoutY="22.0" mnemonicParsing="false" onAction="#search" text="Search" />
+                  <Button fx:id="searchForIDButton" disable="true" layoutX="268.0" layoutY="193.0" mnemonicParsing="false" onAction="#search" prefHeight="30.0" prefWidth="106.0" text="Show milestones" />
                   <Text fx:id="previewEmployeeName" layoutX="18.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " />
                   <Text fx:id="revealName" layoutX="56.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="326.13673400878906" />
                   <Text fx:id="previewEmployeeID" layoutX="20.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " />
                   <Text fx:id="revealID" layoutX="37.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.40001392364502" />
-                  <Button fx:id="showHours" disable="true" layoutX="282.0" layoutY="157.0" mnemonicParsing="false" onAction="#showHours" prefHeight="30.0" prefWidth="90.0" text="Show hours">
+                  <Button fx:id="showHours" disable="true" layoutX="282.0" layoutY="117.0" mnemonicParsing="false" onAction="#showHours" prefHeight="30.0" prefWidth="90.0" text="Show hours">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="showSalary" disable="true" layoutX="282.0" layoutY="201.0" mnemonicParsing="false" onAction="#showSalary" prefHeight="30.0" prefWidth="90.0" text="Show salary">
+                  <Button fx:id="showSalary" disable="true" layoutX="282.0" layoutY="156.0" mnemonicParsing="false" onAction="#showSalary" prefHeight="30.0" prefWidth="90.0" text="Show salary">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Text fx:id="userInfoDescription" layoutX="20.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="243.13671112060547" />
+                  <Text fx:id="userInfoDescription" layoutX="20.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="243.13671112060547" />
                   <ComboBox fx:id="memberIdDropdown" layoutX="20.0" layoutY="57.0" onAction="#setText" prefHeight="26.0" prefWidth="194.0" promptText="Member Dropdown" />
+                  <Button onAction="#search" layoutX="321.0" layoutY="22.0" mnemonicParsing="false" text="Search" />
                </children>
                <GridPane.margin>
                   <Insets />

@@ -36,7 +36,7 @@ public class Milestone {
         return actualEndDate;
     }
 
-    public Map getEmployeeHours() {
+    public Map<Integer, Double> getEmployeeHours() {
         return employeeHours;
     }
 
