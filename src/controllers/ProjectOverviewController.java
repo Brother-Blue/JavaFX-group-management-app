@@ -163,8 +163,8 @@ private Button searchButton;
         areaChart.getData().clear();
 
         double actual = 0;
-        for (Member member : planner.members) {
-            actual = actual + planner.getTotalSalaryForMember(member.getId());
+        for (int i = 0; i < results.size(); i++) {
+            actual = actual + results.get(i);
         }
 
         calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).\nTotal final costs: " + actual + "sek");
