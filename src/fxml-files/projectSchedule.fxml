@@ -11,7 +11,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="66.0" layoutY="24.0" mnemonicParsing="false" onAction="#loadAnalysis" prefHeight="31.0" prefWidth="145.0" text="Analysis">
+      <Button layoutX="52.0" layoutY="24.0" mnemonicParsing="false" onAction="#loadAnalysis" prefHeight="31.0" prefWidth="159.0" text="Analysis">
          <font>
             <Font size="14.0" />
          </font>
@@ -39,12 +39,12 @@
       <VBox layoutX="613.0" layoutY="164.0" prefHeight="200.0" prefWidth="100.0" />
       <TableView fx:id="tableView" layoutX="30.0" layoutY="164.0" prefHeight="200.0" prefWidth="750.0">
         <columns>
-          <TableColumn fx:id="id" prefWidth="62.0" text="ID" />
-          <TableColumn fx:id="task" prefWidth="115.0" text="Task" />
-            <TableColumn fx:id="startDate" prefWidth="84.0" text="Start Date" />
-            <TableColumn fx:id="finishDate" prefWidth="96.0" text="Finished Date" />
-            <TableColumn fx:id="duration" prefWidth="84.0" text="Duration" />
-            <TableColumn fx:id="resources" prefWidth="308.0" text="Resources" />
+          <TableColumn fx:id="id" prefWidth="39.0" text="ID" />
+          <TableColumn fx:id="task" prefWidth="120.0" text="Task" />
+            <TableColumn fx:id="startDate" prefWidth="89.0" text="Start Date" />
+            <TableColumn fx:id="finishDate" prefWidth="94.0" text="Finished Date" />
+            <TableColumn fx:id="duration" prefWidth="77.0" text="Duration" />
+            <TableColumn fx:id="resources" prefWidth="330.0" text="Resources" />
         </columns>
       </TableView>
    </children>
