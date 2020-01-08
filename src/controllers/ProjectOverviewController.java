@@ -167,7 +167,7 @@ private Button searchButton;
             actual = actual + planner.getTotalSalaryForMember(member.getId());
         }
 
-        calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).");
+        calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).\nTotal final costs: " + actual + "sek");
         calcResult.setText("Current week: " + weekSelected + ", Actual Cost: " + results.get(Integer.valueOf(weekSelected)-1) + "SEK\n");
         calcFormula.setText("Actual Cost = Budget - Costs.");
 
