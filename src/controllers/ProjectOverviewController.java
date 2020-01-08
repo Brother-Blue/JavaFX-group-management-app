@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Duration;
 import member_manager.Member;
 
 import java.io.IOException;
@@ -108,7 +110,7 @@ private Button searchButton;
 
         calcDescrip.setText("Planned value is the relation between the amount of days a current milestone has been worked on and the current budget. " +
                 "The current days are measured from when the milestone started up to the current day."); //calcWeek - 1 brings the graph value thats displayed  ti the correct value.
-        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + "SEK");
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + results.get(Integer.valueOf(currentWeek)-1) + "SEK\n");
         calcFormula.setText("Planned Value = Days worked / Total days worked (Expected)");
 
         pvSeries.setName("PV Values");
@@ -119,7 +121,6 @@ private Button searchButton;
             pvSeries.getData().add(new XYChart.Data(Integer.toString(i+1), results.get(i)));
         }
         areaChart.getData().add(pvSeries);
-
     }
     public void earnedValue(){
         ArrayList<Double> results = planner.calcEv();
@@ -129,8 +130,8 @@ private Button searchButton;
 
         calcDescrip.setText("Expenditures that should have been realised given the actual technical project progress (based on\n" +
                 "the expenditure plan) (From lecture slides)");
-        calcResult.setText("If you see this it means Chris forgot to fix this part :)");
-        calcFormula.setText("");
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + results.get(Integer.valueOf(currentWeek)-1) + "SEK\n");
+        calcFormula.setText("Percentage of Project Complete * Project Budget");
 
         evSeries.setName("Earned Value");
         xAxis.setLabel("Week");
@@ -155,7 +156,7 @@ private Button searchButton;
         }
 
         calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).");
-        calcResult.setText("Total costs: " + actual + "SEK");
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + results.get(Integer.valueOf(currentWeek)-1) + "SEK\n");
         calcFormula.setText("Actual Cost = Budget - Costs.");
 
         acSeries.setName("Actual Costs");
@@ -175,9 +176,9 @@ private Button searchButton;
         XYChart.Series bacSeries = new XYChart.Series();
         areaChart.getData().clear();
 
-        calcDescrip.setText("");
-        calcResult.setText("To be implemented");
-        calcFormula.setText("");
+        calcDescrip.setText("Shows the current budget at the completion of every work week");
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + results.get(Integer.valueOf(currentWeek)-1) + "SEK\n");
+        calcFormula.setText("Current Budget - Weekly Costs");
 
         bacSeries.setName("Budget at Completion - (Week)");
         xAxis.setLabel("Week");
@@ -196,8 +197,7 @@ private Button searchButton;
         areaChart.getData().clear();
 
         calcDescrip.setText("Difference between planned expenditures and earned value (From lecture slides)");
-        //double result = planner.calcSv();
-        //calcResult.setText(Double.toString(result));
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + results.get(Integer.valueOf(currentWeek)-1) + "SEK\n");
         calcFormula.setText("EV – PV");
 
         svSeries.setName("Scheduled Variance");
@@ -218,8 +218,8 @@ private Button searchButton;
         XYChart.Series spiSeries = new XYChart.Series();
         areaChart.getData().clear();
 
-        calcDescrip.setText("");
-        calcResult.setText("To be implemented");
+        calcDescrip.setText("The ratio of Earned Value (EV) over Planned Value (PV)");
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + results.get(Integer.valueOf(currentWeek)-1));
         calcFormula.setText("(EV / PV)*100");
 
         spiSeries.setName("Scheduled Performance Index");
@@ -239,8 +239,7 @@ private Button searchButton;
         areaChart.getData().clear();
 
         calcDescrip.setText("Difference between actual expenditures and earned value (From lecture slides)");
-        double result = 0;
-        calcResult.setText(Double.toString(result));
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + results.get(Integer.valueOf(currentWeek)-1) + "SEK\n");
         calcFormula.setText("EV – AV");
 
         cvSeries.setName("Cost Variance");
@@ -259,9 +258,9 @@ private Button searchButton;
         XYChart.Series cpiSeries = new XYChart.Series();
         areaChart.getData().clear();
 
-        calcDescrip.setText("");
-        calcResult.setText("To be implemented");
-        calcFormula.setText("(EV / AV)");
+        calcDescrip.setText("The ratio of Earned Value (EV) over Actual Cost (AC)");
+        calcResult.setText("Current week: " + currentWeek + ", Planned Value: " + Math.round(results.get(Integer.valueOf(currentWeek)-1)*100.00)/100.00);
+        calcFormula.setText("(EV / AC)");
 
         cpiSeries.setName("Cost Performance Index");
         xAxis.setLabel("Week");

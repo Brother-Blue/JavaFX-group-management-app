@@ -6,6 +6,7 @@ import json_reader_writer.JsonWriter;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -225,15 +226,17 @@ public class Planner {
         ArrayList<Double> acResults = calcActualCost();
         double acResult = 0;
         double evResult = 0;
+        double maxAcResult = Collections.max(acResults);
+        double maxEvResult = Collections.max(evResults);
 
         for (int i = 0; i < acResults.size(); i++) {
             if (acResults.get(i) == 0) {
-                acResult = 1;
+                acResult = maxEvResult;
             } else {
                 acResult = acResults.get(i);
             }
             if (evResults.get(i) == 0) {
-                evResult = 1;
+                evResult = maxAcResult;
             } else {
                 evResult = evResults.get(i);
             }
