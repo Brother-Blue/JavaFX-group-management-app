@@ -172,7 +172,7 @@ public class Planner {
         ArrayList<Double> pvResults = calcPv();
 
         for (int i = 0; i < pvResults.size(); i++) {
-            double result = (Math.round(evResults.get(i) - pvResults.get(i)*100.00)/100.00);
+            double result = (Math.round(evResults.get(i) - pvResults.get(i))*100.00/100.00);
             results.add(result);
         }
         //System.out.println(results); //debugger

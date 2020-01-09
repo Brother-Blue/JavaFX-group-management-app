@@ -163,11 +163,11 @@ private Button searchButton;
         areaChart.getData().clear();
 
         double actual = 0;
-        for (Member member : planner.members) {
-            actual = actual + planner.getTotalSalaryForMember(member.getId());
+        for (int i = 0; i < results.size(); i++) {
+            actual = actual + results.get(i);
         }
 
-        calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).");
+        calcDescrip.setText("Actual Cost is how much was paid at a certain period of time. \n(In our case costs is only salary).\nTotal final costs: " + actual + "sek");
         calcResult.setText("Current week: " + weekSelected + ", Actual Cost: " + results.get(Integer.valueOf(weekSelected)-1) + "SEK\n");
         calcFormula.setText("Actual Cost = Budget - Costs.");
 
