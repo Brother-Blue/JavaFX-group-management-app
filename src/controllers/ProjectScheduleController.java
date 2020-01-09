@@ -215,7 +215,7 @@ public class ProjectScheduleController extends MainController implements Initial
 
         completion.add(new Schedule("16", "Create Executable", LocalDate.of(2020, Month.JANUARY, 07),
                 LocalDate.of(2020, Month.JANUARY, 10), "4 days",
-                "Hugo, Linus Å"));
+                "Hugo, Linus Å "));
 
         completion.add(new Schedule("17", "Final Report", LocalDate.of(2019, Month.DECEMBER, 17),
                 LocalDate.of(2020, Month.JANUARY, 10), "25 days",
