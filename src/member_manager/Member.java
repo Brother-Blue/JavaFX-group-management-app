@@ -26,28 +26,9 @@ public class Member {
     public Member (String firstName, String lastName, float ID, double salary ){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.id =(int) ID;  //have to have it as a float then cast it to an int so we have 2 different signatures for the constructors
+        this.id =(int) ID;
         this.salary = salary;
     }
-    /*
-    //TODO To be used with the JSON save states
-    public void addHours(int week, int hours) {
-        //change this code to suit saving to JSON
-        int index = week - 1;
-        hoursWorked.get(index).setWeek(week);
-        hoursWorked.get(index).setHours(hours);
-    }
-
-    public ArrayList<Timesheet> getHours(){
-        ArrayList<Timesheet> hoursWorked = new ArrayList<>();
-        for(Timesheet timesheet:hoursWorked){
-            timesheet.getHours();
-            timesheet.getWeek();
-            hoursWorked.add(timesheet);
-        }
-        return hoursWorked;
-    }
-     */
 
     public String getFirstName() {
         return firstName;

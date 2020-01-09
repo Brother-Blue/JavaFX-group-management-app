@@ -20,11 +20,9 @@ public class Planner {
     private String projectName;
     LocalDate startDate;
     LocalDate endDate;
-    LocalDate localDate = LocalDate.now();  // creates a date based on todays date [Hjalmar]
+    LocalDate localDate = LocalDate.now();
     private float totalDays;
     private float nowDays;
-    //private float percentCompletePlanned = nowDays / totalDays; NOTICE: MOVED CALCULATIONS INTO calcPv();
-    //private double percentCompleteActual = 0.85; // Changed so percent complete is decided every week in input.json
 
     public ArrayList<Member> members = loadMember();
     public ArrayList<Milestone> milestones = loadMilestones();
@@ -51,11 +49,10 @@ public class Planner {
                 totalHours = totalHours + value;
             }
         }
-        //System.out.println("All hours from certain week: " + totalHours); //debugger
         return totalHours;
     }
 
-    public double getAllHoursForMember(int searchID) { //Can be used in place of get hours from milestone
+    public double getAllHoursForMember(int searchID) {
         double totalHours = 0;
         for (Integer week : timesheet.keySet()) {
             Map<Integer, Double> hoursMap = timesheet.get(week);
@@ -65,7 +62,6 @@ public class Planner {
                 }
             }
         }
-        //System.out.println("All hours from particular member: " + totalHours); //debugger
         return totalHours;
     }
 
@@ -77,7 +73,6 @@ public class Planner {
                 totalHours = week.get(searchID);
             }
         }
-        //System.out.println("Hours for a particular member for a specified week: " + totalHours); //debugger
         return totalHours;
     }
 
@@ -95,7 +90,6 @@ public class Planner {
             double hoursWorked = getWeeklyHoursForMember(searchWeek, searchID);
             totalWeeklyMemberSalary = hoursWorked * memberSalary;
         }
-        //System.out.println("Weekly salary for a specified week for a particular member: " + totalWeeklyMemberSalary); //debugger
         return totalWeeklyMemberSalary;
     }
 
@@ -105,7 +99,6 @@ public class Planner {
             double weeklySalary = getWeeklySalaryForMember(week, searchID);
             totalMemberSalary = totalMemberSalary + weeklySalary;
         }
-        //System.out.println("Salary for total hours worked by a particular member: " + totalMemberSalary); //debugger
         return totalMemberSalary;
     }
 
@@ -120,27 +113,6 @@ public class Planner {
         return milestonesWorkedOn;
     }
 
-    //searches for a specific member and returns sum of total hours for all milestones
-    /*
-    public double getTotalHours(int ID) {
-        double result = 0;
-        for (Milestone milestone : milestones) {
-            if (milestone.getEmployeeHours().containsKey(ID)) {
-                result =  result + ((double) milestone.getEmployeeHours().get(ID));
-            }
-        }
-        return result;
-    }
-    //searches for a specific milestone and member and returns hours for that milestone (can be reused to we can check all members hours for a specific milestone)
-    public ArrayList<Double> getHours(int ID){
-        ArrayList<Double> result = new ArrayList<>();
-        for (Milestone milestone : milestones){
-            result.add(((double) milestone.getEmployeeHours().get(ID)));
-        }
-        //System.out.println(result); debug
-        return result;
-    }
-     */
 
     public int calcWeek() {
         int week = ((int) (nowDays/7)) + 1; //+1 is used to move the current week to the week we're currently on instead of weeks that have passed.
@@ -162,7 +134,6 @@ public class Planner {
         for (int i = 0; i < percentComplete.size(); i++) {
             results.add((double) Math.round(((percentComplete.get(i) * budget)*100.00)/100.00));
         }
-        //System.out.println(result); //debugger
         return results;
     }
 
@@ -175,7 +146,6 @@ public class Planner {
             double result = (Math.round(evResults.get(i) - pvResults.get(i))*100.00/100.00);
             results.add(result);
         }
-        //System.out.println(results); //debugger
         return results;
     }
 
@@ -188,7 +158,6 @@ public class Planner {
             double result = (Math.round(evResults.get(i) - avResults.get(i)*100.00)/100.00);
             results.add(result);
         }
-        //System.out.println(results); //debugger
         return results;
     }
 
@@ -203,7 +172,6 @@ public class Planner {
             actualCosts.add(weeklyCosts);
             weeklyCosts = 0;
         }
-        //System.out.println(actualCosts); //debugger
         return actualCosts;
     }
 
@@ -216,7 +184,6 @@ public class Planner {
             double result = (evResults.get(i)/pvResults.get(i));
             results.add(result);
         }
-        //System.out.println(results);
         return results;
     }
 
@@ -244,7 +211,6 @@ public class Planner {
             double result = (evResult/acResult);
             results.add(result);
         }
-        //System.out.println(results); //debugger
         return results;
     }
 
@@ -259,7 +225,7 @@ public class Planner {
             double result = budget - totalSalaries;
             results.add(result);
         }
-        //System.out.println(results); //debug
+
         return results;
     }
 
@@ -278,7 +244,7 @@ public class Planner {
         RiskMatrix risk = new RiskMatrix(riskName, veryLikely, possible, unlikely);
         risks.add(risk);
     }
-    //removed printMembers method as ArrayList has one implemented.
+
 
     public ArrayList<Member> loadMember(){
         return reader.loadMember();

@@ -1,7 +1,5 @@
 package id_generator;
 
-//TODO Integrate the id_generator with the rest of the program.
-//TODO Move all the output and input options to the UI class.
 public class Digit5 {
 
     private String firstName;
@@ -18,8 +16,6 @@ public class Digit5 {
         this.ID = ID;
     }
 
-    //getters and setters (not all are used atm, may not need all for this project but if someone is bored can find some
-    // sort of implementation for them? <3)
     public String getFirstName() {
         return firstName;
     }

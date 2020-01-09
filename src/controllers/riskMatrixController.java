@@ -56,10 +56,8 @@ public class riskMatrixController extends MainController {
     private javafx.scene.control.Label l43;
     @FXML
     private javafx.scene.control.Label l41;
+
     @FXML
-
-
-
     public void visualRisks() {
         JsonReader jsonReader = new JsonReader();
         ArrayList<RiskMatrix> risks;
@@ -93,12 +91,10 @@ public class riskMatrixController extends MainController {
 
 
     }
+
     public void initialize () {
         visualRisks();
     }
-
-
-        //todo add fxid things and make em display this amazing arraylist.
 
     @Override
     public void back(ActionEvent event) throws IOException {

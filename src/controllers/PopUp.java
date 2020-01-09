@@ -17,28 +17,17 @@ public class PopUp {
         popUpWindow.initModality(Modality.APPLICATION_MODAL);
         popUpWindow.setTitle(title);
 
-
         Label label1= new Label(label);
-
-
         Button button1= new Button("Close");
-
-
         button1.setOnAction(e -> popUpWindow.close());
-
-
 
         VBox layout= new VBox(10);
 
-
         layout.getChildren().addAll(label1, button1);
-
         layout.setAlignment(Pos.CENTER);
 
         Scene scene1= new Scene(layout, 300, 250);
-
         popUpWindow.setScene(scene1);
-
         popUpWindow.showAndWait();
 
     }

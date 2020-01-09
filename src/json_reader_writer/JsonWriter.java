@@ -10,7 +10,6 @@ import java.util.Map;
 
 // Inspiration for logic of the json reader and writer comes from the following site:
 // https://stackabuse.com/reading-and-writing-json-in-java/
-//TODO: Refactor this for our code so that information read from the Milestones.txt are correctly printed on print.
 
 public class JsonWriter {
 
@@ -33,18 +32,6 @@ public class JsonWriter {
             memberDetails.put("ID", Integer.toString(member.getId()));
             memberDetails.put("salary", Double.toString(member.getSalary()));
             JSONArray timesheetList = new JSONArray();
-
-            /*
-            for(Timesheet timesheet:member.getHours()){
-                JSONObject timesheetDetails = new JSONObject();
-                //timesheetDetails.put("week",timesheet.getWeek());
-                //timesheetDetails.put("hours", timesheet.getHours());
-                timesheetList.add(timesheetDetails);
-                memberDetails.put("hoursWorked",timesheetList);
-            }
-            memberList.add(memberDetails);
-            plannerObject.put("members", memberList);
-             */
 
         }
 

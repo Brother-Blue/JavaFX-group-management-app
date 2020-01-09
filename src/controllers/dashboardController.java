@@ -122,7 +122,6 @@ public class dashboardController extends MainController {
 
     public void exit(){
         Stage stage = (Stage) exitApp.getScene().getWindow();
-        // do what you have to do
         stage.close();
     }
 }

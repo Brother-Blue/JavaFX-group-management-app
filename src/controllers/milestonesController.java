@@ -25,13 +25,7 @@ public class milestonesController extends MainController {
 
     @FXML
     public void registerMilestone(ActionEvent event) {
-        //TODO: Fix this shiz
-
         milestoneMemberRegister.getText();
-
-
-      //  Milestone milestone = new Milestone(milestoneNameRegister.getText(), milestoneDescripRegister.getText(), startDateRegister.getValue(), endDateRegister.getValue(), "0000-00-00", );
-
     }
 
 

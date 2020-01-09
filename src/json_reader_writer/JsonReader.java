@@ -142,7 +142,6 @@ public class JsonReader {
         return map;
     }
 
-    //TODO: Visualise this information in the input.json with javafx
     //Reader and object creator for the risk matrix
     public ArrayList<RiskMatrix> loadRiskMatrix(){
 

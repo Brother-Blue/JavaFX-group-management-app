@@ -65,7 +65,6 @@ public class userInfoController extends MainController {
         search();
     }
 
-    // Code goes into here, whatever you want to happen when you search.
     public void search() {
 
         Window owner = searchForIDButton.getScene().getWindow();
@@ -124,7 +123,6 @@ public class userInfoController extends MainController {
             }
 
             if (IDFound) {
-                //AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Success", "Member found, loading information...");
                 revealName.setText(memberName);
                 revealID.setText(Integer.toString(searchedID));
                 System.out.println("Name set to: " + memberName);

@@ -10,12 +10,6 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
-
-// TODO: Add error messages for EDIT member (you have to choose a member, for instance).
-    // TODO: Add dropdown menus that are able to be chosen from in different places.
-    // TODO: Add Chris' New Member code (probably has to be reformatted since it isn't in fxml.
-    // TODO: Fix dependencies between classes.
-
 public class Main extends Application {
 
     private static JsonReader reader = new JsonReader();

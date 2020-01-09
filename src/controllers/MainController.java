@@ -22,13 +22,9 @@ import javafx.stage.Window;
 import java.io.IOException;
 import java.util.ArrayList;
 
-// TODO: FIX ALL ENCAPSULATION
-
-
 public class MainController {
 
     static Planner planner;
-//this is a comment
 
     // This code is for all back buttons that go back to the dashboard.
     @FXML
